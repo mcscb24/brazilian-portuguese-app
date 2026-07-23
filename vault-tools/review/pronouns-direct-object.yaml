@@ -1,0 +1,181 @@
+# Review file for questions sourced from "Grammar/Pronouns/Direct Object Pronouns.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+#
+# This first batch is extracted near-verbatim from the note's own "Mini
+# practice" answer key (lines ~415-437). Where the note itself explicitly
+# gives both the formal (clitic) and everyday-spoken form for the same
+# sentence (Step 10's comparison table), both are recorded as accepted
+# answers rather than inventing unattested alternates.
+
+questions:
+  - id: pronouns-direct-object-0001
+    type: en_to_pt
+    topic: Pronouns
+    subtopic: Direct object pronouns — spoken vs formal (o/a -> ele/ela)
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "I saw him."
+    accepted_answers:
+      - text: "Eu vi ele."
+        accent_sensitive: true
+      - text: "Eu o vi."
+        accent_sensitive: true
+    explanation: "Everyday Brazilian Portuguese uses the subject pronoun (ele) in
+      object position; formal writing keeps the clitic (o)."
+    source:
+      note: "Grammar/Pronouns/Direct Object Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:33f7080f3810f3b013837aa949796cd97a7913554562f80bfc3d263ecf07fa73
+    version: 1
+    updated_at: 2026-07-23
+
+  - id: pronouns-direct-object-0002
+    type: en_to_pt
+    topic: Pronouns
+    subtopic: Direct object pronouns — spoken vs formal (o/a -> ele/ela)
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "I know her."
+    accepted_answers:
+      - text: "Eu conheço ela."
+        accent_sensitive: true
+      - text: "Eu a conheço."
+        accent_sensitive: true
+    explanation: "Same pattern as 'o' -> 'ele': spoken Brazilian Portuguese prefers
+      ela over the formal clitic a."
+    source:
+      note: "Grammar/Pronouns/Direct Object Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:06827763b50bf6ec313baccdf54f091572c069eff232ccc9142057f3f6107f57
+    version: 1
+    updated_at: 2026-07-23
+
+  - id: pronouns-direct-object-0003
+    type: en_to_pt
+    topic: Pronouns
+    subtopic: Direct object pronouns — invariant clitics (me/te/nos)
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "She called me."
+    accepted_answers:
+      - text: "Ela me chamou."
+        accent_sensitive: true
+    explanation: "me stays the same in formal and spoken Portuguese — never replaced
+      by a subject pronoun (never 'chamou eu')."
+    source:
+      note: "Grammar/Pronouns/Direct Object Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:bf8bc39c7d03484f1ef852862a4d0d7cec2a8cc5d4d03c812c3319909dfa3b27
+    version: 1
+    updated_at: 2026-07-23
+
+  - id: pronouns-direct-object-0004
+    type: en_to_pt
+    topic: Pronouns
+    subtopic: Direct object pronouns — spoken vs formal (os/as -> eles/elas)
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "We helped them."
+    accepted_answers:
+      - text: "Nós ajudamos eles."
+        accent_sensitive: true
+    explanation: "Plural follows the same spoken pattern as singular o/a -> ele/ela:
+      os -> eles in everyday speech."
+    source:
+      note: "Grammar/Pronouns/Direct Object Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:ae3b5ae4046dee77e7075d4d94acb02b2ca03c4bc8517fcde689053cab7bbc7a
+    version: 1
+    updated_at: 2026-07-23
+
+  - id: pronouns-direct-object-0005
+    type: en_to_pt
+    topic: Pronouns
+    subtopic: Direct object pronouns — invariant clitics (me/te/nos)
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "They love us."
+    accepted_answers:
+      - text: "Eles nos amam."
+        accent_sensitive: true
+    explanation: "nos, like me and te, stays common and unchanged in spoken
+      Brazilian Portuguese."
+    source:
+      note: "Grammar/Pronouns/Direct Object Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:db1770b2db44ca254f42b47733d7a8a0c022cad6728afa81edd0ccad396e2015
+    version: 1
+    updated_at: 2026-07-23
+
+  - id: pronouns-direct-object-0006
+    type: en_to_pt
+    topic: Pronouns
+    subtopic: Direct object pronouns — te vs você in spoken BP
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "I love you."
+    accepted_answers:
+      - text: "Eu te amo."
+        accent_sensitive: true
+      - text: "Eu amo você."
+        accent_sensitive: true
+    explanation: "Both te and the full pronoun você are completely natural; using
+      você places slightly more emphasis on the person."
+    source:
+      note: "Grammar/Pronouns/Direct Object Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:f60ea34b501e2d93ac096c62acc90bc3b079154236f3610cadcc74eb2fbc88aa
+    version: 1
+    updated_at: 2026-07-23
+
+  - id: pronouns-direct-object-0007
+    type: en_to_pt
+    topic: Pronouns
+    subtopic: Direct object pronouns — te vs você in spoken BP
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "I saw you."
+    accepted_answers:
+      - text: "Eu te vi."
+        accent_sensitive: true
+      - text: "Eu vi você."
+        accent_sensitive: true
+    explanation: "Same te/você flexibility as with amar — both forms are common in
+      modern Brazilian Portuguese."
+    source:
+      note: "Grammar/Pronouns/Direct Object Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:d5758c91cb20d449186134c4868e6ff97faf9b68d57a02b9631fd3563814c4a5
+    version: 1
+    updated_at: 2026-07-23

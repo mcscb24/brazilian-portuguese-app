@@ -1,0 +1,13 @@
+{
+  "name": "vault-tools",
+  "private": true,
+  "type": "commonjs",
+  "version": "1.0.0",
+  "description": "Laptop-only content pipeline: reads reviewed question/scenario YAML plus the Obsidian vault, and compiles the published content-bundle.json for the app.",
+  "scripts": {
+    "publish": "node publish.js"
+  },
+  "dependencies": {
+    "yaml": "^2.5.0"
+  }
+}

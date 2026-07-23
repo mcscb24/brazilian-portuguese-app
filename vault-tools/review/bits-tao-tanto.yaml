@@ -1,0 +1,172 @@
+# Review file for questions sourced from "Bits and Bobs/Tão and Tanto.md".
+#
+# Workflow reminder:
+#   - status: candidate  -> not yet published, up for review/editing.
+#   - status: approved   -> published.js will include this on the next publish.
+#   - status: rejected / needs_editing -> excluded, kept for reference.
+#   - `id` is left blank until first approved+published; publish.js assigns it
+#     and writes it back into this file. Once assigned, never change it by hand.
+#   - `content_hash` / `version` are also written back by publish.js. Don't
+#     hand-edit them.
+#
+# This first batch is extracted near-verbatim from the note's own "Mini
+# practice" answer key (Tão and Tanto.md, lines ~292-315) as free seed content.
+
+questions:
+  - id: bits-tao-tanto-0001
+    type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Tão vs tanto — degree vs quantity
+    direction: en_to_pt
+    difficulty: easy
+    register: neutral
+    prompt: "She's so tall."
+    accepted_answers:
+      - text: "Ela é tão alta."
+        accent_sensitive: true
+    explanation: "Tão describes degree/intensity and goes before an adjective — tão + alta."
+    source:
+      note: "Bits and Bobs/Tão and Tanto.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:2919f09aa8f3a067e2b89069859f4521f04a55d75b1e79e6f9d6b6f451bf6bc3
+    version: 1
+    updated_at: 2026-07-23
+
+  - id: bits-tao-tanto-0002
+    type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Tão vs tanto — degree vs quantity
+    direction: en_to_pt
+    difficulty: easy
+    register: neutral
+    prompt: "I have so much money."
+    accepted_answers:
+      - text: "Tenho tanto dinheiro."
+        accent_sensitive: true
+    explanation: "Tanto describes quantity and agrees with the noun — dinheiro is
+      masculine singular, so tanto (not tanta)."
+    source:
+      note: "Bits and Bobs/Tão and Tanto.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:a78bfb79d79f3091c2798e6274deef858710c4635cc6f3f3f32f5d5ac73b6def
+    version: 1
+    updated_at: 2026-07-23
+
+  - id: bits-tao-tanto-0003
+    type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Tão vs tanto — degree vs quantity
+    direction: en_to_pt
+    difficulty: medium
+    register: neutral
+    prompt: "They speak so quickly."
+    accepted_answers:
+      - text: "Eles falam tão rápido."
+        accent_sensitive: true
+    explanation: "Tão modifies the adverb rápido (degree), not a noun, so tão is
+      used rather than tanto."
+    source:
+      note: "Bits and Bobs/Tão and Tanto.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:d25c6bc3cab7039c2bec690205c130e3f8ebeb811ee49a21061383c1b99db6c4
+    version: 1
+    updated_at: 2026-07-23
+
+  - id: bits-tao-tanto-0004
+    type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Tão vs tanto — degree vs quantity
+    direction: en_to_pt
+    difficulty: medium
+    register: neutral
+    prompt: "We have so many friends."
+    accepted_answers:
+      - text: "Temos tantos amigos."
+        accent_sensitive: true
+    explanation: "Quantity + noun: tanto agrees with amigos (masculine plural) -> tantos."
+    source:
+      note: "Bits and Bobs/Tão and Tanto.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:cfb67c928fac4a650526322a747318ffd9b2e218f9332ebbbb20c5d6b87cce83
+    version: 1
+    updated_at: 2026-07-23
+
+  - id: bits-tao-tanto-0005
+    type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Tão vs tanto — degree vs quantity
+    direction: en_to_pt
+    difficulty: medium
+    register: neutral
+    prompt: "He studies so much."
+    accepted_answers:
+      - text: "Ele estuda tanto."
+        accent_sensitive: true
+    explanation: "No noun present — quantity attaches to the verb itself, so tanto
+      is used on its own after the verb."
+    source:
+      note: "Bits and Bobs/Tão and Tanto.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:9fd5a250c06e7fa49cc6868ab4e7a22bbf25df648c475bfb8d6735a4634641fc
+    version: 1
+    updated_at: 2026-07-23
+
+  - id: bits-tao-tanto-0006
+    type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Tão vs tanto — degree vs quantity
+    direction: en_to_pt
+    difficulty: easy
+    register: neutral
+    prompt: "The film was so good."
+    accepted_answers:
+      - text: "O filme foi tão bom."
+        accent_sensitive: true
+    explanation: "Tão + adjective (bom) describes degree/intensity."
+    source:
+      note: "Bits and Bobs/Tão and Tanto.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:96ce5171e9e509a9bce4879993dcb2bdb1d6a12ed02a4046908361d45703866e
+    version: 1
+    updated_at: 2026-07-23
+
+  - id: bits-tao-tanto-0007
+    type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Tão vs tanto — the tanto...que pattern
+    direction: en_to_pt
+    difficulty: hard
+    register: neutral
+    prompt: "It rained so much that we stayed home."
+    accepted_answers:
+      - text: "Choveu tanto que ficamos em casa."
+        accent_sensitive: true
+    explanation: "The 'so much...that' quantity pattern is tanto...que (contrast
+      with tão...que for degree)."
+    source:
+      note: "Bits and Bobs/Tão and Tanto.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    created_at: 2026-07-23
+    content_hash: sha256:7a1786a8c919ba5bff337fbb91baa797cf1a6e2a5374eac4ba16b52b97aa6b63
+    version: 1
+    updated_at: 2026-07-23
