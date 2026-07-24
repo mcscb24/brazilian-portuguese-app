@@ -26,6 +26,16 @@ export async function getOrCreateProgress(questionId: string, version: number): 
   return created;
 }
 
+// Bulk replace for backup import (design doc §16): clear + put-all in a single transaction, so
+// it's all-or-nothing rather than leaving a partial mix of old and imported records.
+export async function replaceAllProgress(records: ProgressRecord[]): Promise<void> {
+  const db = await getDB();
+  const tx = db.transaction('progress', 'readwrite');
+  await tx.store.clear();
+  await Promise.all(records.map((record) => tx.store.put(record)));
+  await tx.done;
+}
+
 export async function setUserStatus(
   questionId: string,
   status: UserStatus,

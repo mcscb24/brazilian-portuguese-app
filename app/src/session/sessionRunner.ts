@@ -8,6 +8,7 @@ import { autoRatingForOutcome } from '../checking/ratingAuto';
 import type { ContentBundle, Question } from '../content/types';
 import { applyAttempt } from '../review/scheduler';
 import type { Rating } from '../review/types';
+import { clearActiveSession, putActiveSession } from '../storage/activeSessionStore';
 import { getAllProgress, getOrCreateProgress, putProgress, setUserStatus } from '../storage/progressStore';
 import { saveSessionResult } from '../storage/sessionHistoryStore';
 import { selectQuestions } from './selection';
@@ -16,6 +17,7 @@ import type {
   DisplaySummary,
   FinalResult,
   IncorrectItem,
+  SavedSession,
   SessionConfig,
   SessionItem,
   SessionResult,
@@ -32,26 +34,78 @@ export interface FeedbackState {
   ratedAs: Rating | null;
 }
 
+interface RunnerInit {
+  sessionId: string;
+  startedAt: string;
+  queue: SessionQueue;
+  questions: Question[];
+  items?: SessionItem[];
+}
+
 export class SessionRunner {
   private queue: SessionQueue;
   private questionsById = new Map<string, Question>();
   private items = new Map<string, SessionItem>();
   private sessionId: string;
+  private startedAt: string;
   private feedback: FeedbackState | null = null;
 
   private constructor(
     private config: SessionConfig,
-    selected: Question[]
+    init: RunnerInit
   ) {
-    for (const q of selected) this.questionsById.set(q.id, q);
-    this.queue = new SessionQueue(selected.map((q) => q.id));
-    this.sessionId = new Date().toISOString();
+    for (const q of init.questions) this.questionsById.set(q.id, q);
+    this.queue = init.queue;
+    this.sessionId = init.sessionId;
+    this.startedAt = init.startedAt;
+    for (const item of init.items ?? []) this.items.set(item.question_id, item);
   }
 
   static async start(bundle: ContentBundle, config: SessionConfig): Promise<SessionRunner> {
     const progressByQuestionId = await getAllProgress();
     const selected = selectQuestions(bundle, config, progressByQuestionId);
-    return new SessionRunner(config, selected);
+    const now = new Date().toISOString();
+    return new SessionRunner(config, {
+      sessionId: now,
+      startedAt: now,
+      queue: new SessionQueue(selected.map((q) => q.id)),
+      questions: selected,
+    });
+  }
+
+  // Reconstructs a runner from a saved checkpoint (Phase 2.1). A question may have been removed
+  // from content between save and resume, so saved.queue_entries is filtered down to ids still
+  // present in the bundle, and the restored cursor is decremented by exactly the count of dropped
+  // entries whose original index was before the saved cursor — this keeps answeredCount() correct
+  // without special-casing "the current question was removed" (it naturally advances to the next
+  // surviving entry instead).
+  static resume(bundle: ContentBundle, saved: SavedSession): SessionRunner {
+    const availableIds = new Set(bundle.questions.map((q) => q.id));
+    const survivingEntries: string[] = [];
+    let droppedBeforeCursor = 0;
+    saved.queue_entries.forEach((id, index) => {
+      if (availableIds.has(id)) {
+        survivingEntries.push(id);
+      } else if (index < saved.cursor) {
+        droppedBeforeCursor += 1;
+      }
+    });
+    const restoredCursor = saved.cursor - droppedBeforeCursor;
+    const queue = SessionQueue.restore(survivingEntries, restoredCursor, saved.requeue_used);
+
+    // Already-completed items keep rendering correctly even if their question later disappeared
+    // from content, via the same defensive `question?.prompt ?? ''` fallback buildDisplaySummary
+    // already uses — so it's fine if some of these ids aren't found in bundle.questions.
+    const neededIds = new Set([...survivingEntries, ...saved.items.map((i) => i.question_id)]);
+    const questions = bundle.questions.filter((q) => neededIds.has(q.id));
+
+    return new SessionRunner(saved.config, {
+      sessionId: saved.session_id,
+      startedAt: saved.started_at,
+      queue,
+      questions,
+      items: saved.items,
+    });
   }
 
   currentQuestion(): Question | null {
@@ -163,6 +217,34 @@ export class SessionRunner {
   proceedToNext(): void {
     this.feedback = null;
     this.queue.advance();
+    // Skip the checkpoint when the queue just finished: finish() clears the active-session record
+    // right after, and writing one here would race that clear for no benefit (nothing is left to
+    // resume once the session is over).
+    if (!this.queue.isFinished()) {
+      void this.persistCheckpoint();
+    }
+  }
+
+  // Explicit "Save and leave" action — the UI awaits this before navigating home, guaranteeing the
+  // checkpoint is written before the practice screen unmounts. Auto-checkpointing in proceedToNext
+  // covers the OS/browser-kill case; this covers the deliberate-exit case with the same mechanism.
+  async saveAndExit(): Promise<void> {
+    await this.persistCheckpoint();
+  }
+
+  private async persistCheckpoint(): Promise<void> {
+    const saved: SavedSession = {
+      id: 'active',
+      session_id: this.sessionId,
+      config: this.config,
+      queue_entries: this.queue.snapshotEntries(),
+      cursor: this.queue.cursorPosition(),
+      requeue_used: this.queue.requeueUsedIds(),
+      items: [...this.items.values()],
+      started_at: this.startedAt,
+      last_active_at: new Date().toISOString(),
+    };
+    await putActiveSession(saved);
   }
 
   async endSessionEarly(): Promise<SessionResult> {
@@ -200,6 +282,9 @@ export class SessionRunner {
     };
 
     await saveSessionResult(result);
+    // Centralizes cleanup so every path that ends a session (natural completion, "End session
+    // early", the new "End session" exit-dialog option) leaves no stale resumable checkpoint.
+    await clearActiveSession();
     return result;
   }
 

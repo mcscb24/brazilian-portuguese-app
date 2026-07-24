@@ -75,6 +75,11 @@ button.chip-selected {
   color: #fff;
 }
 
+button.danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -186,4 +191,60 @@ label {
   #app {
     padding-top: 2rem;
   }
+}
+
+.resume-card {
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.resume-card h2 {
+  margin-top: 0;
+}
+
+.backup-reminder {
+  font-size: 0.9rem;
+}
+
+.backup-reminder a {
+  color: var(--accent);
+}
+
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog-box {
+  max-width: 420px;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.dialog-box h2 {
+  margin-top: 0;
+}
+
+.dialog-box p {
+  white-space: pre-line;
+}
+
+.dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 1rem;
 }

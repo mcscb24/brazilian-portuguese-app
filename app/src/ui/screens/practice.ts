@@ -2,6 +2,7 @@ import type { Question } from '../../content/types';
 import type { Rating } from '../../review/types';
 import type { FeedbackState, SessionRunner } from '../../session/sessionRunner';
 import { clear, el } from '../dom';
+import { showActionDialog } from '../dialog';
 import type { Shell } from '../shell';
 
 const FLAG_REASONS = [
@@ -25,6 +26,39 @@ const RATING_ORDER: Rating[] = ['again', 'difficult', 'good', 'easy'];
 
 export function renderPractice(runner: SessionRunner, shell: Shell): HTMLElement {
   const container = el('div', { class: 'screen screen-practice' }, []);
+  let exitDialogOpen = false;
+
+  // Registered with the Shell right after mounting, so an Android/browser back press during this
+  // session invokes this exact same 3-way choice as the in-page "Exit session" button — see
+  // ui/shell.ts's popstate listener. exitDialogOpen guards against both being triggered at once.
+  async function showExitDialog(triggeredByBackButton: boolean): Promise<void> {
+    if (exitDialogOpen) return;
+    exitDialogOpen = true;
+    const choice = await showActionDialog<'save' | 'end' | 'continue'>(
+      'Exit session?',
+      'Your progress so far is already saved. What would you like to do?',
+      [
+        { label: 'Save and leave', value: 'save', variant: 'primary' },
+        { label: 'End session', value: 'end', variant: 'danger' },
+        { label: 'Continue practising', value: 'continue' },
+      ]
+    );
+    exitDialogOpen = false;
+
+    if (choice === 'save') {
+      await runner.saveAndExit();
+      shell.goHome();
+    } else if (choice === 'end') {
+      await runner.finish();
+      shell.goSessionSummaryFrom(runner);
+    } else if (triggeredByBackButton) {
+      // Undo the browser's already-completed back-navigation pop, matching the pre-Phase-2.1
+      // "cancel" history semantics exactly.
+      shell.pushSessionHistoryMarker();
+    }
+  }
+
+  shell.setExitHandler(showExitDialog);
 
   function redraw(): void {
     clear(container);
@@ -45,11 +79,8 @@ export function renderPractice(runner: SessionRunner, shell: Shell): HTMLElement
     shell.goSessionSummaryFrom(runner);
   }
 
-  async function onEndEarly(): Promise<void> {
-    const confirmed = window.confirm('End this session early? Your progress so far is already saved.');
-    if (!confirmed) return;
-    await runner.finish();
-    shell.goSessionSummaryFrom(runner);
+  function exitButton(): HTMLElement {
+    return el('button', { onclick: () => void showExitDialog(false) }, ['Exit session']);
   }
 
   function renderQuestionPhase(question: Question): HTMLElement {
@@ -78,7 +109,7 @@ export function renderPractice(runner: SessionRunner, shell: Shell): HTMLElement
       el('label', { for: 'answer-input' }, ['Type your answer:']),
       input,
       el('button', { class: 'primary', onclick: submit }, ['Submit']),
-      el('button', { onclick: () => void onEndEarly() }, ['End session early']),
+      exitButton(),
     ]);
   }
 
@@ -194,6 +225,7 @@ export function renderPractice(runner: SessionRunner, shell: Shell): HTMLElement
       ratingRow,
       nextRow,
       ignoreFlagRow,
+      exitButton(),
     ]);
   }
 

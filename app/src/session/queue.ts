@@ -14,6 +14,29 @@ export class SessionQueue {
     this.entries = questionIds.map((question_id) => ({ question_id }));
   }
 
+  // Reconstructs a queue from a saved checkpoint (Phase 2.1 save/resume). questionIds is already
+  // the full ordered entry list including any Again-requeue duplicates and with removed-question
+  // ids filtered out and cursor adjusted by the caller (SessionRunner.resume) — this constructor
+  // just replays the resulting cursor/requeue-used state verbatim.
+  static restore(questionIds: string[], cursor: number, requeueUsedIds: string[]): SessionQueue {
+    const queue = new SessionQueue(questionIds);
+    queue.cursor = cursor;
+    queue.requeueUsed = new Set(requeueUsedIds);
+    return queue;
+  }
+
+  snapshotEntries(): string[] {
+    return this.entries.map((e) => e.question_id);
+  }
+
+  cursorPosition(): number {
+    return this.cursor;
+  }
+
+  requeueUsedIds(): string[] {
+    return [...this.requeueUsed];
+  }
+
   current(): QueueEntry | null {
     return this.entries[this.cursor] ?? null;
   }

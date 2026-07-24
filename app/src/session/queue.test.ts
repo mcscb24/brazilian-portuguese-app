@@ -71,4 +71,49 @@ describe('SessionQueue', () => {
     queue.advance();
     expect(queue.isFinished()).toBe(true);
   });
+
+  it('snapshot -> restore round-trip reproduces identical current/isFinished/answeredCount behavior', () => {
+    const original = new SessionQueue(['a', 'b', 'c', 'd', 'e']);
+    original.requeueAgain('a');
+    original.advance();
+    original.advance();
+
+    const restored = SessionQueue.restore(
+      original.snapshotEntries(),
+      original.cursorPosition(),
+      original.requeueUsedIds()
+    );
+
+    expect(restored.current()?.question_id).toBe(original.current()?.question_id);
+    expect(restored.isFinished()).toBe(original.isFinished());
+    expect(restored.answeredCount()).toBe(original.answeredCount());
+    expect(restored.totalCount()).toBe(original.totalCount());
+
+    // Walk both queues to the end and confirm they see the exact same sequence.
+    const originalRemaining: string[] = [];
+    const restoredRemaining: string[] = [];
+    while (!original.isFinished()) {
+      originalRemaining.push(original.current()!.question_id);
+      original.advance();
+    }
+    while (!restored.isFinished()) {
+      restoredRemaining.push(restored.current()!.question_id);
+      restored.advance();
+    }
+    expect(restoredRemaining).toEqual(originalRemaining);
+  });
+
+  it('a restored requeueUsed set still blocks a second requeue of the same id post-restore', () => {
+    const original = new SessionQueue(['a', 'b', 'c', 'd', 'e']);
+    original.requeueAgain('a'); // uses up 'a's one-shot requeue
+
+    const restored = SessionQueue.restore(
+      original.snapshotEntries(),
+      original.cursorPosition(),
+      original.requeueUsedIds()
+    );
+
+    expect(restored.requeueAgain('a')).toBe(false);
+    expect(restored.totalCount()).toBe(original.totalCount());
+  });
 });

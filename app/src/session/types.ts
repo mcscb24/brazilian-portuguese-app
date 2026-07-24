@@ -62,3 +62,18 @@ export interface DisplaySummary {
   topic_breakdown: TopicBreakdown[];
   incorrect_items: IncorrectItem[];
 }
+
+// A resumable checkpoint of an in-progress session (Phase 2.1). Singleton row in the
+// active_session store, keyed by the fixed id below — at most one session can be "in progress"
+// at a time in this single-user app.
+export interface SavedSession {
+  id: 'active';
+  session_id: string;
+  config: SessionConfig;
+  queue_entries: string[]; // full ordered question_id list, including any Again-requeue duplicate
+  cursor: number;
+  requeue_used: string[]; // question_ids that already used their one-shot requeue
+  items: SessionItem[]; // completed items so far
+  started_at: string;
+  last_active_at: string;
+}

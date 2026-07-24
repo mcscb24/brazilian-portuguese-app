@@ -7,7 +7,7 @@
 import 'fake-indexeddb/auto';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { ContentBundle, Question } from '../content/types';
-import type { SessionConfig } from './types';
+import type { SavedSession, SessionConfig } from './types';
 
 function makeQuestion(id: string, topic: string, overrides: Partial<Question> = {}): Question {
   return {
@@ -36,6 +36,14 @@ function makeBundle(questions: Question[]): ContentBundle {
   return { schema_version: 1, bundle_version: 'test-1', questions, scenarios: [], notes: [] };
 }
 
+// proceedToNext()'s auto-checkpoint write is fire-and-forget (not awaited by the caller, by
+// design — see sessionRunner.ts). Tests that need to observe its result flush a macrotask tick
+// first, since fake-indexeddb's transaction completion isn't guaranteed to land within the same
+// microtask queue as the call that triggered it.
+async function flushAsync(): Promise<void> {
+  await new Promise((resolve) => setTimeout(resolve, 0));
+}
+
 const baseConfig: SessionConfig = {
   count: 'unlimited',
   topics: ['A', 'B'],
@@ -50,8 +58,21 @@ const baseConfig: SessionConfig = {
 async function freshModules() {
   vi.resetModules();
   const { SessionRunner } = await import('./sessionRunner');
-  const { getProgress } = await import('../storage/progressStore');
-  return { SessionRunner, getProgress };
+  const { getProgress, getAllProgress } = await import('../storage/progressStore');
+  const { getAllSessionResults } = await import('../storage/sessionHistoryStore');
+  const { getActiveSession } = await import('../storage/activeSessionStore');
+  const { buildBackupFile, applyBackupImport } = await import('../backup/backupService');
+  const { getDB } = await import('../storage/db');
+  return {
+    SessionRunner,
+    getProgress,
+    getAllProgress,
+    getAllSessionResults,
+    getActiveSession,
+    buildBackupFile,
+    applyBackupImport,
+    getDB,
+  };
 }
 
 describe('SessionRunner integration (real checking + review + storage)', () => {
@@ -283,5 +304,280 @@ describe('SessionRunner integration (real checking + review + storage)', () => {
     const afterEdit = await mod2.getProgress('q1');
     expect(afterEdit?.last_seen_version).toBe(2);
     expect(afterEdit?.attempts).toBe(2); // accumulated, not reset by the edit
+  });
+
+  it('saveAndExit persists a resumable checkpoint that SessionRunner.resume continues identically', async () => {
+    const { SessionRunner, getActiveSession } = await freshModules();
+    const questions = Array.from({ length: 5 }, (_, i) => makeQuestion(`q${i}`, 'A'));
+    const bundle = makeBundle(questions);
+    const runner = await SessionRunner.start(bundle, { ...baseConfig, count: 5, topics: ['A'] });
+
+    const answeredBeforeSave: string[] = [];
+    for (let i = 0; i < 2; i += 1) {
+      const q = runner.currentQuestion()!;
+      answeredBeforeSave.push(q.id);
+      runner.submitAnswer(q.id);
+      await runner.confirmRating('good');
+      runner.proceedToNext();
+    }
+    await runner.saveAndExit();
+
+    const saved = await getActiveSession();
+    expect(saved).not.toBeNull();
+    expect(saved!.config).toEqual({ ...baseConfig, count: 5, topics: ['A'] });
+    expect(saved!.queue_entries).toHaveLength(5);
+    expect(saved!.cursor).toBe(2);
+    expect(saved!.items).toHaveLength(2);
+    expect(saved!.items.map((i) => i.question_id).sort()).toEqual(answeredBeforeSave.sort());
+    expect(saved!.started_at).toEqual(expect.any(String));
+    expect(saved!.last_active_at).toEqual(expect.any(String));
+
+    const resumed = SessionRunner.resume(bundle, saved!);
+    const answeredAfterResume: string[] = [...answeredBeforeSave];
+    while (!resumed.isFinished()) {
+      const q = resumed.currentQuestion()!;
+      answeredAfterResume.push(q.id);
+      resumed.submitAnswer(q.id);
+      await resumed.confirmRating('good');
+      resumed.proceedToNext();
+    }
+    expect(new Set(answeredAfterResume).size).toBe(5); // every question answered exactly once overall
+    const result = await resumed.finish();
+    expect(result.summary.answered).toBe(5);
+    expect(result.summary.correct).toBe(5);
+  });
+
+  it('resume drops a question removed before the saved cursor and shifts the cursor down', async () => {
+    const { SessionRunner } = await freshModules();
+    const saved: SavedSession = {
+      id: 'active',
+      session_id: 's1',
+      config: { ...baseConfig, count: 'unlimited', topics: ['A'] },
+      queue_entries: ['q0', 'q1', 'q2', 'q3', 'q4'],
+      cursor: 3, // q0, q1, q2 already answered; current is q3
+      requeue_used: [],
+      items: [],
+      started_at: '2026-01-01T00:00:00Z',
+      last_active_at: '2026-01-01T00:00:00Z',
+    };
+    // q1 (index 1, before the cursor) no longer exists in the bundle.
+    const bundle = makeBundle([makeQuestion('q0', 'A'), makeQuestion('q2', 'A'), makeQuestion('q3', 'A'), makeQuestion('q4', 'A')]);
+
+    const resumed = SessionRunner.resume(bundle, saved);
+    expect(resumed.currentQuestion()?.id).toBe('q3');
+    expect(resumed.progressLabel()).toBe('2 answered'); // cursor shifted down from 3 to 2
+  });
+
+  it('resume drops a question removed at the saved cursor and skips to the next resolvable one', async () => {
+    const { SessionRunner } = await freshModules();
+    const saved: SavedSession = {
+      id: 'active',
+      session_id: 's1',
+      config: { ...baseConfig, count: 'unlimited', topics: ['A'] },
+      queue_entries: ['q0', 'q1', 'q2', 'q3', 'q4'],
+      cursor: 2, // q0, q1 already answered; current is q2
+      requeue_used: [],
+      items: [],
+      started_at: '2026-01-01T00:00:00Z',
+      last_active_at: '2026-01-01T00:00:00Z',
+    };
+    // q2 (the current entry itself) no longer exists in the bundle.
+    const bundle = makeBundle([makeQuestion('q0', 'A'), makeQuestion('q1', 'A'), makeQuestion('q3', 'A'), makeQuestion('q4', 'A')]);
+
+    const resumed = SessionRunner.resume(bundle, saved);
+    expect(resumed.currentQuestion()?.id).toBe('q3'); // skipped straight past the removed q2
+    expect(resumed.progressLabel()).toBe('2 answered'); // cursor unchanged: nothing before it was dropped
+  });
+
+  it('finish() clears the active-session checkpoint, and the final proceedToNext never wrote one', async () => {
+    const { SessionRunner, getActiveSession } = await freshModules();
+    const bundle = makeBundle([makeQuestion('q0', 'A'), makeQuestion('q1', 'A')]);
+    const runner = await SessionRunner.start(bundle, { ...baseConfig, count: 2, topics: ['A'] });
+
+    // Answer the first question: not yet finished, so proceedToNext auto-checkpoints.
+    const q0 = runner.currentQuestion()!;
+    runner.submitAnswer(q0.id);
+    await runner.confirmRating('good');
+    runner.proceedToNext();
+    await flushAsync();
+    const checkpointAfterFirst = await getActiveSession();
+    expect(checkpointAfterFirst).not.toBeNull();
+    expect(checkpointAfterFirst!.cursor).toBe(1);
+
+    // Answer the second (and last) question: this proceedToNext finishes the queue, so it must
+    // skip the checkpoint write entirely rather than racing finish()'s cleanup.
+    const q1 = runner.currentQuestion()!;
+    runner.submitAnswer(q1.id);
+    await runner.confirmRating('good');
+    runner.proceedToNext();
+    await flushAsync();
+    const checkpointBeforeFinish = await getActiveSession();
+    expect(checkpointBeforeFinish).toEqual(checkpointAfterFirst); // untouched by the finishing step
+
+    await runner.finish();
+    expect(await getActiveSession()).toBeNull();
+  });
+
+  it('finish() reached via "End session" on a partially completed session also clears the checkpoint', async () => {
+    const { SessionRunner, getActiveSession } = await freshModules();
+    const bundle = makeBundle([makeQuestion('q0', 'A'), makeQuestion('q1', 'A'), makeQuestion('q2', 'A')]);
+    const runner = await SessionRunner.start(bundle, { ...baseConfig, count: 3, topics: ['A'] });
+
+    const q0 = runner.currentQuestion()!;
+    runner.submitAnswer(q0.id);
+    await runner.confirmRating('good');
+    await runner.saveAndExit();
+    expect(await getActiveSession()).not.toBeNull();
+
+    // "End session" ends things early, before the queue is naturally finished.
+    const result = await runner.finish();
+    expect(result.summary.answered).toBe(1);
+    expect(await getActiveSession()).toBeNull();
+  });
+
+  it('auto-checkpoints after every question even when saveAndExit is never called', async () => {
+    const { SessionRunner, getActiveSession } = await freshModules();
+    const questions = Array.from({ length: 4 }, (_, i) => makeQuestion(`q${i}`, 'A'));
+    const bundle = makeBundle(questions);
+    const runner = await SessionRunner.start(bundle, { ...baseConfig, count: 4, topics: ['A'] });
+
+    for (let i = 0; i < 3; i += 1) {
+      const q = runner.currentQuestion()!;
+      runner.submitAnswer(q.id);
+      await runner.confirmRating('good');
+      runner.proceedToNext();
+    }
+    await flushAsync();
+
+    const saved = await getActiveSession();
+    expect(saved).not.toBeNull();
+    expect(saved!.cursor).toBe(3);
+    expect(saved!.items).toHaveLength(3);
+  });
+
+  it('backup round-trip: buildBackupFile then applyBackupImport on a fresh DB reproduces progress and session history', async () => {
+    const mod1 = await freshModules();
+    const bundle = makeBundle([makeQuestion('q0', 'A'), makeQuestion('q1', 'A')]);
+    const runner1 = await mod1.SessionRunner.start(bundle, { ...baseConfig, count: 2, topics: ['A'] });
+    while (!runner1.isFinished()) {
+      const q = runner1.currentQuestion()!;
+      runner1.submitAnswer(q.id);
+      await runner1.confirmRating('good');
+      runner1.proceedToNext();
+    }
+    await runner1.finish();
+
+    const backup = await mod1.buildBackupFile(bundle);
+    expect(backup.progress).toHaveLength(2);
+    expect(backup.session_history).toHaveLength(1);
+    expect(backup.active_session).toBeNull();
+
+    // Simulate a fresh device: brand-new fake IndexedDB instance and module graph.
+    indexedDB = new IDBFactory();
+    const mod2 = await freshModules();
+    const result = await mod2.applyBackupImport(backup);
+    expect(result).toEqual({ progressCount: 2, sessionCount: 1, hasActiveSession: false });
+
+    const importedProgress = await mod2.getAllProgress();
+    expect([...importedProgress.keys()].sort()).toEqual(['q0', 'q1']);
+    const importedHistory = await mod2.getAllSessionResults();
+    expect(importedHistory).toHaveLength(1);
+    expect(importedHistory[0].session_id).toBe(backup.session_history[0].session_id);
+  });
+
+  it('backup round-trip with an active_session checkpoint makes it resumable on a fresh device', async () => {
+    const mod1 = await freshModules();
+    const bundle = makeBundle([makeQuestion('q0', 'A'), makeQuestion('q1', 'A'), makeQuestion('q2', 'A')]);
+    const runner1 = await mod1.SessionRunner.start(bundle, { ...baseConfig, count: 3, topics: ['A'] });
+    const q0 = runner1.currentQuestion()!;
+    runner1.submitAnswer(q0.id);
+    await runner1.confirmRating('good');
+    await runner1.saveAndExit();
+
+    const backup = await mod1.buildBackupFile(bundle);
+    expect(backup.active_session).not.toBeNull();
+    expect(backup.active_session!.cursor).toBe(0); // saveAndExit was called before proceedToNext
+
+    indexedDB = new IDBFactory();
+    const mod2 = await freshModules();
+    await mod2.applyBackupImport(backup);
+
+    const restoredCheckpoint = await mod2.getActiveSession();
+    expect(restoredCheckpoint).toEqual(backup.active_session);
+  });
+
+  it('backup round-trip with no active_session clears any checkpoint already saved on the importing device', async () => {
+    const mod1 = await freshModules();
+    const bundle = makeBundle([makeQuestion('q0', 'A')]);
+    const runner1 = await mod1.SessionRunner.start(bundle, { ...baseConfig, count: 1, topics: ['A'] });
+    const q0 = runner1.currentQuestion()!;
+    runner1.submitAnswer(q0.id);
+    await runner1.confirmRating('good');
+    runner1.proceedToNext();
+    await runner1.finish(); // no active_session left on this "device"
+
+    const backup = await mod1.buildBackupFile(bundle);
+    expect(backup.active_session).toBeNull();
+
+    indexedDB = new IDBFactory();
+    const mod2 = await freshModules();
+    // This device has its own in-progress session that the incoming backup knows nothing about.
+    const runner2 = await mod2.SessionRunner.start(bundle, { ...baseConfig, count: 1, topics: ['A'] });
+    await runner2.saveAndExit();
+    expect(await mod2.getActiveSession()).not.toBeNull();
+
+    await mod2.applyBackupImport(backup);
+    expect(await mod2.getActiveSession()).toBeNull();
+  });
+
+  it('migrates a v1 database to v2, preserving existing progress and adding a usable active_session store', async () => {
+    vi.resetModules();
+    const { openDB } = await import('idb');
+
+    // Simulate an existing v1 install by opening the same DB name/version with the pre-2.1 schema.
+    const v1db = await openDB('bp-practice-app', 1, {
+      upgrade(db) {
+        const progressStore = db.createObjectStore('progress', { keyPath: 'question_id' });
+        progressStore.createIndex('by_next_review_at', 'next_review_at');
+        db.createObjectStore('session_history', { keyPath: 'session_id' });
+        db.createObjectStore('settings', { keyPath: 'id' });
+      },
+    });
+    await v1db.put('progress', {
+      question_id: 'q1',
+      last_seen_version: 1,
+      user_status: 'active',
+      user_status_reason: null,
+      attempts: 1,
+      correct: 1,
+      incorrect: 0,
+      last_reviewed_at: null,
+      next_review_at: null,
+      ease: 2.5,
+      interval_days: 1,
+      recent_history: [],
+    });
+    v1db.close();
+
+    const { getDB } = await import('../storage/db');
+    const db2 = await getDB();
+
+    const preserved = await db2.get('progress', 'q1');
+    expect(preserved?.question_id).toBe('q1');
+    expect(preserved?.attempts).toBe(1);
+
+    await db2.put('active_session', {
+      id: 'active',
+      session_id: 's1',
+      config: baseConfig,
+      queue_entries: [],
+      cursor: 0,
+      requeue_used: [],
+      items: [],
+      started_at: '2026-01-01T00:00:00Z',
+      last_active_at: '2026-01-01T00:00:00Z',
+    });
+    const active = await db2.get('active_session', 'active');
+    expect(active?.session_id).toBe('s1');
   });
 });
