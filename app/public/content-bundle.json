@@ -1,7 +1,278 @@
 {
   "schema_version": 1,
-  "bundle_version": "2026-07-23T20:21:12.082Z",
+  "bundle_version": "2026-07-24T14:30:41.025Z",
   "questions": [
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "Algum vs nenhum — positive vs negative",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "neutral",
+      "prompt": "Explain when to use algum versus nenhum, and why \"Não tenho nenhum dinheiro\" is grammatically correct even though it looks like a double negative in English.",
+      "model_answers": [
+        "Algum (\"some/any\") is used in positive statements and most questions, e.g. Tenho alguns amigos, Você tem algum irmão? Nenhum (\"none/not any\") is used in negative sentences alongside não, e.g. Não tenho nenhum dinheiro. Portuguese requires this negative concord — both the verb and the following word are negative — so the literal \"I don't have no money\" reading is standard, correct Portuguese, unlike in English where a second negative would cancel the first."
+      ],
+      "useful_structures": [
+        "algum(a) in positive statements and questions",
+        "não + verb + nenhum(a) (negative concord)"
+      ],
+      "explanation": "Algum marks existence in positive/question contexts; nenhum marks absence and pairs with não as normal negative concord in Portuguese, not a double negative like in English.",
+      "source": {
+        "note": "Bits and Bobs/Algum & Nenhum.md",
+        "heading": "6. Algum vs Nenhum"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-algum-nenhum-0001",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:eed69158c180e8261b60662a445067b8d8d92339265b91e50aa6a6ddbd3f9680",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "Algum vs qualquer",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the difference in meaning between algum and qualquer, using \"Você conhece algum médico?\" and \"Qualquer médico pode fazer isso\" as examples.",
+      "model_answers": [
+        "Algum means \"some/any\" in the sense that at least one exists — Você conhece algum médico? asks whether the person knows of any doctor at all. Qualquer means \"any at all/whichever\" and signals that it doesn't matter which one — Qualquer médico pode fazer isso says any doctor, no matter which, could do it. Algum is about existence of at least one; qualquer is about indifference to which one."
+      ],
+      "explanation": "Algum questions whether at least one instance exists; qualquer expresses indifference to which particular instance is chosen.",
+      "source": {
+        "note": "Bits and Bobs/Algum & Nenhum.md",
+        "heading": "10. Algum vs Qualquer"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-algum-nenhum-0002",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:730581c392dcb3c0e4a2cc37ac22f1e9e22ecc7aeb114dd936b0dabc03c553f2",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Bits and Bobs",
+      "subtopic": "Negative concord with nenhum",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete this sentence with the correct negative pattern: \"Eu não vi ___ carro.\" (I didn't see any car.)",
+      "model_answers": [
+        "Eu não vi nenhum carro."
+      ],
+      "useful_structures": [
+        "não + verb + nenhum + noun (negative concord)"
+      ],
+      "explanation": "Even though carro is singular, nenhum carro means \"not a single car\" — Portuguese pairs não with nenhum rather than using a plain non-negative object the way English \"any\" does.",
+      "source": {
+        "note": "Bits and Bobs/Algum & Nenhum.md",
+        "heading": "5. Double negatives are normal"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-algum-nenhum-0003",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:957b63f07c11a85b26e3d1ef33a1f0e4c70ce5ae1a78b8b5bc0656aa14d176c3",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "Bom/boa vs bem — adjective vs adverb",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "neutral",
+      "prompt": "Explain the difference between bom/boa and bem, and explain why Brazilians say \"Que bom!\" but never \"Que bem!\" when reacting to good news.",
+      "model_answers": [
+        "Bom and boa are adjectives and must agree with the noun they describe — bom for masculine (um bom livro), boa for feminine (uma boa ideia). Bem is an adverb that never changes form and describes how an action is done or a state, e.g. Ele fala bem, Estou bem. \"Que bom!\" reacts to a thing or situation, which is noun-like, so it takes the adjective bom rather than the adverb bem — \"Que bem!\" would be describing an action that isn't there."
+      ],
+      "useful_structures": [
+        "bom/boa + noun (adjective agreement)",
+        "verb + bem (adverb describing an action or state)",
+        "Tudo bem? / Que bom!"
+      ],
+      "explanation": "Bom/boa describe nouns and agree in gender; bem describes verbs/states and is invariant. Que bom! comments on a situation (noun-like), so it needs the adjective, not the adverb.",
+      "source": {
+        "note": "Bits and Bobs/Bom, Boa & Bem.md",
+        "heading": "Step 4 – The easiest test"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-bom-boa-bem-0001",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:5370ccc88acdc2a1ae41616f399ed13ab74a05d5f1d6f90565779558725e3fd4",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "Muito bom vs muito bem",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the difference between \"muito bom\" and \"muito bem\", with an example of each.",
+      "model_answers": [
+        "Muito bom (\"very good\") describes a thing or person, e.g. Esse filme é muito bom — the film, a noun, is very good. Muito bem (\"very well\") describes how an action is performed, e.g. Você fala português muito bem — describing the speaking, a verb. It's the same noun-vs-action rule as bom/bem, just intensified with muito."
+      ],
+      "useful_structures": [
+        "muito bom + noun/thing",
+        "muito bem + verb/action"
+      ],
+      "explanation": "Muito intensifies whichever word the sentence already needs — bom for a thing, bem for an action — so the choice still follows the ordinary bom/bem rule.",
+      "source": {
+        "note": "Bits and Bobs/Bom, Boa & Bem.md",
+        "heading": "Step 9 – Muito bom vs Muito bem"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-bom-boa-bem-0002",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:19e879b440fbb2f765a1ccbb7b39ab316946bf4c629892d67e94dfe358f91542",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "speak_aloud",
+      "topic": "Bits and Bobs",
+      "subtopic": "Tudo bem? — the everyday greeting exchange",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Say aloud the everyday greeting exchange: ask \"Tudo bem?\", answer \"Tudo bem!\", then react to a friend's good news (they just passed an exam) with \"Que bom!\"",
+      "model_answers": [
+        "Tudo bem?",
+        "Tudo bem!",
+        "Que bom!"
+      ],
+      "explanation": "Tudo bem? (\"Everything OK?\") is probably the most common Brazilian greeting, usually answered with Tudo bem!; Que bom! (\"That's great!\") is the standard reaction to someone else's good news.",
+      "source": {
+        "note": "Bits and Bobs/Bom, Boa & Bem.md",
+        "heading": "Step 5 – Very common expressions"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-bom-boa-bem-0003",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:028ea357d479d64bb8e129b015e3049ebe46f4a10596d19d6bf69d923958afb3",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "Que vs do que after comparatives",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "neutral",
+      "prompt": "Explain the difference, if any, between que and do que when used after a comparative like mais or menos.",
+      "model_answers": [
+        "There is no real difference in meaning — both que and do que translate \"than\" after a comparative, and either can be used: Ele é mais alto que eu and Ele é mais alto do que eu both mean \"He is taller than me.\" Do que is common in both speech and writing; que on its own is a slightly shorter, equally natural alternative."
+      ],
+      "explanation": "Both forms are grammatically correct and interchangeable in Brazilian Portuguese; the choice between them is stylistic, not a matter of meaning.",
+      "source": {
+        "note": "Bits and Bobs/Making Comparisons.md",
+        "heading": "7. Que vs Do que"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-making-comparisons-0001",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:f1e3a8b79c3274ecb0917ab1a6c80004106278235b70354e2865f068f8d5b6d5",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Bits and Bobs",
+      "subtopic": "Comparatives with mais...que/do que",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete in Portuguese: \"This book is more interesting than that one.\"",
+      "model_answers": [
+        "Este livro é mais interessante do que aquele.",
+        "Este livro é mais interessante que aquele."
+      ],
+      "useful_structures": [
+        "mais + adjective + que/do que"
+      ],
+      "explanation": "The comparative pattern is mais + adjective + que (or do que) + the thing being compared against.",
+      "source": {
+        "note": "Bits and Bobs/Making Comparisons.md",
+        "heading": "2. More Than"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-making-comparisons-0002",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:1dac123332b823ee37216e9aaa28cea8051b2938087d1068195073d2428b7975",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Bits and Bobs",
+      "subtopic": "Irregular comparatives (maior, melhor, pior, menor)",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete in Portuguese, using the irregular comparative form: \"Brazil is bigger than Portugal.\"",
+      "model_answers": [
+        "O Brasil é maior que Portugal.",
+        "O Brasil é maior do que Portugal."
+      ],
+      "useful_structures": [
+        "maior (irregular) instead of \"mais grande\""
+      ],
+      "explanation": "Maior, melhor, pior and menor are irregular comparative forms that normally replace mais + adjective (mais grande, mais bom, mais mau, mais pequeno).",
+      "source": {
+        "note": "Bits and Bobs/Making Comparisons.md",
+        "heading": "4. Irregular Comparatives"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-making-comparisons-0003",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:5b8b8f054ca4df9187e28f5d5f177caac59a5a6c3ec9a373119cc1f67cfeb9c8",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "speak_aloud",
+      "topic": "Bits and Bobs",
+      "subtopic": "Superlatives",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "spoken",
+      "prompt": "Say aloud: \"He is the most intelligent in the class\" and \"This is the best restaurant in the city.\"",
+      "model_answers": [
+        "Ele é o mais inteligente da turma.",
+        "Este é o melhor restaurante da cidade."
+      ],
+      "useful_structures": [
+        "o/a + mais/menos + adjective (regular superlative)",
+        "o melhor (irregular superlative of bom)"
+      ],
+      "explanation": "Regular superlatives use o/a + mais/menos + adjective; melhor, pior, maior and menor already function as irregular superlatives once preceded by the article (o melhor, o pior).",
+      "source": {
+        "note": "Bits and Bobs/Making Comparisons.md",
+        "heading": "5. Superlatives — The Most / The Least"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-making-comparisons-0004",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:33c916dbb25501d00914212a13f93968eeb4f1417d9845d02e51c141b0ddc5aa",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
     {
       "id": "bits-tao-tanto-0001",
       "type": "en_to_pt",
@@ -395,6 +666,215 @@
       "content_hash": "sha256:d5758c91cb20d449186134c4868e6ff97faf9b68d57a02b9631fd3563814c4a5",
       "version": 1,
       "updated_at": "2026-07-23"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Verbs",
+      "subtopic": "Familiar imperative — -ir verbs",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Give this command in natural spoken Brazilian Portuguese, using the familiar (você) imperative: \"Open the door!\"",
+      "model_answers": [
+        "Abre a porta!"
+      ],
+      "useful_structures": [
+        "familiar imperative = você present-tense form, dropping você"
+      ],
+      "explanation": "The everyday Brazilian imperative for você simply reuses the present indicative form (você abre -> Abre!), which is why abre a porta is correct without any special imperative conjugation.",
+      "source": {
+        "note": "Grammar/Verbs/Imperative Mood.md",
+        "heading": "3️⃣ Familiar Imperative (Most Common in Brazil)"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-imperative-mood-0001",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:5c2b539aabe2921dc969accac91f31db45dc86831edf68a528869c525ddde521",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Affirmative vs negative imperative",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why \"Fala comigo\" is correct for an affirmative command but \"Não fale assim\" (not \"Não fala assim\") is correct for a negative one.",
+      "model_answers": [
+        "Affirmative familiar commands in spoken Brazilian Portuguese reuse the você present-indicative form, e.g. Fala comigo (from você fala). Negative commands always switch to the present subjunctive instead, e.g. Não fale assim, never Não fala assim. So the same person is being addressed, but affirmative and negative commands are built from two different underlying verb forms."
+      ],
+      "explanation": "Brazilian Portuguese's familiar imperative borrows the indicative for affirmative commands but always requires the subjunctive as soon as the command is negated.",
+      "source": {
+        "note": "Grammar/Verbs/Imperative Mood.md",
+        "heading": "6️⃣ Negative Imperative"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-imperative-mood-0002",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:f521911cf9f8f15ea06b5e9f2139d546e96fb5f24591aef94a4f2b770ab92ca4",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "speak_aloud",
+      "topic": "Verbs",
+      "subtopic": "Everyday spoken commands",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Say these common Brazilian commands aloud: \"Fala comigo.\", \"Vem cá.\", \"Não faz isso.\"",
+      "model_answers": [
+        "Fala comigo.",
+        "Vem cá.",
+        "Não faz isso."
+      ],
+      "explanation": "These are everyday familiar commands Brazilians use constantly in casual conversation — the kind of natural, slightly informal imperative real speech favors over textbook forms.",
+      "source": {
+        "note": "Grammar/Verbs/Imperative Mood.md",
+        "heading": "7️⃣ Real Spoken Brazilian Portuguese"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-imperative-mood-0003",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:128692193bd9a9fb74d4be06b65effb06cb9beb44342c30943b7db1bc3ea046c",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Present subjunctive vs future subjunctive",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "Explain the difference between the present subjunctive and the future subjunctive, using \"Espero que ele venha\" and \"Se ele vier...\" as examples.",
+      "model_answers": [
+        "The present subjunctive expresses a wish, hope, doubt or emotion about something, e.g. Espero que ele venha (I hope he comes) — the coming isn't presented as fact. The future subjunctive specifically marks a future event that hasn't happened yet, typically after triggers like se, quando or assim que, e.g. Se ele vier... (If he comes...). Both are \"not a fact\", but the future subjunctive additionally commits to the event being time-located in an as-yet-unrealised future, which is why it changes the verb form again rather than reusing the present subjunctive."
+      ],
+      "useful_structures": [
+        "espero que + present subjunctive",
+        "se/quando/assim que + future subjunctive"
+      ],
+      "explanation": "Present subjunctive covers wishes/doubts/emotions in general; future subjunctive is reserved for events explicitly framed as not-yet-happened, cued by triggers like se, quando, assim que.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive.md",
+        "heading": "Present vs Future Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-0001",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:5a9589d35f52f08345a3df390f62f13e0a0c2ab8a9974d1f873289c6efa0c506",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Subjunctive vs infinitive after a change of subject",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why \"Eu quero comer\" uses the infinitive but \"Eu quero que você venha\" switches to the subjunctive.",
+      "model_answers": [
+        "When the same person performs both actions, Portuguese uses the infinitive — Eu quero comer (I want to eat: I do both the wanting and the eating). When a different subject is involved in the second action, Portuguese switches to the subjunctive introduced by que — Eu quero que você venha (I want you to come: I want, but you come). The change of subject between the two clauses is what triggers the subjunctive; same subject keeps the simpler infinitive."
+      ],
+      "explanation": "Same-subject sentences stay in the infinitive; as soon as a second, different subject appears in the que-clause, the verb must switch to the subjunctive.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive.md",
+        "heading": "Step 3 – Different Subject?"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-0002",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:d7677017cf1aef3cfe5d7e7703e71984894765877831a80ae9ae0175b9d4f3f9",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Verbs",
+      "subtopic": "Subjunctive triggers — espero que",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete with the correct subjunctive form: \"Espero que ele ___ bem.\" (I hope he's well.)",
+      "model_answers": [
+        "Espero que ele esteja bem."
+      ],
+      "useful_structures": [
+        "espero que + subjunctive"
+      ],
+      "explanation": "Espero que is one of the biggest subjunctive triggers; the verb ser/estar-family form used here is esteja, the present subjunctive of estar.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive.md",
+        "heading": "The Biggest Triggers"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-0003",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:661aa30f2158e0875d3cff36c37240019f113ecb1d53cb90d775b43a458ce14c",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Verbs",
+      "subtopic": "Future subjunctive after quando",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "Complete in Portuguese, using the future subjunctive: \"When you arrive, call me.\"",
+      "model_answers": [
+        "Quando você chegar, me liga."
+      ],
+      "useful_structures": [
+        "quando + future subjunctive"
+      ],
+      "explanation": "Quando introduces a future event that hasn't happened yet, so chegar takes the future subjunctive form chegar (chegares/chegarem for other persons), not the indicative chega.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive.md",
+        "heading": "Common Future Subjunctive Triggers"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-0004",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:a664a56b0c18328e31da94b42d9d7c7c71d33f7890766cbc02b3f091d6fe9071",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "speak_aloud",
+      "topic": "Verbs",
+      "subtopic": "Subjunctive drill phrases",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "Say these aloud, paying attention to the subjunctive verb endings: \"Quero que você venha.\", \"Espero que dê certo.\", \"Tomara que não chova.\"",
+      "model_answers": [
+        "Quero que você venha.",
+        "Espero que dê certo.",
+        "Tomara que não chova."
+      ],
+      "explanation": "These three everyday triggers (quero que, espero que, tomara que) all force the present subjunctive in the following clause — venha, dê and chova.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive.md",
+        "heading": "10-Minute Daily Drill"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-0005",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:163b452d3af3240d865370fa4e09e46b7b130ace493ed1f47cbadbdf8a53cdcb",
+      "version": 1,
+      "updated_at": "2026-07-24"
     }
   ],
   "scenarios": [],

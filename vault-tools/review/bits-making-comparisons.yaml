@@ -1,0 +1,117 @@
+# Review file for questions sourced from "Bits and Bobs/Making Comparisons.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+#
+# Phase 3 batch: self-assessed types (explain_difference, open_completion,
+# speak_aloud) sourced from this note's comparative/superlative formulas.
+
+questions:
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: Que vs do que after comparatives
+    direction: null
+    difficulty: easy
+    register: neutral
+    prompt: "Explain the difference, if any, between que and do que when used after
+      a comparative like mais or menos."
+    model_answers:
+      - "There is no real difference in meaning — both que and do que translate
+        \"than\" after a comparative, and either can be used: Ele é mais alto
+        que eu and Ele é mais alto do que eu both mean \"He is taller than me.\"
+        Do que is common in both speech and writing; que on its own is a
+        slightly shorter, equally natural alternative."
+    explanation: "Both forms are grammatically correct and interchangeable in
+      Brazilian Portuguese; the choice between them is stylistic, not a matter
+      of meaning."
+    source:
+      note: "Bits and Bobs/Making Comparisons.md"
+      heading: "7. Que vs Do que"
+    status: approved
+    generation_version: 1
+    id: bits-making-comparisons-0001
+    created_at: 2026-07-24
+    content_hash: sha256:f1e3a8b79c3274ecb0917ab1a6c80004106278235b70354e2865f068f8d5b6d5
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: open_completion
+    topic: Bits and Bobs
+    subtopic: Comparatives with mais...que/do que
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Complete in Portuguese: \"This book is more interesting than that one.\""
+    model_answers:
+      - "Este livro é mais interessante do que aquele."
+      - "Este livro é mais interessante que aquele."
+    useful_structures:
+      - "mais + adjective + que/do que"
+    explanation: "The comparative pattern is mais + adjective + que (or do que) +
+      the thing being compared against."
+    source:
+      note: "Bits and Bobs/Making Comparisons.md"
+      heading: "2. More Than"
+    status: approved
+    generation_version: 1
+    id: bits-making-comparisons-0002
+    created_at: 2026-07-24
+    content_hash: sha256:1dac123332b823ee37216e9aaa28cea8051b2938087d1068195073d2428b7975
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: open_completion
+    topic: Bits and Bobs
+    subtopic: Irregular comparatives (maior, melhor, pior, menor)
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Complete in Portuguese, using the irregular comparative form: \"Brazil
+      is bigger than Portugal.\""
+    model_answers:
+      - "O Brasil é maior que Portugal."
+      - "O Brasil é maior do que Portugal."
+    useful_structures:
+      - "maior (irregular) instead of \"mais grande\""
+    explanation: "Maior, melhor, pior and menor are irregular comparative forms that
+      normally replace mais + adjective (mais grande, mais bom, mais mau, mais
+      pequeno)."
+    source:
+      note: "Bits and Bobs/Making Comparisons.md"
+      heading: "4. Irregular Comparatives"
+    status: approved
+    generation_version: 1
+    id: bits-making-comparisons-0003
+    created_at: 2026-07-24
+    content_hash: sha256:5b8b8f054ca4df9187e28f5d5f177caac59a5a6c3ec9a373119cc1f67cfeb9c8
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: speak_aloud
+    topic: Bits and Bobs
+    subtopic: Superlatives
+    direction: null
+    difficulty: hard
+    register: spoken
+    prompt: "Say aloud: \"He is the most intelligent in the class\" and \"This is
+      the best restaurant in the city.\""
+    model_answers:
+      - "Ele é o mais inteligente da turma."
+      - "Este é o melhor restaurante da cidade."
+    useful_structures:
+      - "o/a + mais/menos + adjective (regular superlative)"
+      - "o melhor (irregular superlative of bom)"
+    explanation: "Regular superlatives use o/a + mais/menos + adjective; melhor,
+      pior, maior and menor already function as irregular superlatives once
+      preceded by the article (o melhor, o pior)."
+    source:
+      note: "Bits and Bobs/Making Comparisons.md"
+      heading: "5. Superlatives — The Most / The Least"
+    status: approved
+    generation_version: 1
+    id: bits-making-comparisons-0004
+    created_at: 2026-07-24
+    content_hash: sha256:33c916dbb25501d00914212a13f93968eeb4f1417d9845d02e51c141b0ddc5aa
+    version: 1
+    updated_at: 2026-07-24

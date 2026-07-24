@@ -1,0 +1,91 @@
+# Review file for questions sourced from "Grammar/Verbs/Imperative Mood.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+#
+# Phase 3 batch: self-assessed types (open_completion, explain_difference,
+# speak_aloud) sourced from this note's familiar/negative imperative rules.
+
+questions:
+  - type: open_completion
+    topic: Verbs
+    subtopic: Familiar imperative — -ir verbs
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Give this command in natural spoken Brazilian Portuguese, using the
+      familiar (você) imperative: \"Open the door!\""
+    model_answers:
+      - "Abre a porta!"
+    useful_structures:
+      - "familiar imperative = você present-tense form, dropping você"
+    explanation: "The everyday Brazilian imperative for você simply reuses the
+      present indicative form (você abre -> Abre!), which is why abre a porta is
+      correct without any special imperative conjugation."
+    source:
+      note: "Grammar/Verbs/Imperative Mood.md"
+      heading: "3️⃣ Familiar Imperative (Most Common in Brazil)"
+    status: approved
+    generation_version: 1
+    id: verbs-imperative-mood-0001
+    created_at: 2026-07-24
+    content_hash: sha256:5c2b539aabe2921dc969accac91f31db45dc86831edf68a528869c525ddde521
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Affirmative vs negative imperative
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why \"Fala comigo\" is correct for an affirmative command but
+      \"Não fale assim\" (not \"Não fala assim\") is correct for a negative
+      one."
+    model_answers:
+      - "Affirmative familiar commands in spoken Brazilian Portuguese reuse the
+        você present-indicative form, e.g. Fala comigo (from você fala).
+        Negative commands always switch to the present subjunctive instead, e.g.
+        Não fale assim, never Não fala assim. So the same person is being
+        addressed, but affirmative and negative commands are built from two
+        different underlying verb forms."
+    explanation: "Brazilian Portuguese's familiar imperative borrows the indicative
+      for affirmative commands but always requires the subjunctive as soon as
+      the command is negated."
+    source:
+      note: "Grammar/Verbs/Imperative Mood.md"
+      heading: "6️⃣ Negative Imperative"
+    status: approved
+    generation_version: 1
+    id: verbs-imperative-mood-0002
+    created_at: 2026-07-24
+    content_hash: sha256:f521911cf9f8f15ea06b5e9f2139d546e96fb5f24591aef94a4f2b770ab92ca4
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: speak_aloud
+    topic: Verbs
+    subtopic: Everyday spoken commands
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Say these common Brazilian commands aloud: \"Fala comigo.\", \"Vem
+      cá.\", \"Não faz isso.\""
+    model_answers:
+      - "Fala comigo."
+      - "Vem cá."
+      - "Não faz isso."
+    explanation: "These are everyday familiar commands Brazilians use constantly in
+      casual conversation — the kind of natural, slightly informal imperative
+      real speech favors over textbook forms."
+    source:
+      note: "Grammar/Verbs/Imperative Mood.md"
+      heading: "7️⃣ Real Spoken Brazilian Portuguese"
+    status: approved
+    generation_version: 1
+    id: verbs-imperative-mood-0003
+    created_at: 2026-07-24
+    content_hash: sha256:128692193bd9a9fb74d4be06b65effb06cb9beb44342c30943b7db1bc3ea046c
+    version: 1
+    updated_at: 2026-07-24

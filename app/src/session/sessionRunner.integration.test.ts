@@ -580,4 +580,222 @@ describe('SessionRunner integration (real checking + review + storage)', () => {
     const active = await db2.get('active_session', 'active');
     expect(active?.session_id).toBe('s1');
   });
+
+  it('revealSelfAssessed() on a self-assessed question returns a self_assessed FeedbackState with no outcome/autoRating', async () => {
+    const { SessionRunner } = await freshModules();
+    const q = makeQuestion('q1', 'A', {
+      type: 'open_completion',
+      accepted_answers: undefined,
+      model_answers: ['Uma resposta possível.'],
+      useful_structures: ['presente do indicativo'],
+    });
+    const bundle = makeBundle([q]);
+    const runner = await SessionRunner.start(bundle, {
+      ...baseConfig,
+      count: 1,
+      topics: ['A'],
+      types: ['open_completion'],
+    });
+
+    const feedback = runner.revealSelfAssessed('minha tentativa');
+    expect(feedback.kind).toBe('self_assessed');
+    expect(feedback.outcome).toBeNull();
+    expect(feedback.autoRating).toBeNull();
+    expect(feedback.userAnswer).toBe('minha tentativa');
+    expect(feedback.question.model_answers).toEqual(['Uma resposta possível.']);
+  });
+
+  it('revealSelfAssessed() throws when the current question is a checked (exact-mode) type', async () => {
+    const { SessionRunner } = await freshModules();
+    const bundle = makeBundle([makeQuestion('q1', 'A')]); // default type: en_to_pt
+    const runner = await SessionRunner.start(bundle, { ...baseConfig, count: 1, topics: ['A'] });
+    expect(() => runner.revealSelfAssessed('')).toThrow();
+  });
+
+  it("confirmRating('again') after revealSelfAssessed() requeues the question 3-5 questions later and records incorrect, exactly like a deterministic Again", async () => {
+    const { SessionRunner } = await freshModules();
+    const questions = Array.from({ length: 8 }, (_, i) =>
+      makeQuestion(`q${i}`, 'A', { type: 'open_completion', accepted_answers: undefined, model_answers: ['x'] })
+    );
+    const bundle = makeBundle(questions);
+    const runner = await SessionRunner.start(bundle, {
+      ...baseConfig,
+      count: 8,
+      topics: ['A'],
+      types: ['open_completion'],
+    });
+
+    const firstId = runner.currentQuestion()!.id;
+    runner.revealSelfAssessed('');
+    await runner.confirmRating('again');
+    runner.proceedToNext();
+
+    let stepsUntilReappearance = 0;
+    while (!runner.isFinished()) {
+      const q = runner.currentQuestion()!;
+      if (q.id === firstId) break;
+      stepsUntilReappearance += 1;
+      runner.revealSelfAssessed('');
+      await runner.confirmRating('good');
+      runner.proceedToNext();
+    }
+
+    expect(runner.isFinished()).toBe(false);
+    expect(stepsUntilReappearance).toBeGreaterThanOrEqual(3);
+    expect(stepsUntilReappearance).toBeLessThanOrEqual(5);
+
+    // Answer the requeued question with a non-Again rating this time, then confirm it never
+    // reappears again, and that its recorded final_result reflects the successful retry.
+    runner.revealSelfAssessed('');
+    await runner.confirmRating('good');
+    runner.proceedToNext();
+    while (!runner.isFinished()) {
+      const q = runner.currentQuestion()!;
+      expect(q.id).not.toBe(firstId);
+      runner.revealSelfAssessed('');
+      await runner.confirmRating('good');
+      runner.proceedToNext();
+    }
+
+    const result = await runner.finish();
+    expect(result.items.find((i) => i.question_id === firstId)?.final_result).toBe('correct');
+  });
+
+  it('confirmRating on a self-assessed item schedules identically to a checked item given the same rating', async () => {
+    const { SessionRunner, getProgress } = await freshModules();
+    const checkedQuestion = makeQuestion('checked-1', 'A');
+    const selfQuestion = makeQuestion('self-1', 'A', {
+      type: 'open_completion',
+      accepted_answers: undefined,
+      model_answers: ['Resposta modelo'],
+    });
+    const bundle = makeBundle([checkedQuestion, selfQuestion]);
+    const runner = await SessionRunner.start(bundle, {
+      ...baseConfig,
+      count: 2,
+      topics: ['A'],
+      types: ['en_to_pt', 'open_completion'],
+    });
+
+    while (!runner.isFinished()) {
+      const q = runner.currentQuestion()!;
+      if (q.type === 'open_completion') {
+        runner.revealSelfAssessed('');
+      } else {
+        runner.submitAnswer(q.id);
+      }
+      await runner.confirmRating('good');
+      runner.proceedToNext();
+    }
+    await runner.finish();
+
+    const checkedProgress = await getProgress('checked-1');
+    const selfProgress = await getProgress('self-1');
+    // Proves the scheduler path is genuinely shared, not reimplemented: same rating in, same
+    // schedule out, regardless of whether the rating came from a check or a self-assessment.
+    expect(selfProgress?.interval_days).toBe(checkedProgress?.interval_days);
+    expect(selfProgress?.ease).toBe(checkedProgress?.ease);
+    expect(selfProgress?.attempts).toBe(checkedProgress?.attempts);
+    expect(selfProgress?.correct).toBe(checkedProgress?.correct);
+  });
+
+  it('a session mixing a checked and a self-assessed question tallies correctly through finish() and buildDisplaySummary()', async () => {
+    const { SessionRunner } = await freshModules();
+    const checkedQuestion = makeQuestion('checked-1', 'A');
+    const selfQuestion = makeQuestion('self-1', 'B', {
+      type: 'open_completion',
+      accepted_answers: undefined,
+      model_answers: ['Resposta modelo'],
+    });
+    const bundle = makeBundle([checkedQuestion, selfQuestion]);
+    const runner = await SessionRunner.start(bundle, {
+      ...baseConfig,
+      count: 2,
+      topics: ['A', 'B'],
+      types: ['en_to_pt', 'open_completion'],
+    });
+
+    while (!runner.isFinished()) {
+      const q = runner.currentQuestion()!;
+      if (q.type === 'open_completion') {
+        runner.revealSelfAssessed('');
+      } else {
+        runner.submitAnswer(q.id);
+      }
+      await runner.confirmRating('good');
+      runner.proceedToNext();
+    }
+
+    const result = await runner.finish();
+    expect(result.summary.answered).toBe(2);
+    expect(result.summary.correct).toBe(2);
+
+    const display = runner.buildDisplaySummary();
+    expect(display.answered).toBe(2);
+    expect(display.correct).toBe(2);
+    expect(display.topic_breakdown.map((t) => t.topic).sort()).toEqual(['A', 'B']);
+  });
+
+  it('a mixed-type session survives save/resume and completes correctly end-to-end', async () => {
+    const { SessionRunner, getActiveSession } = await freshModules();
+    const checkedQuestion = makeQuestion('checked-1', 'A');
+    const selfQuestion1 = makeQuestion('self-1', 'A', {
+      type: 'open_completion',
+      accepted_answers: undefined,
+      model_answers: ['Resposta modelo 1'],
+    });
+    const selfQuestion2 = makeQuestion('self-2', 'A', {
+      type: 'speak_aloud',
+      accepted_answers: undefined,
+      model_answers: ['Resposta modelo 2'],
+    });
+    const bundle = makeBundle([checkedQuestion, selfQuestion1, selfQuestion2]);
+    const config: SessionConfig = {
+      ...baseConfig,
+      count: 3,
+      topics: ['A'],
+      types: ['en_to_pt', 'open_completion', 'speak_aloud'],
+    };
+    const runner = await SessionRunner.start(bundle, config);
+
+    // Answer whichever question landed first (selectQuestions shuffles), using the right method
+    // for its type, then save-and-exit mid-session.
+    const firstQuestion = runner.currentQuestion()!;
+    if (firstQuestion.type === 'en_to_pt') {
+      runner.submitAnswer(firstQuestion.id);
+    } else {
+      runner.revealSelfAssessed('');
+    }
+    await runner.confirmRating('good');
+    runner.proceedToNext();
+    await runner.saveAndExit();
+
+    const saved = await getActiveSession();
+    expect(saved).not.toBeNull();
+    expect(saved!.cursor).toBe(1);
+    expect(saved!.items).toHaveLength(1);
+
+    // Resume on what stands in for a fresh module graph/page load, then drive the rest of the
+    // mixed-type queue to completion, using the correct method per question type.
+    const resumed = SessionRunner.resume(bundle, saved!);
+    while (!resumed.isFinished()) {
+      const q = resumed.currentQuestion()!;
+      if (q.type === 'en_to_pt') {
+        resumed.submitAnswer(q.id);
+      } else {
+        resumed.revealSelfAssessed('');
+      }
+      await resumed.confirmRating('good');
+      resumed.proceedToNext();
+    }
+
+    const result = await resumed.finish();
+    expect(result.summary.answered).toBe(3);
+    expect(result.summary.correct).toBe(3);
+    expect(await getActiveSession()).toBeNull();
+
+    const display = resumed.buildDisplaySummary();
+    expect(display.answered).toBe(3);
+    expect(display.correct).toBe(3);
+  });
 });

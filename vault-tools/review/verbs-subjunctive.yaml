@@ -1,0 +1,155 @@
+# Review file for questions sourced from "Grammar/Verbs/Subjunctive.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+#
+# Phase 3 batch: self-assessed types (explain_difference, open_completion,
+# speak_aloud) sourced from this note's subjunctive-vs-indicative-vs-infinitive
+# decision tree and its trigger-word lists.
+
+questions:
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Present subjunctive vs future subjunctive
+    direction: null
+    difficulty: hard
+    register: neutral
+    prompt: "Explain the difference between the present subjunctive and the future
+      subjunctive, using \"Espero que ele venha\" and \"Se ele vier...\" as
+      examples."
+    model_answers:
+      - "The present subjunctive expresses a wish, hope, doubt or emotion about
+        something, e.g. Espero que ele venha (I hope he comes) — the coming
+        isn't presented as fact. The future subjunctive specifically marks a
+        future event that hasn't happened yet, typically after triggers like se,
+        quando or assim que, e.g. Se ele vier... (If he comes...). Both are
+        \"not a fact\", but the future subjunctive additionally commits to the
+        event being time-located in an as-yet-unrealised future, which is why it
+        changes the verb form again rather than reusing the present
+        subjunctive."
+    useful_structures:
+      - "espero que + present subjunctive"
+      - "se/quando/assim que + future subjunctive"
+    explanation: "Present subjunctive covers wishes/doubts/emotions in general;
+      future subjunctive is reserved for events explicitly framed as
+      not-yet-happened, cued by triggers like se, quando, assim que."
+    source:
+      note: "Grammar/Verbs/Subjunctive.md"
+      heading: "Present vs Future Subjunctive"
+    status: approved
+    generation_version: 1
+    id: verbs-subjunctive-0001
+    created_at: 2026-07-24
+    content_hash: sha256:5a9589d35f52f08345a3df390f62f13e0a0c2ab8a9974d1f873289c6efa0c506
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Subjunctive vs infinitive after a change of subject
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why \"Eu quero comer\" uses the infinitive but \"Eu quero que
+      você venha\" switches to the subjunctive."
+    model_answers:
+      - "When the same person performs both actions, Portuguese uses the
+        infinitive — Eu quero comer (I want to eat: I do both the wanting and
+        the eating). When a different subject is involved in the second action,
+        Portuguese switches to the subjunctive introduced by que — Eu quero que
+        você venha (I want you to come: I want, but you come). The change of
+        subject between the two clauses is what triggers the subjunctive; same
+        subject keeps the simpler infinitive."
+    explanation: "Same-subject sentences stay in the infinitive; as soon as a
+      second, different subject appears in the que-clause, the verb must switch
+      to the subjunctive."
+    source:
+      note: "Grammar/Verbs/Subjunctive.md"
+      heading: "Step 3 – Different Subject?"
+    status: approved
+    generation_version: 1
+    id: verbs-subjunctive-0002
+    created_at: 2026-07-24
+    content_hash: sha256:d7677017cf1aef3cfe5d7e7703e71984894765877831a80ae9ae0175b9d4f3f9
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: open_completion
+    topic: Verbs
+    subtopic: Subjunctive triggers — espero que
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Complete with the correct subjunctive form: \"Espero que ele ___ bem.\"
+      (I hope he's well.)"
+    model_answers:
+      - "Espero que ele esteja bem."
+    useful_structures:
+      - "espero que + subjunctive"
+    explanation: "Espero que is one of the biggest subjunctive triggers; the verb
+      ser/estar-family form used here is esteja, the present subjunctive of
+      estar."
+    source:
+      note: "Grammar/Verbs/Subjunctive.md"
+      heading: "The Biggest Triggers"
+    status: approved
+    generation_version: 1
+    id: verbs-subjunctive-0003
+    created_at: 2026-07-24
+    content_hash: sha256:661aa30f2158e0875d3cff36c37240019f113ecb1d53cb90d775b43a458ce14c
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: open_completion
+    topic: Verbs
+    subtopic: Future subjunctive after quando
+    direction: null
+    difficulty: hard
+    register: neutral
+    prompt: "Complete in Portuguese, using the future subjunctive: \"When you
+      arrive, call me.\""
+    model_answers:
+      - "Quando você chegar, me liga."
+    useful_structures:
+      - "quando + future subjunctive"
+    explanation: "Quando introduces a future event that hasn't happened yet, so
+      chegar takes the future subjunctive form chegar (chegares/chegarem for
+      other persons), not the indicative chega."
+    source:
+      note: "Grammar/Verbs/Subjunctive.md"
+      heading: "Common Future Subjunctive Triggers"
+    status: approved
+    generation_version: 1
+    id: verbs-subjunctive-0004
+    created_at: 2026-07-24
+    content_hash: sha256:a664a56b0c18328e31da94b42d9d7c7c71d33f7890766cbc02b3f091d6fe9071
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: speak_aloud
+    topic: Verbs
+    subtopic: Subjunctive drill phrases
+    direction: null
+    difficulty: medium
+    register: spoken
+    prompt: "Say these aloud, paying attention to the subjunctive verb endings:
+      \"Quero que você venha.\", \"Espero que dê certo.\", \"Tomara que não
+      chova.\""
+    model_answers:
+      - "Quero que você venha."
+      - "Espero que dê certo."
+      - "Tomara que não chova."
+    explanation: "These three everyday triggers (quero que, espero que, tomara que)
+      all force the present subjunctive in the following clause — venha, dê and
+      chova."
+    source:
+      note: "Grammar/Verbs/Subjunctive.md"
+      heading: "10-Minute Daily Drill"
+    status: approved
+    generation_version: 1
+    id: verbs-subjunctive-0005
+    created_at: 2026-07-24
+    content_hash: sha256:163b452d3af3240d865370fa4e09e46b7b130ace493ed1f47cbadbdf8a53cdcb
+    version: 1
+    updated_at: 2026-07-24

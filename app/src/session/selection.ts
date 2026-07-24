@@ -5,17 +5,24 @@ import type { ContentBundle, Question, QuestionType } from '../content/types';
 import type { ProgressRecord } from '../review/types';
 import type { SessionConfig } from './types';
 
-// Phase 2 only renders en_to_pt; other question types exist in the schema for forward
-// compatibility but are excluded from selection until a later phase adds their UI.
-export const SUPPORTED_TYPES_THIS_PHASE: readonly QuestionType[] = ['en_to_pt'];
+// Types with a rendering/checking path built in the app so far. Phase 2 built en_to_pt; Phase 3
+// added the three self-assessed types. The remaining exact-mode types (pt_to_en, fill_blank,
+// choose_form, correct_sentence, context_choice, build_sentence) exist in the schema for forward
+// compatibility but have no UI yet — a future phase's job, not this list's.
+export const IMPLEMENTED_QUESTION_TYPES: readonly QuestionType[] = [
+  'en_to_pt',
+  'open_completion',
+  'explain_difference',
+  'speak_aloud',
+];
 
 export function distinctTopics(bundle: ContentBundle): string[] {
   return [...new Set(bundle.questions.map((q) => q.topic))].sort();
 }
 
-export function distinctSupportedTypes(bundle: ContentBundle): string[] {
+export function distinctSupportedTypes(bundle: ContentBundle): QuestionType[] {
   const bundleTypes = new Set(bundle.questions.map((q) => q.type));
-  return SUPPORTED_TYPES_THIS_PHASE.filter((t) => bundleTypes.has(t));
+  return IMPLEMENTED_QUESTION_TYPES.filter((t) => bundleTypes.has(t));
 }
 
 function shuffle<T>(items: T[]): T[] {
@@ -34,7 +41,7 @@ export function selectQuestions(
 ): Question[] {
   const eligible = bundle.questions.filter((q) => {
     if (q.status !== 'approved') return false;
-    if (!SUPPORTED_TYPES_THIS_PHASE.includes(q.type)) return false;
+    if (!IMPLEMENTED_QUESTION_TYPES.includes(q.type)) return false;
     if (!config.types.includes(q.type)) return false;
     if (!config.topics.includes(q.topic)) return false;
     const status = progressByQuestionId.get(q.id)?.user_status ?? 'active';

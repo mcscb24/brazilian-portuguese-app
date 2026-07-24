@@ -1,0 +1,99 @@
+# Review file for questions sourced from "Bits and Bobs/Algum & Nenhum.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+#
+# Phase 3 batch: self-assessed types (explain_difference, open_completion)
+# sourced from this note's algum/nenhum/qualquer distinctions and its
+# negative-concord section.
+
+questions:
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: Algum vs nenhum — positive vs negative
+    direction: null
+    difficulty: easy
+    register: neutral
+    prompt: "Explain when to use algum versus nenhum, and why \"Não tenho nenhum
+      dinheiro\" is grammatically correct even though it looks like a double
+      negative in English."
+    model_answers:
+      - "Algum (\"some/any\") is used in positive statements and most questions,
+        e.g. Tenho alguns amigos, Você tem algum irmão? Nenhum (\"none/not
+        any\") is used in negative sentences alongside não, e.g. Não tenho
+        nenhum dinheiro. Portuguese requires this negative concord — both the
+        verb and the following word are negative — so the literal \"I don't have
+        no money\" reading is standard, correct Portuguese, unlike in English
+        where a second negative would cancel the first."
+    useful_structures:
+      - "algum(a) in positive statements and questions"
+      - "não + verb + nenhum(a) (negative concord)"
+    explanation: "Algum marks existence in positive/question contexts; nenhum marks
+      absence and pairs with não as normal negative concord in Portuguese, not a
+      double negative like in English."
+    source:
+      note: "Bits and Bobs/Algum & Nenhum.md"
+      heading: "6. Algum vs Nenhum"
+    status: approved
+    generation_version: 1
+    id: bits-algum-nenhum-0001
+    created_at: 2026-07-24
+    content_hash: sha256:eed69158c180e8261b60662a445067b8d8d92339265b91e50aa6a6ddbd3f9680
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: Algum vs qualquer
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the difference in meaning between algum and qualquer, using
+      \"Você conhece algum médico?\" and \"Qualquer médico pode fazer isso\" as
+      examples."
+    model_answers:
+      - "Algum means \"some/any\" in the sense that at least one exists — Você
+        conhece algum médico? asks whether the person knows of any doctor at
+        all. Qualquer means \"any at all/whichever\" and signals that it doesn't
+        matter which one — Qualquer médico pode fazer isso says any doctor, no
+        matter which, could do it. Algum is about existence of at least one;
+        qualquer is about indifference to which one."
+    explanation: "Algum questions whether at least one instance exists; qualquer
+      expresses indifference to which particular instance is chosen."
+    source:
+      note: "Bits and Bobs/Algum & Nenhum.md"
+      heading: "10. Algum vs Qualquer"
+    status: approved
+    generation_version: 1
+    id: bits-algum-nenhum-0002
+    created_at: 2026-07-24
+    content_hash: sha256:730581c392dcb3c0e4a2cc37ac22f1e9e22ecc7aeb114dd936b0dabc03c553f2
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: open_completion
+    topic: Bits and Bobs
+    subtopic: Negative concord with nenhum
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Complete this sentence with the correct negative pattern: \"Eu não vi
+      ___ carro.\" (I didn't see any car.)"
+    model_answers:
+      - "Eu não vi nenhum carro."
+    useful_structures:
+      - "não + verb + nenhum + noun (negative concord)"
+    explanation: "Even though carro is singular, nenhum carro means \"not a single
+      car\" — Portuguese pairs não with nenhum rather than using a plain
+      non-negative object the way English \"any\" does."
+    source:
+      note: "Bits and Bobs/Algum & Nenhum.md"
+      heading: "5. Double negatives are normal"
+    status: approved
+    generation_version: 1
+    id: bits-algum-nenhum-0003
+    created_at: 2026-07-24
+    content_hash: sha256:957b63f07c11a85b26e3d1ef33a1f0e4c70ce5ae1a78b8b5bc0656aa14d176c3
+    version: 1
+    updated_at: 2026-07-24

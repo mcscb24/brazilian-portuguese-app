@@ -1,0 +1,103 @@
+# Review file for questions sourced from "Bits and Bobs/Bom, Boa & Bem.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+#
+# Phase 3 batch: self-assessed types (explain_difference, speak_aloud) sourced
+# from this note's bom/boa/bem distinction and its "Very common expressions"
+# section.
+
+questions:
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: Bom/boa vs bem — adjective vs adverb
+    direction: null
+    difficulty: easy
+    register: neutral
+    prompt: "Explain the difference between bom/boa and bem, and explain why
+      Brazilians say \"Que bom!\" but never \"Que bem!\" when reacting to good
+      news."
+    model_answers:
+      - "Bom and boa are adjectives and must agree with the noun they describe —
+        bom for masculine (um bom livro), boa for feminine (uma boa ideia). Bem
+        is an adverb that never changes form and describes how an action is done
+        or a state, e.g. Ele fala bem, Estou bem. \"Que bom!\" reacts to a thing
+        or situation, which is noun-like, so it takes the adjective bom rather
+        than the adverb bem — \"Que bem!\" would be describing an action that
+        isn't there."
+    useful_structures:
+      - "bom/boa + noun (adjective agreement)"
+      - "verb + bem (adverb describing an action or state)"
+      - "Tudo bem? / Que bom!"
+    explanation: "Bom/boa describe nouns and agree in gender; bem describes
+      verbs/states and is invariant. Que bom! comments on a situation
+      (noun-like), so it needs the adjective, not the adverb."
+    source:
+      note: "Bits and Bobs/Bom, Boa & Bem.md"
+      heading: "Step 4 – The easiest test"
+    status: approved
+    generation_version: 1
+    id: bits-bom-boa-bem-0001
+    created_at: 2026-07-24
+    content_hash: sha256:5370ccc88acdc2a1ae41616f399ed13ab74a05d5f1d6f90565779558725e3fd4
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: Muito bom vs muito bem
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the difference between \"muito bom\" and \"muito bem\", with an
+      example of each."
+    model_answers:
+      - "Muito bom (\"very good\") describes a thing or person, e.g. Esse filme
+        é muito bom — the film, a noun, is very good. Muito bem (\"very well\")
+        describes how an action is performed, e.g. Você fala português muito bem
+        — describing the speaking, a verb. It's the same noun-vs-action rule as
+        bom/bem, just intensified with muito."
+    useful_structures:
+      - "muito bom + noun/thing"
+      - "muito bem + verb/action"
+    explanation: "Muito intensifies whichever word the sentence already needs — bom
+      for a thing, bem for an action — so the choice still follows the ordinary
+      bom/bem rule."
+    source:
+      note: "Bits and Bobs/Bom, Boa & Bem.md"
+      heading: "Step 9 – Muito bom vs Muito bem"
+    status: approved
+    generation_version: 1
+    id: bits-bom-boa-bem-0002
+    created_at: 2026-07-24
+    content_hash: sha256:19e879b440fbb2f765a1ccbb7b39ab316946bf4c629892d67e94dfe358f91542
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: speak_aloud
+    topic: Bits and Bobs
+    subtopic: Tudo bem? — the everyday greeting exchange
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Say aloud the everyday greeting exchange: ask \"Tudo bem?\", answer
+      \"Tudo bem!\", then react to a friend's good news (they just passed an
+      exam) with \"Que bom!\""
+    model_answers:
+      - "Tudo bem?"
+      - "Tudo bem!"
+      - "Que bom!"
+    explanation: "Tudo bem? (\"Everything OK?\") is probably the most common
+      Brazilian greeting, usually answered with Tudo bem!; Que bom! (\"That's
+      great!\") is the standard reaction to someone else's good news."
+    source:
+      note: "Bits and Bobs/Bom, Boa & Bem.md"
+      heading: "Step 5 – Very common expressions"
+    status: approved
+    generation_version: 1
+    id: bits-bom-boa-bem-0003
+    created_at: 2026-07-24
+    content_hash: sha256:028ea357d479d64bb8e129b015e3049ebe46f4a10596d19d6bf69d923958afb3
+    version: 1
+    updated_at: 2026-07-24

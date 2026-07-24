@@ -4,6 +4,7 @@
 // public methods below — never checking/, review/, or session/queue.ts directly.
 
 import { checkAnswer, type CheckOutcome } from '../checking/checkAnswer';
+import { isSelfAssessedType } from '../checking/checkingMode';
 import { autoRatingForOutcome } from '../checking/ratingAuto';
 import type { ContentBundle, Question } from '../content/types';
 import { applyAttempt } from '../review/scheduler';
@@ -27,9 +28,10 @@ import type {
 export interface FeedbackState {
   question: Question;
   userAnswer: string;
-  outcome: CheckOutcome;
+  kind: 'checked' | 'self_assessed';
+  outcome: CheckOutcome | null; // null for self_assessed — no deterministic check runs
   matchedAnswer?: string;
-  autoRating: Rating;
+  autoRating: Rating | null; // null for self_assessed — no chip is pre-selected (design doc §13)
   rated: boolean;
   ratedAs: Rating | null;
 }
@@ -132,9 +134,32 @@ export class SessionRunner {
     this.feedback = {
       question,
       userAnswer,
+      kind: 'checked',
       outcome: result.outcome,
       matchedAnswer: result.matchedAnswer,
       autoRating: autoRatingForOutcome(result.outcome),
+      rated: false,
+      ratedAs: null,
+    };
+    return this.feedback;
+  }
+
+  // The self-assessed counterpart to submitAnswer() (design doc §10): no deterministic check
+  // runs at all. attemptText is an optional, never-persisted free-text attempt — practice.ts
+  // passes '' for speak_aloud, which has no input control.
+  revealSelfAssessed(attemptText: string): FeedbackState {
+    const question = this.currentQuestion();
+    if (!question) throw new Error('revealSelfAssessed called with no current question.');
+    if (!isSelfAssessedType(question.type)) {
+      throw new Error(`revealSelfAssessed called on a non-self-assessed question type: ${question.type}`);
+    }
+
+    this.feedback = {
+      question,
+      userAnswer: attemptText,
+      kind: 'self_assessed',
+      outcome: null,
+      autoRating: null,
       rated: false,
       ratedAs: null,
     };
@@ -160,7 +185,10 @@ export class SessionRunner {
     const question = feedback.question;
 
     const progress = await getOrCreateProgress(question.id, question.version);
-    const wasCorrect = feedback.outcome !== 'incorrect';
+    // Self-assessed items have no deterministic outcome to derive correctness from, so it comes
+    // directly from the chosen rating instead: anything but Again counts as a successful attempt
+    // (matching the existing rule that Difficult already means "correct, just hint-assisted").
+    const wasCorrect = feedback.kind === 'checked' ? feedback.outcome !== 'incorrect' : rating !== 'again';
     const updated = applyAttempt(progress, rating, wasCorrect, false);
     updated.last_seen_version = question.version;
     await putProgress(updated);
@@ -168,10 +196,14 @@ export class SessionRunner {
     const requeued = rating === 'again' ? this.queue.requeueAgain(question.id) : false;
 
     const finalResult: FinalResult =
-      feedback.outcome === 'correct'
-        ? 'correct'
-        : feedback.outcome === 'correct_accent_only'
-          ? 'correct_accent_only'
+      feedback.kind === 'checked'
+        ? feedback.outcome === 'correct'
+          ? 'correct'
+          : feedback.outcome === 'correct_accent_only'
+            ? 'correct_accent_only'
+            : 'incorrect'
+        : wasCorrect
+          ? 'correct'
           : 'incorrect';
 
     this.items.set(question.id, {

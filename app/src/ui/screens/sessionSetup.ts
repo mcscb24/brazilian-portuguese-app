@@ -1,4 +1,4 @@
-import type { ContentBundle } from '../../content/types';
+import type { ContentBundle, QuestionType } from '../../content/types';
 import { distinctSupportedTypes, distinctTopics } from '../../session/selection';
 import type { SessionConfig } from '../../session/types';
 import { el } from '../dom';
@@ -7,11 +7,19 @@ import type { Shell } from '../shell';
 const FIXED_COUNT_OPTIONS = [10, 20, 30, 50] as const;
 type CountChoice = (typeof FIXED_COUNT_OPTIONS)[number] | 'custom' | 'unlimited';
 
+const TYPE_LABELS: Partial<Record<QuestionType, string>> = {
+  en_to_pt: 'Translate to Portuguese',
+  open_completion: 'Open sentence completion',
+  explain_difference: 'Explain the difference',
+  speak_aloud: 'Speak aloud',
+};
+
 export function renderSessionSetup(bundle: ContentBundle, shell: Shell): HTMLElement {
   const topics = distinctTopics(bundle);
   const types = distinctSupportedTypes(bundle);
 
   const selectedTopics = new Set(topics);
+  const selectedTypes = new Set(types);
   let selectedCount: CountChoice = 10;
   let customCount = 10;
   let includeIgnored = false;
@@ -72,9 +80,21 @@ export function renderSessionSetup(bundle: ContentBundle, shell: Shell): HTMLEle
 
   const typeGroup = el('div', { class: 'field-group' }, [
     el('h2', {}, ['Question types']),
-    el('p', { class: 'muted' }, [
-      types.length > 0 ? `This phase supports: ${types.join(', ')}` : 'No supported question types in this bundle yet.',
-    ]),
+    ...(types.length > 0
+      ? types.map((type) => {
+          const id = `type-${type.replace(/\s+/g, '-')}`;
+          const checkbox = el('input', {
+            type: 'checkbox',
+            id,
+            checked: true,
+            onchange: (e: Event) => {
+              if ((e.target as HTMLInputElement).checked) selectedTypes.add(type);
+              else selectedTypes.delete(type);
+            },
+          });
+          return el('label', { for: id, class: 'checkbox-row' }, [checkbox, TYPE_LABELS[type] ?? type]);
+        })
+      : [el('p', { class: 'muted' }, ['No supported question types in this bundle yet.'])]),
   ]);
 
   const includeIgnoredCheckbox = el('input', {
@@ -98,10 +118,14 @@ export function renderSessionSetup(bundle: ContentBundle, shell: Shell): HTMLEle
           window.alert('No supported question types are available in this content bundle.');
           return;
         }
+        if (selectedTypes.size === 0) {
+          window.alert('Select at least one question type.');
+          return;
+        }
         const config: SessionConfig = {
           count: selectedCount === 'custom' ? customCount : selectedCount,
           topics: [...selectedTopics],
-          types: [...types],
+          types: [...selectedTypes],
           source_filter: 'random',
           include_ignored: includeIgnored,
         };
