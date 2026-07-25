@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "bundle_version": "2026-07-24T14:30:41.025Z",
+  "bundle_version": "2026-07-24T21:22:47.682Z",
   "questions": [
     {
       "type": "explain_difference",
@@ -668,6 +668,280 @@
       "updated_at": "2026-07-23"
     },
     {
+      "type": "en_to_pt",
+      "topic": "Pronouns",
+      "subtopic": "Reflexive pronoun forms — nos",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "We got up early.",
+      "accepted_answers": [
+        {
+          "text": "Nós nos levantamos cedo.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "nós takes the reflexive pronoun nos, placed before the verb — the normal Brazilian word order.",
+      "source": {
+        "note": "Grammar/Pronouns/Reflexive Pronouns.md",
+        "heading": "Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-reflexive-0001",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:bee415ceb6489e0e5537efc16a7a667a90477939e5a3d67d24411b74c7f984af",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Pronouns",
+      "subtopic": "Reflexive pronoun forms — se",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Complete with the correct reflexive pronoun: \"Você ___ chama Ana?\" (Are you called Ana?)",
+      "model_answers": [
+        "Você se chama Ana?"
+      ],
+      "explanation": "se covers himself/herself/yourself(você)/yourselves/themselves — one pronoun doing a lot of work. Here it's the yourself(você) sense.",
+      "source": {
+        "note": "Grammar/Pronouns/Reflexive Pronouns.md",
+        "heading": "Step 4 – Chamar-se"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-reflexive-0002",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:edc15bd3da56e30ebb34a1ed72d5b67d6745d6de77a16f8b28ed54ea556e25ff",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Pronouns",
+      "subtopic": "Reflexive pronoun function — você takes se, not te",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why \"você\" takes the reflexive pronoun \"se\" rather than \"te\", even though \"te\" is extremely common with \"você\" for direct and indirect objects (e.g. \"Eu te amo\").",
+      "model_answers": [
+        "Because você grammatically takes third-person verb forms, its reflexive pronoun has to match that same third-person pattern — se, not te. So Você se chama João and Você se levantou cedo are correct, even though Brazilians happily use te with você for direct/indirect objects (Eu te amo, Eu te disse). Reflexive constructions are one of the few places where Brazilian Portuguese is very consistent about matching se to você's grammatical person, regardless of how casual the register is."
+      ],
+      "explanation": "This is the note's own 'one important correction': te stays common with você for direct/indirect objects, but reflexive se does not get replaced by te.",
+      "source": {
+        "note": "Grammar/Pronouns/Reflexive Pronouns.md",
+        "heading": "One important correction"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-reflexive-0003",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:4d336661b836a29c962fa5ef92ec53edcf02a54847ed7efd8d7d19bd7d2a3bb5",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Pronouns",
+      "subtopic": "Reflexive pronoun placement — before vs after the verb",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the difference in reflexive-pronoun placement between everyday spoken Brazilian Portuguese (\"Eu me levanto\") and the more formal, written style you might see in books or newspapers (\"Levantou-se\").",
+      "model_answers": [
+        "In spoken Brazilian Portuguese, the reflexive pronoun almost always comes before the verb — Eu me levanto, Ela se chama, Nós nos encontramos. This is the natural, default word order to use when speaking. Formal written Portuguese sometimes places the pronoun attached after the verb instead — Levantou-se, Chamou-se — a style you'll encounter reading books or newspapers but wouldn't normally produce yourself in conversation."
+      ],
+      "explanation": "Pronoun-before-verb is the safe default for speech; pronoun- after-verb is a formal/written variant to recognise when reading, not to imitate when speaking.",
+      "source": {
+        "note": "Grammar/Pronouns/Reflexive Pronouns.md",
+        "heading": "Step 10 – Position of the pronoun"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-reflexive-0004",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:abec49a36841ec4b9587e2eb68ddd7250f03ea752ca7a02991a3e04f180dc228",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "speak_aloud",
+      "topic": "Pronouns",
+      "subtopic": "Reflexive pronoun forms in common expressions",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Say these aloud, paying attention to the reflexive pronoun in each: \"Como você se chama?\", \"Não me lembro.\", \"Sente-se!\"",
+      "model_answers": [
+        "Como você se chama?",
+        "Não me lembro.",
+        "Sente-se!"
+      ],
+      "explanation": "Three everyday expressions built on reflexive pronouns you'll hear constantly: se (asking a name), me (not remembering), and the imperative Sente-se! (sit down!) with the pronoun attached after the command form.",
+      "source": {
+        "note": "Grammar/Pronouns/Reflexive Pronouns.md",
+        "heading": "Step 12 – Common expressions"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-reflexive-0005",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:4abe6f05b6d0257f9ecef7c2f5db05c16c7a03f725c25c2a0826a4b9b72bc4dd",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Pronouns",
+      "subtopic": "Reflexive pronoun function — reciprocal \"each other\" use of se",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain how \"se\" can mean \"each other\" rather than \"himself/ herself\", using \"Eles se conhecem\" and \"Nós nos encontramos ontem\" as examples.",
+      "model_answers": [
+        "The same reflexive-looking pronouns (se, nos) can mark a reciprocal action between two or more people, not just an action turned back on a single subject. Eles se conhecem means They know each other (not 'they know themselves'), and Nós nos encontramos ontem means We met each other yesterday. The pronoun forms are identical to the ordinary reflexive use — only the meaning changes, and context is what tells you which reading is intended."
+      ],
+      "explanation": "Same pronouns, different function: reflexive se/nos turn the action back on the subject; reciprocal se/nos point the action between the people in the subject.",
+      "source": {
+        "note": "Grammar/Pronouns/Reflexive Pronouns.md",
+        "heading": "Step 11 – Reciprocal actions"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-reflexive-0006",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:809b3b6c0e2122b8416d093b249e140f5f4674c249cb6eada4c1074a1148e039",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Pronouns",
+      "subtopic": "Subject pronouns — a gente",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "We like coffee. (using \"a gente\")",
+      "accepted_answers": [
+        {
+          "text": "A gente gosta de café.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "a gente is an extremely common everyday alternative to nós for 'we'.",
+      "source": {
+        "note": "Grammar/Pronouns/Subject Pronouns.md",
+        "heading": "Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-subject-0001",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:41b8ceef98e01e23141d83d55058e33959c137aeec086982a8ad30ccc4d69a04",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Pronouns",
+      "subtopic": "Subject pronouns — a gente takes a third-person singular verb",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Complete with the correct verb form: \"A gente ___ em São Paulo.\" (We live in São Paulo.)",
+      "model_answers": [
+        "A gente mora em São Paulo."
+      ],
+      "explanation": "Even though a gente means 'we', it grammatically behaves like a third-person singular subject (like ele/ela/você), so the verb takes the third-person singular form mora, not the nós form moramos.",
+      "source": {
+        "note": "Grammar/Pronouns/Subject Pronouns.md",
+        "heading": "A gente"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-subject-0002",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:4a521130519ae3ef514f09728015694e225332f2b04088d0259f9166a8de9bdb",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Pronouns",
+      "subtopic": "Subject pronoun dropping — why eu/nós drop but você/ele/ela stay",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why \"eu\" and \"nós\" are often dropped in Brazilian Portuguese, while \"você\", \"ele\", and \"ela\" are usually kept explicit.",
+      "model_answers": [
+        "Portuguese verb endings usually make eu and nós subjects unambiguous on their own — Eu falo and Falo are equally clear that 'I' is the subject, and the same goes for Nós estamos cansados vs Estamos cansados — so those pronouns can be safely dropped without losing information. But você, ele, and ela all share the exact same verb form (fala), so without the pronoun, a bare Fala is genuinely ambiguous between he/she/you. Brazilians therefore keep você, ele, and ela explicit specifically to disambiguate who's being talked about, even though grammatically the verb ending alone wouldn't require it."
+      ],
+      "explanation": "Pronoun-dropping tracks how much information the verb ending alone gives you: unambiguous endings (eu, nós) get dropped; shared, ambiguous endings (você/ele/ela) keep the pronoun.",
+      "source": {
+        "note": "Grammar/Pronouns/Subject Pronouns.md",
+        "heading": "Portuguese often drops pronouns"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-subject-0003",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:c42c98ce81f7e4b672fb42fa1039a30d70ff00b1d48f75317d4c6a724ef5b858",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Pronouns",
+      "subtopic": "Subject pronouns — você's third-person grammar",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "neutral",
+      "prompt": "Explain why \"você\" is grammatically treated like \"ele\" and \"ela\" rather than like a true second-person pronoun, even though it means \"you\".",
+      "model_answers": [
+        "Você historically comes from Vossa Mercê, a polite third-person form of address, and modern Brazilian Portuguese has kept that third-person grammar even as você became the everyday word for 'you'. So você takes the exact same verb conjugation as ele/ela — Você fala, Ele fala, Ela fala — never a true second-person form like the incorrect Você falas. The same logic extends to the plural: vocês takes the same verb form as eles/elas."
+      ],
+      "explanation": "você looks like 'you' but conjugates like 'he/she' — a direct consequence of its origin as a third-person title rather than a true second-person pronoun.",
+      "source": {
+        "note": "Grammar/Pronouns/Subject Pronouns.md",
+        "heading": "Você"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-subject-0004",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:72cebf31eb37a692ac2e5d0de3b9b586050af48accc162d540d6feba51d89704",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "speak_aloud",
+      "topic": "Pronouns",
+      "subtopic": "Subject pronouns — a gente in common expressions",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Say these aloud, noticing that \"a gente\" takes a third-person singular verb even though it means \"we\": \"A gente mora em São Paulo.\", \"A gente gosta de viajar.\", \"A gente vai.\"",
+      "model_answers": [
+        "A gente mora em São Paulo.",
+        "A gente gosta de viajar.",
+        "A gente vai."
+      ],
+      "explanation": "mora, gosta and vai are all third-person singular forms — the same ones you'd use with ele/ela/você — even though a gente means 'we'.",
+      "source": {
+        "note": "Grammar/Pronouns/Subject Pronouns.md",
+        "heading": "A gente"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-subject-0005",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:9c72256fd67f4f6d1bd1b339b149662d25a7d64249d88d11cdf39a221bec1593",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
       "type": "open_completion",
       "topic": "Verbs",
       "subtopic": "Familiar imperative — -ir verbs",
@@ -741,6 +1015,129 @@
       "id": "verbs-imperative-mood-0003",
       "created_at": "2026-07-24",
       "content_hash": "sha256:128692193bd9a9fb74d4be06b65effb06cb9beb44342c30943b7db1bc3ea046c",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Three types of se — reflexive vs passive vs impersonal",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "Explain the difference between the three uses of \"se\" in Brazilian Portuguese — reflexive, passive, and impersonal — using \"Ela se levantou\", \"Vendem-se casas\", and \"Aqui se trabalha muito\" as examples.",
+      "model_answers": [
+        "Reflexive se: the subject performs the action on itself — Ela se levantou means She got up (she got herself up); the subject is a person acting on themselves. Passive se: something is done — Vendem-se casas means Houses are sold; here the subject is the thing being acted on, not a person doing the acting. Impersonal se: a general statement about people — Aqui se trabalha muito means People work a lot here; the sentence describes what people in general do, with no specific person as subject. To tell them apart, ask: is a person acting on themselves (reflexive), is a thing being acted upon (passive), or is this a general statement about people (impersonal)?"
+      ],
+      "explanation": "The note's own recognition test: person-acting-on-self = reflexive; thing-being-acted-on = passive; general-statement-about-people = impersonal.",
+      "source": {
+        "note": "Grammar/Verbs/Reflexive Verbs Cheat Sheet.md",
+        "heading": "The 3 Types of se in Brazilian Portuguese"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-reflexive-0001",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:5098e1ffaa38f1ba67129176c448ee8c28b169ffcc3a8fb800fc5895710ce3cf",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Reflexive verbs that don't translate as literally reflexive in English",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why \"Eu me lembro\" means \"I remember\" rather than a literal \"I remember myself\", and why this matters when translating into Portuguese.",
+      "model_answers": [
+        "Portuguese often uses a reflexive verb where English uses a plain, non-reflexive one. Eu me lembro literally reads as I remember myself, but the real English equivalent is simply I remember — English just doesn't mark this verb as reflexive at all. Same with Ela se chama Ana: literally She calls herself Ana, but it really means Her name is Ana. This matters because you can't rely on the English sentence to tell you whether the Portuguese verb needs -se — you have to learn which verbs are reflexive in Portuguese as a property of the verb itself, independent of whether English happens to use 'myself'."
+      ],
+      "explanation": "lembrar-se and chamar-se are both grammatically reflexive in Portuguese despite having ordinary, non-reflexive English translations — a common source of confusion for learners translating word-for-word.",
+      "source": {
+        "note": "Grammar/Verbs/Reflexive Verbs Cheat Sheet.md",
+        "heading": "Important: Not Always Reflexive in English"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-reflexive-0002",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:2968d2be6ec11e878ae0b7d5f83aeabc997a5ad67b3b1c65be70369b18f3aad2",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Reflexive verb meaning — levantar vs levantar-se",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "neutral",
+      "prompt": "Explain the difference in meaning between \"levantar\" and \"levantar-se\".",
+      "model_answers": [
+        "levantar (non-reflexive) means to lift or raise something/someone else — it takes an external object. levantar-se (reflexive, marked by -se) means to get (oneself) up, e.g. out of bed — the subject performs the action on themselves rather than on something else. The same pattern shows up across many other reflexive verbs: the plain verb acts on an external object, the -se version turns the action back on the subject."
+      ],
+      "explanation": "The -se ending is what signals the action is reflexive (self-directed) rather than acting on an outside object.",
+      "source": {
+        "note": "Grammar/Verbs/Reflexive Verbs Cheat Sheet.md",
+        "heading": "The Infinitive Form"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-reflexive-0003",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:858290932fa1686f23286b191e4d33b8ca4249727a76c8eec83f855027dedffe",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Verbs",
+      "subtopic": "Recognising se type in context",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Identify which type of \"se\" is used in each sentence and explain your reasoning: (a) \"Aluga-se apartamento.\" (b) \"Ele se veste rápido.\" (c) \"No Brasil se fala português.\"",
+      "model_answers": [
+        "(a) Passive se — Aluga-se apartamento means Apartment for rent / apartment is rented; the subject (apartamento) is the thing being acted on, not a person. (b) Reflexive se — Ele se veste rápido means He gets dressed quickly; the subject (ele) is a person acting on himself. (c) Impersonal se — No Brasil se fala português means Portuguese is spoken in Brazil / people speak Portuguese in Brazil; it's a general statement about people, with no specific person as subject."
+      ],
+      "explanation": "The three examples are the note's own worked cases for each type, used here as a mixed recognition drill.",
+      "source": {
+        "note": "Grammar/Verbs/Reflexive Verbs Cheat Sheet.md",
+        "heading": "How to Recognise Which se It Is"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-reflexive-0004",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:0b0d9efac0ca555d8123cc1522b8063fb1adeea571e16728b8f59ec6a399db95",
+      "version": 1,
+      "updated_at": "2026-07-24"
+    },
+    {
+      "type": "speak_aloud",
+      "topic": "Verbs",
+      "subtopic": "Everyday reflexive verbs — daily routine",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Say these aloud, noticing the reflexive verbs used for daily routine: \"Eu me levanto às 7.\", \"Eu me visto.\", \"Eu me sento para trabalhar.\", \"Eu me deito às 23.\"",
+      "model_answers": [
+        "Eu me levanto às 7.",
+        "Eu me visto.",
+        "Eu me sento para trabalhar.",
+        "Eu me deito às 23."
+      ],
+      "explanation": "The four core daily-routine reflexive verbs (levantar-se, vestir-se, sentar-se, deitar-se) that appear constantly in everyday spoken Brazilian Portuguese.",
+      "source": {
+        "note": "Grammar/Verbs/Reflexive Verbs Cheat Sheet.md",
+        "heading": "Daily Routine Reflexive Verbs"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-reflexive-0005",
+      "created_at": "2026-07-24",
+      "content_hash": "sha256:1751b3c5ec77108fdd218c56f4b7d791e583a338126aa107223b0dc4fdf97fbe",
       "version": 1,
       "updated_at": "2026-07-24"
     },
@@ -1380,7 +1777,7 @@
         "Gerund",
         "The Patterns at a Glance"
       ],
-      "body_markdown": "# Brazilian Portuguese Regular Verb Conjugation Cheat Sheet\n\n## Regular Verb Patterns\n\n|Infinitive|Example|\n|---|---|\n|**-AR**|falar|\n|**-ER**|comer|\n|**-IR**|abrir|\n\n---\n\n# Stage 1\n\n## Present\n\n|Person|**-AR**|**-ER**|**-IR**|\n|---|---|---|---|\n|eu|fal**o**|com**o**|abr**o**|\n|você|fal**a**|com**e**|abr**e**|\n|nós|fal**amos**|com**emos**|abr**imos**|\n|vocês|fal**am**|com**em**|abr**em**|\n\n---\n\n## Present Continuous\n\n### Formula\n\n```\nestar (present) + gerund\n```\n\n### Estar\n\n|Person|Conjugation|\n|---|---|\n|eu|estou|\n|você|está|\n|nós|estamos|\n|vocês|estão|\n\n### Gerund\n\n|Verb type|Ending|\n|---|---|\n|-AR|-ando|\n|-ER|-endo|\n|-IR|-indo|\n\nExamples\n\n- estou falando\n- estou comendo\n- estou abrindo\n\n---\n\n## Preterite\n\n|Person|**-AR**|**-ER**|**-IR**|\n|---|---|---|---|\n|eu|fal**ei**|com**i**|abr**i**|\n|você|fal**ou**|com**eu**|abr**iu**|\n|nós|fal**amos**|com**emos**|abr**imos**|\n|vocês|fal**aram**|com**eram**|abr**iram**|\n\n---\n\n## Imperfect\n\n|Person|**-AR**|**-ER**|**-IR**|\n|---|---|---|---|\n|eu|fal**ava**|com**ia**|abr**ia**|\n|você|fal**ava**|com**ia**|abr**ia**|\n|nós|fal**ávamos**|com**íamos**|abr**íamos**|\n|vocês|fal**avam**|com**iam**|abr**iam**|\n\n---\n\n## Near Future\n\n### Formula\n\n```\nir (present) + infinitive\n```\n\n|Person|Ir|\n|---|---|\n|eu|vou|\n|você|vai|\n|nós|vamos|\n|vocês|vão|\n\nExamples\n\n- vou falar\n- vou comer\n- vou abrir\n\n---\n\n## Spoken Conditional\n\n### Formula\n\n```\nir (imperfect) + infinitive\n```\n\n|Person|Ir|\n|---|---|\n|eu|ia|\n|você|ia|\n|nós|íamos|\n|vocês|iam|\n\nExamples\n\n- ia falar\n- ia comer\n- ia abrir\n\n---\n\n# Stage 2\n\n## Present Subjunctive\n\n|Person|**-AR**|**-ER**|**-IR**|\n|---|---|---|---|\n|eu|fal**e**|com**a**|abr**a**|\n|você|fal**e**|com**a**|abr**a**|\n|nós|fal**emos**|com**amos**|abr**amos**|\n|vocês|fal**em**|com**am**|abr**am**|\n\n---\n\n## Imperfect Subjunctive\n\n|Person|**-AR**|**-ER**|**-IR**|\n|---|---|---|---|\n|eu|fal**asse**|com**esse**|abr**isse**|\n|você|fal**asse**|com**esse**|abr**isse**|\n|nós|fal**ássemos**|com**êssemos**|abr**íssemos**|\n|vocês|fal**assem**|com**essem**|abr**issem**|\n\n---\n\n## Future Subjunctive\n\n|Person|**-AR**|**-ER**|**-IR**|\n|---|---|---|---|\n|eu|falar|comer|abrir|\n|você|falar|comer|abrir|\n|nós|falarmos|comermos|abrirmos|\n|vocês|falarem|comerem|abrirem|\n\n---\n\n# Gerund\n\n|Verb|Gerund|\n|---|---|\n|falar|falando|\n|comer|comendo|\n|abrir|abrindo|\n\n---\n\n# The Patterns at a Glance\n\n| Tense                 | **-AR**            | **-ER**           | **-IR**           |\n| --------------------- | ------------------ | ----------------- | ----------------- |\n| Present               | o, a, amos, am     | o, e, emos, em    | o, e, imos, em    |\n| Preterite             | ei, ou, amos, aram | i, eu, emos, eram | i, iu, imos, iram |\n| Imperfect             | ava                | ia                | ia                |\n| Present Subjunctive   | e                  | a                 | a                 |\n| Imperfect Subjunctive | asse               | esse              | isse              |\n| Future Subjunctive    | infinitive         | infinitive        | infinitive        |\n| Gerund                | ando               | endo              | indo              |"
+      "body_markdown": "# Brazilian Portuguese Regular Verb Conjugation Cheat Sheet\n\n## Regular Verb Patterns\n\n|Infinitive|Example|\n|---|---|\n|**-AR**|falar|\n|**-ER**|comer|\n|**-IR**|abrir|\n\n---\n\n# Stage 1\n\n## Present\n\n|Person|**-AR**|**-ER**|**-IR**|\n|---|---|---|---|\n|eu|fal**o**|com**o**|abr**o**|\n|você|fal**a**|com**e**|abr**e**|\n|nós|fal**amos**|com**emos**|abr**imos**|\n|vocês|fal**am**|com**em**|abr**em**|\n\n---\n\n## Present Continuous\n\n### Formula\n\n```\nestar (present) + gerund\n```\n\n### Estar\n\n| Person | Conjugation |\n| ------ | ----------- |\n| eu     | estou       |\n| você   | está        |\n| nós    | estamos     |\n| vocês  | estão       |\n\n### Gerund\n\n| Verb type | Ending |\n| --------- | ------ |\n| -AR       | -ando  |\n| -ER       | -endo  |\n| -IR       | -indo  |\n\nExamples\n\n- estou falando\n- estou comendo\n- estou abrindo\n\n---\n\n## Preterite\n\n| Person | **-AR**     | **-ER**     | **-IR**     |\n| ------ | ----------- | ----------- | ----------- |\n| eu     | fal**ei**   | com**i**    | abr**i**    |\n| você   | fal**ou**   | com**eu**   | abr**iu**   |\n| nós    | fal**amos** | com**emos** | abr**imos** |\n| vocês  | fal**aram** | com**eram** | abr**iram** |\n\n---\n\n## Imperfect\n\n| Person | **-AR**       | **-ER**      | **-IR**      |\n| ------ | ------------- | ------------ | ------------ |\n| eu     | fal**ava**    | com**ia**    | abr**ia**    |\n| você   | fal**ava**    | com**ia**    | abr**ia**    |\n| nós    | fal**ávamos** | com**íamos** | abr**íamos** |\n| vocês  | fal**avam**   | com**iam**   | abr**iam**   |\n\n---\n\n## Near Future\n\n### Formula\n\n```\nir (present) + infinitive\n```\n\n| Person | Ir    |\n| ------ | ----- |\n| eu     | vou   |\n| você   | vai   |\n| nós    | vamos |\n| vocês  | vão   |\n\nExamples\n\n- vou falar\n- vou comer\n- vou abrir\n\n---\n\n## Spoken Conditional\n\n### Formula\n\n```\nir (imperfect) + infinitive\n```\n\n| Person | Ir    |\n| ------ | ----- |\n| eu     | ia    |\n| você   | ia    |\n| nós    | íamos |\n| vocês  | iam   |\n\nExamples\n\n- ia falar\n- ia comer\n- ia abrir\n\n---\n\n# Stage 2\n\n## Present Subjunctive\n\n| Person | **-AR**     | **-ER**     | **-IR**     |\n| ------ | ----------- | ----------- | ----------- |\n| eu     | fal**e**    | com**a**    | abr**a**    |\n| você   | fal**e**    | com**a**    | abr**a**    |\n| nós    | fal**emos** | com**amos** | abr**amos** |\n| vocês  | fal**em**   | com**am**   | abr**am**   |\n\n---\n\n## Imperfect Subjunctive\n\n|Person|**-AR**|**-ER**|**-IR**|\n|---|---|---|---|\n|eu|fal**asse**|com**esse**|abr**isse**|\n|você|fal**asse**|com**esse**|abr**isse**|\n|nós|fal**ássemos**|com**êssemos**|abr**íssemos**|\n|vocês|fal**assem**|com**essem**|abr**issem**|\n\n---\n\n## Future Subjunctive\n\n|Person|**-AR**|**-ER**|**-IR**|\n|---|---|---|---|\n|eu|falar|comer|abrir|\n|você|falar|comer|abrir|\n|nós|falarmos|comermos|abrirmos|\n|vocês|falarem|comerem|abrirem|\n\n---\n\n# Gerund\n\n|Verb|Gerund|\n|---|---|\n|falar|falando|\n|comer|comendo|\n|abrir|abrindo|\n\n---\n\n# The Patterns at a Glance\n\n| Tense                 | **-AR**            | **-ER**           | **-IR**           |\n| --------------------- | ------------------ | ----------------- | ----------------- |\n| Present               | o, a, amos, am     | o, e, emos, em    | o, e, imos, em    |\n| Preterite             | ei, ou, amos, aram | i, eu, emos, eram | i, iu, imos, iram |\n| Imperfect             | ava                | ia                | ia                |\n| Present Subjunctive   | e                  | a                 | a                 |\n| Imperfect Subjunctive | asse               | esse              | isse              |\n| Future Subjunctive    | infinitive         | infinitive        | infinitive        |\n| Gerund                | ando               | endo              | indo              |"
     },
     {
       "path": "Grammar/Verbs/Imperative Mood.md",

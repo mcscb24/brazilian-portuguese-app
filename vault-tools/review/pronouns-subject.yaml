@@ -1,0 +1,145 @@
+# Review file for questions sourced from "Grammar/Pronouns/Subject Pronouns.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+#
+# Examples below are drawn near-verbatim from the note's own worked examples
+# and Mini practice answer key, rather than inventing unattested sentences.
+
+questions:
+  - type: en_to_pt
+    topic: Pronouns
+    subtopic: Subject pronouns — a gente
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "We like coffee. (using \"a gente\")"
+    accepted_answers:
+      - text: "A gente gosta de café."
+        accent_sensitive: true
+    explanation: "a gente is an extremely common everyday alternative to nós for 'we'."
+    source:
+      note: "Grammar/Pronouns/Subject Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    id: pronouns-subject-0001
+    created_at: 2026-07-24
+    content_hash: sha256:41b8ceef98e01e23141d83d55058e33959c137aeec086982a8ad30ccc4d69a04
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: open_completion
+    topic: Pronouns
+    subtopic: Subject pronouns — a gente takes a third-person singular verb
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Complete with the correct verb form: \"A gente ___ em São Paulo.\" (We
+      live in São Paulo.)"
+    model_answers:
+      - "A gente mora em São Paulo."
+    explanation: "Even though a gente means 'we', it grammatically behaves like a
+      third-person singular subject (like ele/ela/você), so the verb takes the
+      third-person singular form mora, not the nós form moramos."
+    source:
+      note: "Grammar/Pronouns/Subject Pronouns.md"
+      heading: "A gente"
+    status: approved
+    generation_version: 1
+    id: pronouns-subject-0002
+    created_at: 2026-07-24
+    content_hash: sha256:4a521130519ae3ef514f09728015694e225332f2b04088d0259f9166a8de9bdb
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: explain_difference
+    topic: Pronouns
+    subtopic: Subject pronoun dropping — why eu/nós drop but você/ele/ela stay
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why \"eu\" and \"nós\" are often dropped in Brazilian
+      Portuguese, while \"você\", \"ele\", and \"ela\" are usually kept
+      explicit."
+    model_answers:
+      - "Portuguese verb endings usually make eu and nós subjects unambiguous on
+        their own — Eu falo and Falo are equally clear that 'I' is the subject,
+        and the same goes for Nós estamos cansados vs Estamos cansados — so
+        those pronouns can be safely dropped without losing information. But
+        você, ele, and ela all share the exact same verb form (fala), so without
+        the pronoun, a bare Fala is genuinely ambiguous between he/she/you.
+        Brazilians therefore keep você, ele, and ela explicit specifically to
+        disambiguate who's being talked about, even though grammatically the
+        verb ending alone wouldn't require it."
+    explanation: "Pronoun-dropping tracks how much information the verb ending alone
+      gives you: unambiguous endings (eu, nós) get dropped; shared, ambiguous
+      endings (você/ele/ela) keep the pronoun."
+    source:
+      note: "Grammar/Pronouns/Subject Pronouns.md"
+      heading: "Portuguese often drops pronouns"
+    status: approved
+    generation_version: 1
+    id: pronouns-subject-0003
+    created_at: 2026-07-24
+    content_hash: sha256:c42c98ce81f7e4b672fb42fa1039a30d70ff00b1d48f75317d4c6a724ef5b858
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: explain_difference
+    topic: Pronouns
+    subtopic: Subject pronouns — você's third-person grammar
+    direction: null
+    difficulty: easy
+    register: neutral
+    prompt: "Explain why \"você\" is grammatically treated like \"ele\" and \"ela\"
+      rather than like a true second-person pronoun, even though it means
+      \"you\"."
+    model_answers:
+      - "Você historically comes from Vossa Mercê, a polite third-person form of
+        address, and modern Brazilian Portuguese has kept that third-person
+        grammar even as você became the everyday word for 'you'. So você takes
+        the exact same verb conjugation as ele/ela — Você fala, Ele fala, Ela
+        fala — never a true second-person form like the incorrect Você falas.
+        The same logic extends to the plural: vocês takes the same verb form as
+        eles/elas."
+    explanation: "você looks like 'you' but conjugates like 'he/she' — a direct
+      consequence of its origin as a third-person title rather than a true
+      second-person pronoun."
+    source:
+      note: "Grammar/Pronouns/Subject Pronouns.md"
+      heading: "Você"
+    status: approved
+    generation_version: 1
+    id: pronouns-subject-0004
+    created_at: 2026-07-24
+    content_hash: sha256:72cebf31eb37a692ac2e5d0de3b9b586050af48accc162d540d6feba51d89704
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: speak_aloud
+    topic: Pronouns
+    subtopic: Subject pronouns — a gente in common expressions
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Say these aloud, noticing that \"a gente\" takes a third-person
+      singular verb even though it means \"we\": \"A gente mora em São Paulo.\",
+      \"A gente gosta de viajar.\", \"A gente vai.\""
+    model_answers:
+      - "A gente mora em São Paulo."
+      - "A gente gosta de viajar."
+      - "A gente vai."
+    explanation: "mora, gosta and vai are all third-person singular forms — the same
+      ones you'd use with ele/ela/você — even though a gente means 'we'."
+    source:
+      note: "Grammar/Pronouns/Subject Pronouns.md"
+      heading: "A gente"
+    status: approved
+    generation_version: 1
+    id: pronouns-subject-0005
+    created_at: 2026-07-24
+    content_hash: sha256:9c72256fd67f4f6d1bd1b339b149662d25a7d64249d88d11cdf39a221bec1593
+    version: 1
+    updated_at: 2026-07-24

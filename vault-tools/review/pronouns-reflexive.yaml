@@ -1,0 +1,183 @@
+# Review file for questions sourced from "Grammar/Pronouns/Reflexive Pronouns.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+#
+# Scope note (content-expansion plan, overlap pair B): this note and
+# "Grammar/Verbs/Reflexive Verbs Cheat Sheet.md" (verbs-reflexive.yaml) cover
+# closely related ground. Per explicit scoping agreed with the user, this
+# file sticks to pronoun FORMS, PLACEMENT and GRAMMATICAL FUNCTION (which
+# pronoun for which person, before-verb vs formal after-verb placement,
+# você takes se not te, reciprocal "each other" use of se). Actual reflexive
+# VERB usage/meaning (lembrar vs lembrar-se, the 3 types of se, etc.) belongs
+# in verbs-reflexive.yaml instead — do not duplicate that ground here.
+#
+# Examples below are drawn near-verbatim from the note's own worked examples
+# and Mini practice answer key, rather than inventing unattested sentences.
+
+questions:
+  - type: en_to_pt
+    topic: Pronouns
+    subtopic: Reflexive pronoun forms — nos
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "We got up early."
+    accepted_answers:
+      - text: "Nós nos levantamos cedo."
+        accent_sensitive: true
+    explanation: "nós takes the reflexive pronoun nos, placed before the verb — the
+      normal Brazilian word order."
+    source:
+      note: "Grammar/Pronouns/Reflexive Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    id: pronouns-reflexive-0001
+    created_at: 2026-07-24
+    content_hash: sha256:bee415ceb6489e0e5537efc16a7a667a90477939e5a3d67d24411b74c7f984af
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: open_completion
+    topic: Pronouns
+    subtopic: Reflexive pronoun forms — se
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Complete with the correct reflexive pronoun: \"Você ___ chama Ana?\"
+      (Are you called Ana?)"
+    model_answers:
+      - "Você se chama Ana?"
+    explanation: "se covers himself/herself/yourself(você)/yourselves/themselves —
+      one pronoun doing a lot of work. Here it's the yourself(você) sense."
+    source:
+      note: "Grammar/Pronouns/Reflexive Pronouns.md"
+      heading: "Step 4 – Chamar-se"
+    status: approved
+    generation_version: 1
+    id: pronouns-reflexive-0002
+    created_at: 2026-07-24
+    content_hash: sha256:edc15bd3da56e30ebb34a1ed72d5b67d6745d6de77a16f8b28ed54ea556e25ff
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: explain_difference
+    topic: Pronouns
+    subtopic: Reflexive pronoun function — você takes se, not te
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why \"você\" takes the reflexive pronoun \"se\" rather than
+      \"te\", even though \"te\" is extremely common with \"você\" for direct
+      and indirect objects (e.g. \"Eu te amo\")."
+    model_answers:
+      - "Because você grammatically takes third-person verb forms, its reflexive
+        pronoun has to match that same third-person pattern — se, not te. So
+        Você se chama João and Você se levantou cedo are correct, even though
+        Brazilians happily use te with você for direct/indirect objects (Eu te
+        amo, Eu te disse). Reflexive constructions are one of the few places
+        where Brazilian Portuguese is very consistent about matching se to
+        você's grammatical person, regardless of how casual the register is."
+    explanation: "This is the note's own 'one important correction': te stays common
+      with você for direct/indirect objects, but reflexive se does not get
+      replaced by te."
+    source:
+      note: "Grammar/Pronouns/Reflexive Pronouns.md"
+      heading: "One important correction"
+    status: approved
+    generation_version: 1
+    id: pronouns-reflexive-0003
+    created_at: 2026-07-24
+    content_hash: sha256:4d336661b836a29c962fa5ef92ec53edcf02a54847ed7efd8d7d19bd7d2a3bb5
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: explain_difference
+    topic: Pronouns
+    subtopic: Reflexive pronoun placement — before vs after the verb
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the difference in reflexive-pronoun placement between everyday
+      spoken Brazilian Portuguese (\"Eu me levanto\") and the more formal,
+      written style you might see in books or newspapers (\"Levantou-se\")."
+    model_answers:
+      - "In spoken Brazilian Portuguese, the reflexive pronoun almost always
+        comes before the verb — Eu me levanto, Ela se chama, Nós nos
+        encontramos. This is the natural, default word order to use when
+        speaking. Formal written Portuguese sometimes places the pronoun
+        attached after the verb instead — Levantou-se, Chamou-se — a style
+        you'll encounter reading books or newspapers but wouldn't normally
+        produce yourself in conversation."
+    explanation: "Pronoun-before-verb is the safe default for speech; pronoun-
+      after-verb is a formal/written variant to recognise when reading, not to
+      imitate when speaking."
+    source:
+      note: "Grammar/Pronouns/Reflexive Pronouns.md"
+      heading: "Step 10 – Position of the pronoun"
+    status: approved
+    generation_version: 1
+    id: pronouns-reflexive-0004
+    created_at: 2026-07-24
+    content_hash: sha256:abec49a36841ec4b9587e2eb68ddd7250f03ea752ca7a02991a3e04f180dc228
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: speak_aloud
+    topic: Pronouns
+    subtopic: Reflexive pronoun forms in common expressions
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Say these aloud, paying attention to the reflexive pronoun in each:
+      \"Como você se chama?\", \"Não me lembro.\", \"Sente-se!\""
+    model_answers:
+      - "Como você se chama?"
+      - "Não me lembro."
+      - "Sente-se!"
+    explanation: "Three everyday expressions built on reflexive pronouns you'll hear
+      constantly: se (asking a name), me (not remembering), and the imperative
+      Sente-se! (sit down!) with the pronoun attached after the command form."
+    source:
+      note: "Grammar/Pronouns/Reflexive Pronouns.md"
+      heading: "Step 12 – Common expressions"
+    status: approved
+    generation_version: 1
+    id: pronouns-reflexive-0005
+    created_at: 2026-07-24
+    content_hash: sha256:4abe6f05b6d0257f9ecef7c2f5db05c16c7a03f725c25c2a0826a4b9b72bc4dd
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: explain_difference
+    topic: Pronouns
+    subtopic: Reflexive pronoun function — reciprocal "each other" use of se
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain how \"se\" can mean \"each other\" rather than \"himself/
+      herself\", using \"Eles se conhecem\" and \"Nós nos encontramos ontem\" as
+      examples."
+    model_answers:
+      - "The same reflexive-looking pronouns (se, nos) can mark a reciprocal
+        action between two or more people, not just an action turned back on a
+        single subject. Eles se conhecem means They know each other (not 'they
+        know themselves'), and Nós nos encontramos ontem means We met each other
+        yesterday. The pronoun forms are identical to the ordinary reflexive use
+        — only the meaning changes, and context is what tells you which reading
+        is intended."
+    explanation: "Same pronouns, different function: reflexive se/nos turn the
+      action back on the subject; reciprocal se/nos point the action between the
+      people in the subject."
+    source:
+      note: "Grammar/Pronouns/Reflexive Pronouns.md"
+      heading: "Step 11 – Reciprocal actions"
+    status: approved
+    generation_version: 1
+    id: pronouns-reflexive-0006
+    created_at: 2026-07-24
+    content_hash: sha256:809b3b6c0e2122b8416d093b249e140f5f4674c249cb6eada4c1074a1148e039
+    version: 1
+    updated_at: 2026-07-24

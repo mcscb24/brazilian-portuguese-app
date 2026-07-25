@@ -162,44 +162,92 @@ function validateEntry(entry, filePath, kindLabel) {
   }
 }
 
+// Recursively finds .yaml/.yml files anywhere under dir (any folder depth),
+// so review content can be organized into subfolders. Sorted for
+// deterministic publish order.
 function readYamlDir(dir) {
   if (!fs.existsSync(dir)) return [];
-  return fs.readdirSync(dir)
-    .filter((f) => f.endsWith('.yaml') || f.endsWith('.yml'))
-    .map((f) => path.join(dir, f));
+  const results = [];
+
+  function walk(currentDir) {
+    for (const entry of fs.readdirSync(currentDir, { withFileTypes: true })) {
+      const fullPath = path.join(currentDir, entry.name);
+      if (entry.isDirectory()) {
+        walk(fullPath);
+      } else if (entry.isFile() && (entry.name.endsWith('.yaml') || entry.name.endsWith('.yml'))) {
+        results.push(fullPath);
+      }
+    }
+  }
+
+  walk(dir);
+  results.sort();
+  return results;
 }
 
-function publishReviewedContent() {
+// Ids are assigned per-file from the file's own basename (idPrefixForFile),
+// so two files with the same basename in different folders would otherwise
+// silently mint identical ids (e.g. both "basics-0001"). This checks the
+// final, published id set for collisions and reports every offending pair.
+function findDuplicateIds(origins, kindLabel) {
+  const seen = new Map();
+  const errors = [];
+  for (const { id, filePath } of origins) {
+    if (!id) continue;
+    if (seen.has(id)) {
+      errors.push(
+        `duplicate ${kindLabel} id ${JSON.stringify(id)}:\n` +
+        `  - ${path.relative(REPO_ROOT, seen.get(id))}\n` +
+        `  - ${path.relative(REPO_ROOT, filePath)}`
+      );
+    } else {
+      seen.set(id, filePath);
+    }
+  }
+  return errors;
+}
+
+function publishReviewedContent({ reviewDir = REVIEW_DIR, scenariosDir = SCENARIOS_DIR } = {}) {
   const allErrors = [];
   const questions = [];
+  const questionOrigins = [];
   const scenarios = [];
+  const scenarioOrigins = [];
   const filesToWrite = [];
 
-  for (const filePath of readYamlDir(REVIEW_DIR)) {
+  for (const filePath of readYamlDir(reviewDir)) {
     const raw = fs.readFileSync(filePath, 'utf8');
     const doc = YAML.parseDocument(raw);
     try {
       const { published, changed } = processDocument(doc, filePath, 'questions', 'question');
-      questions.push(...published);
+      for (const entry of published) {
+        questions.push(entry);
+        questionOrigins.push({ id: entry.id, filePath });
+      }
       if (changed) filesToWrite.push({ filePath, doc });
     } catch (e) {
       if (e instanceof ValidationError) allErrors.push(e.message);
       else throw e;
     }
   }
+  allErrors.push(...findDuplicateIds(questionOrigins, 'question'));
 
-  for (const filePath of readYamlDir(SCENARIOS_DIR)) {
+  for (const filePath of readYamlDir(scenariosDir)) {
     const raw = fs.readFileSync(filePath, 'utf8');
     const doc = YAML.parseDocument(raw);
     try {
       const { published, changed } = processDocument(doc, filePath, 'scenarios', 'scenario');
-      scenarios.push(...published);
+      for (const entry of published) {
+        scenarios.push(entry);
+        scenarioOrigins.push({ id: entry.id, filePath });
+      }
       if (changed) filesToWrite.push({ filePath, doc });
     } catch (e) {
       if (e instanceof ValidationError) allErrors.push(e.message);
       else throw e;
     }
   }
+  allErrors.push(...findDuplicateIds(scenarioOrigins, 'scenario'));
 
   if (allErrors.length > 0) {
     throw new Error(`Schema validation failed:\n\n${allErrors.join('\n\n')}`);
@@ -286,4 +334,17 @@ function main() {
   console.log(`Bundle written to ${path.relative(REPO_ROOT, BUNDLE_OUT_PATH)} (version ${bundle.bundle_version}).`);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  readYamlDir,
+  findDuplicateIds,
+  publishReviewedContent,
+  processDocument,
+  validateEntry,
+  computeContentHash,
+  idPrefixForFile,
+  ValidationError,
+};

@@ -5,7 +5,8 @@
   "version": "1.0.0",
   "description": "Laptop-only content pipeline: reads reviewed question/scenario YAML plus the Obsidian vault, and compiles the published content-bundle.json for the app.",
   "scripts": {
-    "publish": "node publish.js"
+    "publish": "node publish.js",
+    "test": "node --test"
   },
   "dependencies": {
     "yaml": "^2.5.0"

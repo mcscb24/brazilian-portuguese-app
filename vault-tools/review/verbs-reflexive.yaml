@@ -1,0 +1,170 @@
+# Review file for questions sourced from
+# "Grammar/Verbs/Reflexive Verbs Cheat Sheet.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+#
+# Scope note (content-expansion plan, overlap pair B): this note and
+# "Grammar/Pronouns/Reflexive Pronouns.md" (pronouns-reflexive.yaml) cover
+# closely related ground. Per explicit scoping agreed with the user, this
+# file sticks to actual reflexive VERB usage and meaning (which verbs are
+# reflexive, what they mean, verb pairs like levantar/levantar-se) and the
+# note's standout unique content — distinguishing reflexive vs passive vs
+# impersonal se. Pronoun forms/placement/grammatical function belong in
+# pronouns-reflexive.yaml instead — do not duplicate that ground here.
+
+questions:
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Three types of se — reflexive vs passive vs impersonal
+    direction: null
+    difficulty: hard
+    register: neutral
+    prompt: "Explain the difference between the three uses of \"se\" in Brazilian
+      Portuguese — reflexive, passive, and impersonal — using \"Ela se
+      levantou\", \"Vendem-se casas\", and \"Aqui se trabalha muito\" as
+      examples."
+    model_answers:
+      - "Reflexive se: the subject performs the action on itself — Ela se
+        levantou means She got up (she got herself up); the subject is a person
+        acting on themselves. Passive se: something is done — Vendem-se casas
+        means Houses are sold; here the subject is the thing being acted on, not
+        a person doing the acting. Impersonal se: a general statement about
+        people — Aqui se trabalha muito means People work a lot here; the
+        sentence describes what people in general do, with no specific person as
+        subject. To tell them apart, ask: is a person acting on themselves
+        (reflexive), is a thing being acted upon (passive), or is this a general
+        statement about people (impersonal)?"
+    explanation: "The note's own recognition test: person-acting-on-self =
+      reflexive; thing-being-acted-on = passive; general-statement-about-people
+      = impersonal."
+    source:
+      note: "Grammar/Verbs/Reflexive Verbs Cheat Sheet.md"
+      heading: "The 3 Types of se in Brazilian Portuguese"
+    status: approved
+    generation_version: 1
+    id: verbs-reflexive-0001
+    created_at: 2026-07-24
+    content_hash: sha256:5098e1ffaa38f1ba67129176c448ee8c28b169ffcc3a8fb800fc5895710ce3cf
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Reflexive verbs that don't translate as literally reflexive in English
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why \"Eu me lembro\" means \"I remember\" rather than a literal
+      \"I remember myself\", and why this matters when translating into
+      Portuguese."
+    model_answers:
+      - "Portuguese often uses a reflexive verb where English uses a plain,
+        non-reflexive one. Eu me lembro literally reads as I remember myself,
+        but the real English equivalent is simply I remember — English just
+        doesn't mark this verb as reflexive at all. Same with Ela se chama Ana:
+        literally She calls herself Ana, but it really means Her name is Ana.
+        This matters because you can't rely on the English sentence to tell you
+        whether the Portuguese verb needs -se — you have to learn which verbs
+        are reflexive in Portuguese as a property of the verb itself,
+        independent of whether English happens to use 'myself'."
+    explanation: "lembrar-se and chamar-se are both grammatically reflexive in
+      Portuguese despite having ordinary, non-reflexive English translations — a
+      common source of confusion for learners translating word-for-word."
+    source:
+      note: "Grammar/Verbs/Reflexive Verbs Cheat Sheet.md"
+      heading: "Important: Not Always Reflexive in English"
+    status: approved
+    generation_version: 1
+    id: verbs-reflexive-0002
+    created_at: 2026-07-24
+    content_hash: sha256:2968d2be6ec11e878ae0b7d5f83aeabc997a5ad67b3b1c65be70369b18f3aad2
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Reflexive verb meaning — levantar vs levantar-se
+    direction: null
+    difficulty: easy
+    register: neutral
+    prompt: "Explain the difference in meaning between \"levantar\" and
+      \"levantar-se\"."
+    model_answers:
+      - "levantar (non-reflexive) means to lift or raise something/someone else
+        — it takes an external object. levantar-se (reflexive, marked by -se)
+        means to get (oneself) up, e.g. out of bed — the subject performs the
+        action on themselves rather than on something else. The same pattern
+        shows up across many other reflexive verbs: the plain verb acts on an
+        external object, the -se version turns the action back on the subject."
+    explanation: "The -se ending is what signals the action is reflexive
+      (self-directed) rather than acting on an outside object."
+    source:
+      note: "Grammar/Verbs/Reflexive Verbs Cheat Sheet.md"
+      heading: "The Infinitive Form"
+    status: approved
+    generation_version: 1
+    id: verbs-reflexive-0003
+    created_at: 2026-07-24
+    content_hash: sha256:858290932fa1686f23286b191e4d33b8ca4249727a76c8eec83f855027dedffe
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: open_completion
+    topic: Verbs
+    subtopic: Recognising se type in context
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Identify which type of \"se\" is used in each sentence and explain your
+      reasoning: (a) \"Aluga-se apartamento.\" (b) \"Ele se veste rápido.\" (c)
+      \"No Brasil se fala português.\""
+    model_answers:
+      - "(a) Passive se — Aluga-se apartamento means Apartment for rent /
+        apartment is rented; the subject (apartamento) is the thing being acted
+        on, not a person. (b) Reflexive se — Ele se veste rápido means He gets
+        dressed quickly; the subject (ele) is a person acting on himself. (c)
+        Impersonal se — No Brasil se fala português means Portuguese is spoken
+        in Brazil / people speak Portuguese in Brazil; it's a general statement
+        about people, with no specific person as subject."
+    explanation: "The three examples are the note's own worked cases for each type,
+      used here as a mixed recognition drill."
+    source:
+      note: "Grammar/Verbs/Reflexive Verbs Cheat Sheet.md"
+      heading: "How to Recognise Which se It Is"
+    status: approved
+    generation_version: 1
+    id: verbs-reflexive-0004
+    created_at: 2026-07-24
+    content_hash: sha256:0b0d9efac0ca555d8123cc1522b8063fb1adeea571e16728b8f59ec6a399db95
+    version: 1
+    updated_at: 2026-07-24
+
+  - type: speak_aloud
+    topic: Verbs
+    subtopic: Everyday reflexive verbs — daily routine
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Say these aloud, noticing the reflexive verbs used for daily routine:
+      \"Eu me levanto às 7.\", \"Eu me visto.\", \"Eu me sento para
+      trabalhar.\", \"Eu me deito às 23.\""
+    model_answers:
+      - "Eu me levanto às 7."
+      - "Eu me visto."
+      - "Eu me sento para trabalhar."
+      - "Eu me deito às 23."
+    explanation: "The four core daily-routine reflexive verbs (levantar-se,
+      vestir-se, sentar-se, deitar-se) that appear constantly in everyday spoken
+      Brazilian Portuguese."
+    source:
+      note: "Grammar/Verbs/Reflexive Verbs Cheat Sheet.md"
+      heading: "Daily Routine Reflexive Verbs"
+    status: approved
+    generation_version: 1
+    id: verbs-reflexive-0005
+    created_at: 2026-07-24
+    content_hash: sha256:1751b3c5ec77108fdd218c56f4b7d791e583a338126aa107223b0dc4fdf97fbe
+    version: 1
+    updated_at: 2026-07-24
