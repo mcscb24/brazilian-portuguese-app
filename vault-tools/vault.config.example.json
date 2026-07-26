@@ -1,3 +1,7 @@
 {
-  "vaultPath": "C:/Users/YOUR_USERNAME/OneDrive/Note Storage/Knowledge Base/Brazilian Portuguese"
+  "vaultPath": "C:/Users/YOUR_USERNAME/OneDrive/Note Storage/Knowledge Base/Brazilian Portuguese",
+  "publishedNotes": [
+    "Grammar/Verbs/Conjugations.md",
+    "Grammar/Verbs/Single/*.md"
+  ]
 }

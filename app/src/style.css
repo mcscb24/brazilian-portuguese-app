@@ -263,3 +263,84 @@ label {
   gap: 0.25rem;
   margin-top: 1rem;
 }
+
+.notes-tree {
+  margin: 1rem 0;
+}
+
+.notes-folder {
+  margin: 0.25rem 0;
+}
+
+.notes-folder > summary {
+  cursor: pointer;
+  padding: 0.4rem 0.2rem;
+  font-weight: 600;
+}
+
+.notes-folder-children {
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+  margin-left: 0.4rem;
+}
+
+.notes-item {
+  margin: 0.15rem 0;
+}
+
+.notes-note-button {
+  width: 100%;
+  text-align: left;
+}
+
+.note-content {
+  margin: 1rem 0;
+  overflow-wrap: break-word;
+}
+
+.note-content h1,
+.note-content h2,
+.note-content h3,
+.note-content h4,
+.note-content h5,
+.note-content h6 {
+  margin: 1.25rem 0 0.5rem;
+}
+
+.note-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1rem 0;
+}
+
+.note-content ul,
+.note-content ol {
+  padding-left: 1.25rem;
+}
+
+.note-content pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  overflow-x: auto;
+}
+
+.note-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.75rem 0;
+  overflow-x: auto;
+  display: block;
+}
+
+.note-content th,
+.note-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+
+.note-content th {
+  background: var(--surface);
+}

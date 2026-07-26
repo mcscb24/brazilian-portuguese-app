@@ -8,7 +8,13 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
-const { readYamlDir, publishReviewedContent } = require('./publish');
+const {
+  readYamlDir,
+  publishReviewedContent,
+  resolvePublishedNotePaths,
+  mirrorVaultNotes,
+  finalizeGeneratedQuestion,
+} = require('./publish');
 
 function makeTempDir() {
   return fs.mkdtempSync(path.join(os.tmpdir(), 'vault-tools-publish-test-'));
@@ -166,4 +172,162 @@ test('publishReviewedContent is idempotent across nested folders: ids and hashes
     fs.rmSync(reviewDir, { recursive: true, force: true });
     fs.rmSync(scenariosDir, { recursive: true, force: true });
   }
+});
+
+function makeVault() {
+  const vaultPath = makeTempDir();
+  writeYaml(path.join(vaultPath, 'Grammar', 'Verbs', 'Conjugations.md'), '# Conjugations\n');
+  writeYaml(path.join(vaultPath, 'Grammar', 'Verbs', 'Single', 'Estar.md'), '# Estar\n');
+  writeYaml(path.join(vaultPath, 'Grammar', 'Verbs', 'Single', 'Ter.md'), '# Ter\n');
+  writeYaml(path.join(vaultPath, 'Grammar', 'Verbs', 'Single', 'notes.txt'), 'not a note');
+  writeYaml(path.join(vaultPath, 'Bits and Bobs', 'Untracked.md'), '# Untracked\n');
+  return vaultPath;
+}
+
+test('resolvePublishedNotePaths resolves an exact path entry', () => {
+  const vaultPath = makeVault();
+  try {
+    const { merged, perEntry } = resolvePublishedNotePaths(vaultPath, ['Grammar/Verbs/Conjugations.md']);
+    assert.deepEqual(merged, ['Grammar/Verbs/Conjugations.md']);
+    assert.deepEqual(perEntry, [
+      { entry: 'Grammar/Verbs/Conjugations.md', paths: ['Grammar/Verbs/Conjugations.md'] },
+    ]);
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+test('resolvePublishedNotePaths resolves a folder/*.md wildcard, sorted, .md-only', () => {
+  const vaultPath = makeVault();
+  try {
+    const { merged, perEntry } = resolvePublishedNotePaths(vaultPath, ['Grammar/Verbs/Single/*.md']);
+    assert.deepEqual(merged, ['Grammar/Verbs/Single/Estar.md', 'Grammar/Verbs/Single/Ter.md']);
+    assert.equal(perEntry.length, 1);
+    assert.deepEqual(perEntry[0].paths, ['Grammar/Verbs/Single/Estar.md', 'Grammar/Verbs/Single/Ter.md']);
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+test('resolvePublishedNotePaths merges and dedupes across entries, sorted overall', () => {
+  const vaultPath = makeVault();
+  try {
+    const { merged } = resolvePublishedNotePaths(vaultPath, [
+      'Grammar/Verbs/Single/*.md',
+      'Grammar/Verbs/Conjugations.md',
+      'Grammar/Verbs/Single/Estar.md',
+    ]);
+    assert.deepEqual(merged, [
+      'Grammar/Verbs/Conjugations.md',
+      'Grammar/Verbs/Single/Estar.md',
+      'Grammar/Verbs/Single/Ter.md',
+    ]);
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+test('resolvePublishedNotePaths throws when an exact-path entry does not exist', () => {
+  const vaultPath = makeVault();
+  try {
+    assert.throws(
+      () => resolvePublishedNotePaths(vaultPath, ['Grammar/Verbs/Missing.md']),
+      /file does not exist/
+    );
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+test('resolvePublishedNotePaths throws when a folder/*.md entry\'s folder does not exist', () => {
+  const vaultPath = makeVault();
+  try {
+    assert.throws(
+      () => resolvePublishedNotePaths(vaultPath, ['Grammar/Verbs/Missing/*.md']),
+      /folder does not exist/
+    );
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+test('resolvePublishedNotePaths rejects wildcard shapes other than a trailing folder/*.md', () => {
+  const vaultPath = makeVault();
+  try {
+    assert.throws(
+      () => resolvePublishedNotePaths(vaultPath, ['Grammar/Verbs/Single/*.markdown']),
+      /only exact paths or.*folder\/\*\.md.*wildcards are supported/
+    );
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+test('mirrorVaultNotes mirrors exactly the given resolved paths, never an unlisted file', () => {
+  const vaultPath = makeVault();
+  try {
+    const notes = mirrorVaultNotes(vaultPath, ['Grammar/Verbs/Single/Estar.md', 'Grammar/Verbs/Conjugations.md']);
+    assert.deepEqual(notes.map((n) => n.path), [
+      'Grammar/Verbs/Conjugations.md',
+      'Grammar/Verbs/Single/Estar.md',
+    ]);
+    assert.equal(notes.find((n) => n.path === 'Grammar/Verbs/Single/Estar.md').title, 'Estar');
+    assert.ok(!notes.some((n) => n.path.includes('Untracked')));
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+function rawGenerated(overrides = {}) {
+  return {
+    id: 'estar-present',
+    type: 'verb_conjugation',
+    topic: 'Verbs',
+    subtopic: 'Estar',
+    direction: null,
+    difficulty: 'medium',
+    register: 'neutral',
+    prompt: 'Conjugate "estar" in the Present (all persons).',
+    model_answers: ['eu: estou', 'você: está'],
+    explanation: 'Full Present conjugation of "estar", from Grammar/Verbs/Single/Estar.md.',
+    source: { note: 'Grammar/Verbs/Single/Estar.md', heading: 'Present' },
+    ...overrides,
+  };
+}
+
+test('finalizeGeneratedQuestion starts a brand-new id at version 1 with today as created_at/updated_at', () => {
+  const result = finalizeGeneratedQuestion(rawGenerated(), new Map());
+  assert.equal(result.version, 1);
+  assert.equal(result.created_at, result.updated_at);
+  assert.equal(result.status, 'approved');
+  assert.equal(result.generation_version, 1);
+  assert.ok(result.content_hash.startsWith('sha256:'));
+});
+
+test('finalizeGeneratedQuestion preserves version/created_at/updated_at when content_hash is unchanged', () => {
+  const raw = rawGenerated();
+  const first = finalizeGeneratedQuestion(raw, new Map());
+  const previousById = new Map([[first.id, first]]);
+
+  const second = finalizeGeneratedQuestion(rawGenerated(), previousById);
+
+  assert.equal(second.version, first.version);
+  assert.equal(second.created_at, first.created_at);
+  assert.equal(second.updated_at, first.updated_at);
+  assert.equal(second.content_hash, first.content_hash);
+});
+
+test('finalizeGeneratedQuestion bumps version and updated_at (but not created_at) when content changes', () => {
+  const raw = rawGenerated();
+  const first = finalizeGeneratedQuestion(raw, new Map());
+  const previousById = new Map([[first.id, first]]);
+
+  const changed = finalizeGeneratedQuestion(
+    rawGenerated({ model_answers: ['eu: estou', 'você: está', 'nós: estamos'] }),
+    previousById
+  );
+
+  assert.equal(changed.version, first.version + 1);
+  assert.equal(changed.created_at, first.created_at);
+  assert.notEqual(changed.content_hash, first.content_hash);
 });

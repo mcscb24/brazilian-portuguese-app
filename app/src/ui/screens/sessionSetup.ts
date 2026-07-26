@@ -12,6 +12,8 @@ const TYPE_LABELS: Partial<Record<QuestionType, string>> = {
   open_completion: 'Open sentence completion',
   explain_difference: 'Explain the difference',
   speak_aloud: 'Speak aloud',
+  verb_conjugation: 'Verb conjugation',
+  conjugation_pattern: 'Conjugation pattern',
 };
 
 export function renderSessionSetup(bundle: ContentBundle, shell: Shell): HTMLElement {

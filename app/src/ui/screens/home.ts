@@ -17,6 +17,7 @@ export function renderHome(bundle: ContentBundle, shell: Shell): HTMLElement {
     el('p', { class: 'muted' }, [`Content version: ${bundle.bundle_version}`]),
     resumeContainer,
     el('button', { class: 'primary', onclick: () => shell.goSessionSetup() }, ['Start a session']),
+    el('button', { onclick: () => shell.goNotesList() }, ['Notes']),
     el('button', { onclick: () => shell.goSettings() }, ['Settings / About']),
     reminderContainer,
   ]);

@@ -10,7 +10,9 @@ export type QuestionType =
   | 'build_sentence'
   | 'open_completion'
   | 'explain_difference'
-  | 'speak_aloud';
+  | 'speak_aloud'
+  | 'verb_conjugation'
+  | 'conjugation_pattern';
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 export type Register = 'spoken' | 'written' | 'neutral';

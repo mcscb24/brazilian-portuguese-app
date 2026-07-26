@@ -9,6 +9,8 @@ export const SELF_ASSESSED_TYPES: ReadonlySet<QuestionType> = new Set([
   'open_completion',
   'explain_difference',
   'speak_aloud',
+  'verb_conjugation',
+  'conjugation_pattern',
 ]);
 
 export function isSelfAssessedType(type: QuestionType): boolean {

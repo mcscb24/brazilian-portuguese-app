@@ -3,12 +3,13 @@
 // Android back-button press during an active session invokes the same leave-session flow as the
 // practice screen's own "Exit session" control, instead of unexpectedly exiting.
 
-import type { ContentBundle } from '../content/types';
+import type { ContentBundle, Note } from '../content/types';
 import { SessionRunner } from '../session/sessionRunner';
 import type { SessionConfig } from '../session/types';
 import { getActiveSession } from '../storage/activeSessionStore';
 import { mount } from './dom';
 import { renderHome } from './screens/home';
+import { renderNoteDetail, renderNotesList } from './screens/notes';
 import { renderPractice } from './screens/practice';
 import { renderSessionSetup } from './screens/sessionSetup';
 import { renderSessionSummary } from './screens/sessionSummary';
@@ -97,5 +98,17 @@ export class Shell {
     this.inSession = false;
     this.setExitHandler(null);
     mount(this.root, renderSettings(this.bundle, this));
+  }
+
+  goNotesList(): void {
+    this.inSession = false;
+    this.setExitHandler(null);
+    mount(this.root, renderNotesList(this.bundle, this));
+  }
+
+  goNoteDetail(note: Note): void {
+    this.inSession = false;
+    this.setExitHandler(null);
+    mount(this.root, renderNoteDetail(note, this));
   }
 }

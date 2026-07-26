@@ -736,6 +736,58 @@ describe('SessionRunner integration (real checking + review + storage)', () => {
     expect(display.topic_breakdown.map((t) => t.topic).sort()).toEqual(['A', 'B']);
   });
 
+  it('verb_conjugation (6-person) and conjugation_pattern (4-person) reveal/self-rate/schedule identically to other self-assessed types', async () => {
+    const { SessionRunner, getProgress } = await freshModules();
+    const verbConjugation = makeQuestion('estar-imperfect', 'Verbs', {
+      type: 'verb_conjugation',
+      subtopic: 'Estar',
+      accepted_answers: undefined,
+      model_answers: [
+        'eu: estava',
+        'você: estava',
+        'ele / ela: estava',
+        'nós: estávamos',
+        'vocês: estavam',
+        'eles / elas: estavam',
+      ],
+    });
+    const conjugationPattern = makeQuestion('conjugations-present-ar', 'Verbs', {
+      type: 'conjugation_pattern',
+      subtopic: '-AR verbs',
+      accepted_answers: undefined,
+      model_answers: ['eu: -o', 'você: -a', 'nós: -amos', 'vocês: -am'],
+    });
+    const bundle = makeBundle([verbConjugation, conjugationPattern]);
+    const runner = await SessionRunner.start(bundle, {
+      ...baseConfig,
+      count: 2,
+      topics: ['Verbs'],
+      types: ['verb_conjugation', 'conjugation_pattern'],
+    });
+
+    const seenTypes = new Set<string>();
+    while (!runner.isFinished()) {
+      const q = runner.currentQuestion()!;
+      seenTypes.add(q.type);
+      const feedback = runner.revealSelfAssessed('');
+      expect(feedback.kind).toBe('self_assessed');
+      expect(feedback.question.model_answers?.length).toBe(q.type === 'verb_conjugation' ? 6 : 4);
+      await runner.confirmRating('good');
+      runner.proceedToNext();
+    }
+    expect(seenTypes).toEqual(new Set(['verb_conjugation', 'conjugation_pattern']));
+
+    const result = await runner.finish();
+    expect(result.summary.answered).toBe(2);
+    expect(result.summary.correct).toBe(2);
+
+    // Scheduling proceeds exactly like any other self-assessed type given the same rating.
+    const verbProgress = await getProgress('estar-imperfect');
+    const patternProgress = await getProgress('conjugations-present-ar');
+    expect(verbProgress?.interval_days).toBe(3); // first-attempt Good interval
+    expect(patternProgress?.interval_days).toBe(3);
+  });
+
   it('a mixed-type session survives save/resume and completes correctly end-to-end', async () => {
     const { SessionRunner, getActiveSession } = await freshModules();
     const checkedQuestion = makeQuestion('checked-1', 'A');

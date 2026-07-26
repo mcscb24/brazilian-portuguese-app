@@ -10,25 +10,34 @@ const path = require('path');
 const crypto = require('crypto');
 const YAML = require('yaml');
 
+const {
+  generateVerbConjugationQuestions,
+  generateConjugationPatternQuestions,
+} = require('./conjugationQuestions');
+
 const VAULT_TOOLS_DIR = __dirname;
 const REPO_ROOT = path.resolve(VAULT_TOOLS_DIR, '..');
 const REVIEW_DIR = path.join(VAULT_TOOLS_DIR, 'review');
 const SCENARIOS_DIR = path.join(VAULT_TOOLS_DIR, 'scenarios');
 const BUNDLE_OUT_PATH = path.join(REPO_ROOT, 'app', 'public', 'content-bundle.json');
 
+// The publishedNotes entries that feed the two deterministic generators. Required to be present in
+// vault.config.json's publishedNotes (checked in main()) so generation stays tied to the same explicit
+// allowlist that governs note mirroring — no separate, implicit source-of-truth for what gets parsed.
+const VERB_SINGLE_NOTES_PATTERN = 'Grammar/Verbs/Single/*.md';
+const CONJUGATIONS_NOTE_PATH = 'Grammar/Verbs/Conjugations.md';
+
 const EXACT_TYPES = new Set([
   'en_to_pt', 'pt_to_en', 'fill_blank', 'choose_form',
   'correct_sentence', 'context_choice', 'build_sentence',
 ]);
-const SELF_ASSESSED_TYPES = new Set(['open_completion', 'explain_difference', 'speak_aloud']);
+const SELF_ASSESSED_TYPES = new Set([
+  'open_completion', 'explain_difference', 'speak_aloud',
+  'verb_conjugation', 'conjugation_pattern',
+]);
 const ALL_QUESTION_TYPES = new Set([...EXACT_TYPES, ...SELF_ASSESSED_TYPES]);
 const DIFFICULTIES = new Set(['easy', 'medium', 'hard']);
 const REGISTERS = new Set(['spoken', 'written', 'neutral']);
-
-// The vault's only image-only note (no extractable text) — excluded from v1
-// per the design doc's revision history (§0/§15). Compared as a
-// vault-relative, forward-slash path.
-const EXCLUDED_NOTES = new Set(['Bits and Bobs/Telling the Time.md']);
 
 class ValidationError extends Error {}
 
@@ -43,6 +52,13 @@ function loadVaultConfig() {
   const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
   if (!config.vaultPath || !fs.existsSync(config.vaultPath)) {
     throw new Error(`vaultPath in vault.config.json does not exist: ${config.vaultPath}`);
+  }
+  if (!Array.isArray(config.publishedNotes) || config.publishedNotes.length === 0) {
+    throw new Error(
+      'vault.config.json must include a non-empty "publishedNotes" array ' +
+      '(e.g. ["Grammar/Verbs/Conjugations.md", "Grammar/Verbs/Single/*.md"]) — ' +
+      'this is the explicit allowlist of notes to mirror into content-bundle.json.'
+    );
   }
   return config;
 }
@@ -259,7 +275,7 @@ function publishReviewedContent({ reviewDir = REVIEW_DIR, scenariosDir = SCENARI
     fs.writeFileSync(filePath, doc.toString(), 'utf8');
   }
 
-  return { questions, scenarios };
+  return { questions, scenarios, questionOrigins, scenarioOrigins };
 }
 
 function deriveTitle(relativePath, bodyText) {
@@ -283,41 +299,179 @@ function extractHeadings(bodyText) {
   return headings;
 }
 
-function mirrorVaultNotes(vaultPath) {
-  const notes = [];
+// Resolves one vault.config.json publishedNotes entry — either an exact vault-relative path, or a
+// non-recursive "folder/*.md" wildcard — into a sorted list of vault-relative note paths. Throws
+// loudly if a configured path/folder doesn't exist, or if a pattern isn't one of the two supported
+// shapes (no glob dependency, no recursive/nested wildcards — deliberately simple).
+function resolvePublishedNoteEntry(vaultPath, entry) {
+  if (entry.endsWith('/*.md')) {
+    const folder = entry.slice(0, -'/*.md'.length);
+    const dirFull = path.join(vaultPath, ...folder.split('/'));
+    if (!fs.existsSync(dirFull) || !fs.statSync(dirFull).isDirectory()) {
+      throw new Error(`vault.config.json publishedNotes entry ${JSON.stringify(entry)}: folder does not exist: ${dirFull}`);
+    }
+    return fs
+      .readdirSync(dirFull, { withFileTypes: true })
+      .filter((e) => e.isFile() && e.name.endsWith('.md'))
+      .map((e) => `${folder}/${e.name}`)
+      .sort();
+  }
 
-  function walk(dir) {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const fullPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        if (entry.name === '.obsidian') continue;
-        walk(fullPath);
-      } else if (entry.isFile() && entry.name.endsWith('.md')) {
-        const relativePath = path.relative(vaultPath, fullPath).split(path.sep).join('/');
-        if (EXCLUDED_NOTES.has(relativePath)) continue;
+  if (entry.includes('*')) {
+    throw new Error(
+      `vault.config.json publishedNotes entry ${JSON.stringify(entry)}: only exact paths or ` +
+      `non-recursive "folder/*.md" wildcards are supported.`
+    );
+  }
 
-        const bodyText = fs.readFileSync(fullPath, 'utf8');
-        notes.push({
-          path: relativePath,
-          title: deriveTitle(relativePath, bodyText),
-          topic: deriveTopic(relativePath),
-          headings: extractHeadings(bodyText),
-          body_markdown: bodyText,
-        });
+  const fullPath = path.join(vaultPath, ...entry.split('/'));
+  if (!fs.existsSync(fullPath) || !fs.statSync(fullPath).isFile()) {
+    throw new Error(`vault.config.json publishedNotes entry ${JSON.stringify(entry)}: file does not exist: ${fullPath}`);
+  }
+  return [entry];
+}
+
+// Expands every publishedNotes entry, returning both the flat deduplicated/sorted list (for note
+// mirroring) and a per-entry breakdown (so callers - e.g. the conjugation generators - can find exactly
+// which resolved paths came from a specific configured entry, without re-deriving the pattern).
+function resolvePublishedNotePaths(vaultPath, publishedNotes) {
+  const perEntry = [];
+  const seen = new Set();
+  const merged = [];
+
+  for (const entry of publishedNotes) {
+    const paths = resolvePublishedNoteEntry(vaultPath, entry);
+    perEntry.push({ entry, paths });
+    for (const p of paths) {
+      if (!seen.has(p)) {
+        seen.add(p);
+        merged.push(p);
       }
     }
   }
 
-  walk(vaultPath);
-  notes.sort((a, b) => a.path.localeCompare(b.path));
-  return notes;
+  merged.sort();
+  return { merged, perEntry };
+}
+
+// Mirrors exactly the given (already-resolved) vault-relative note paths - no implicit whole-vault
+// walk, no opt-out list needed: a path not in publishedNotes is simply never read.
+function mirrorVaultNotes(vaultPath, notePaths) {
+  return notePaths
+    .map((relativePath) => {
+      const fullPath = path.join(vaultPath, ...relativePath.split('/'));
+      const bodyText = fs.readFileSync(fullPath, 'utf8');
+      return {
+        path: relativePath,
+        title: deriveTitle(relativePath, bodyText),
+        topic: deriveTopic(relativePath),
+        headings: extractHeadings(bodyText),
+        body_markdown: bodyText,
+      };
+    })
+    .sort((a, b) => a.path.localeCompare(b.path));
+}
+
+// Reads the previously-published bundle (if any) so generated-question version/created_at can be
+// carried forward instead of reset on every run. A missing bundle (first-ever publish) is fine and
+// yields an empty map; a *present but unparseable* bundle is a real problem worth failing loudly on,
+// rather than silently treating as "no history" and quietly resetting every version/created_at.
+function loadPreviousQuestionsById() {
+  const map = new Map();
+  if (!fs.existsSync(BUNDLE_OUT_PATH)) return map;
+
+  let previous;
+  try {
+    previous = JSON.parse(fs.readFileSync(BUNDLE_OUT_PATH, 'utf8'));
+  } catch (e) {
+    throw new Error(`Existing ${path.relative(REPO_ROOT, BUNDLE_OUT_PATH)} is not valid JSON: ${e.message}`);
+  }
+
+  for (const q of previous.questions ?? []) {
+    if (q && q.id) map.set(q.id, q);
+  }
+  return map;
+}
+
+// Completes a raw generated entry (id/type/topic/.../source only) into a full Question: computes
+// content_hash, and mirrors processDocument's bump-on-change semantics using the previous bundle
+// instead of a YAML AST - same id + unchanged content_hash keeps version/created_at; a changed hash
+// bumps version/updated_at; a brand-new id starts at version 1. status is always "approved" and
+// generation_version always 1: there is no "candidate" state for a deterministic extraction - either
+// the source parsed and validated cleanly (this function only runs on entries that did), or it was
+// reported as an error and never reaches here.
+function finalizeGeneratedQuestion(rawEntry, previousById) {
+  const contentHash = computeContentHash(rawEntry);
+  const previous = previousById.get(rawEntry.id);
+  const today = todayIso();
+
+  let version = 1;
+  let createdAt = today;
+  let updatedAt = today;
+
+  if (previous) {
+    createdAt = previous.created_at;
+    if (previous.content_hash === contentHash) {
+      version = previous.version;
+      updatedAt = previous.updated_at;
+    } else {
+      version = (previous.version ?? 0) + 1;
+    }
+  }
+
+  return {
+    ...rawEntry,
+    status: 'approved',
+    generation_version: 1,
+    content_hash: contentHash,
+    version,
+    created_at: createdAt,
+    updated_at: updatedAt,
+  };
 }
 
 function main() {
-  const { vaultPath } = loadVaultConfig();
+  const { vaultPath, publishedNotes } = loadVaultConfig();
+  const { merged: notePaths, perEntry } = resolvePublishedNotePaths(vaultPath, publishedNotes);
 
-  const { questions, scenarios } = publishReviewedContent();
-  const notes = mirrorVaultNotes(vaultPath);
+  const verbNotesEntry = perEntry.find((e) => e.entry === VERB_SINGLE_NOTES_PATTERN);
+  if (!verbNotesEntry) {
+    throw new Error(
+      `vault.config.json's publishedNotes must include "${VERB_SINGLE_NOTES_PATTERN}" ` +
+      `so verb_conjugation questions can be generated.`
+    );
+  }
+  const conjugationsEntry = perEntry.find((e) => e.entry === CONJUGATIONS_NOTE_PATH);
+  if (!conjugationsEntry) {
+    throw new Error(
+      `vault.config.json's publishedNotes must include "${CONJUGATIONS_NOTE_PATH}" ` +
+      `so conjugation_pattern questions can be generated.`
+    );
+  }
+
+  const allErrors = [];
+
+  const { questions: handQuestions, scenarios, questionOrigins: handQuestionOrigins } = publishReviewedContent();
+
+  const { entries: verbEntries, errors: verbErrors } = generateVerbConjugationQuestions(vaultPath, verbNotesEntry.paths);
+  const { entries: patternEntries, errors: patternErrors } = generateConjugationPatternQuestions(vaultPath, CONJUGATIONS_NOTE_PATH);
+  allErrors.push(...verbErrors, ...patternErrors);
+
+  const previousById = loadPreviousQuestionsById();
+  const generatedQuestions = [...verbEntries, ...patternEntries].map((raw) => finalizeGeneratedQuestion(raw, previousById));
+
+  const generatedOrigins = generatedQuestions.map((q) => ({
+    id: q.id,
+    filePath: path.join(vaultPath, ...q.source.note.split('/')),
+  }));
+  allErrors.push(...findDuplicateIds([...handQuestionOrigins, ...generatedOrigins], 'question'));
+
+  if (allErrors.length > 0) {
+    throw new Error(`Generation/content validation failed:\n\n${allErrors.join('\n\n')}`);
+  }
+
+  const questions = [...handQuestions, ...generatedQuestions];
+  const notes = mirrorVaultNotes(vaultPath, notePaths);
 
   const bundle = {
     schema_version: 1,
@@ -330,7 +484,11 @@ function main() {
   fs.mkdirSync(path.dirname(BUNDLE_OUT_PATH), { recursive: true });
   fs.writeFileSync(BUNDLE_OUT_PATH, JSON.stringify(bundle, null, 2), 'utf8');
 
-  console.log(`Published ${questions.length} question(s), ${scenarios.length} scenario(s), ${notes.length} note(s).`);
+  console.log(
+    `Published ${questions.length} question(s) (${handQuestions.length} hand-authored, ` +
+    `${generatedQuestions.length} generated: ${verbEntries.length} verb_conjugation, ` +
+    `${patternEntries.length} conjugation_pattern), ${scenarios.length} scenario(s), ${notes.length} note(s).`
+  );
   console.log(`Bundle written to ${path.relative(REPO_ROOT, BUNDLE_OUT_PATH)} (version ${bundle.bundle_version}).`);
 }
 
@@ -346,5 +504,10 @@ module.exports = {
   validateEntry,
   computeContentHash,
   idPrefixForFile,
+  loadVaultConfig,
+  resolvePublishedNotePaths,
+  mirrorVaultNotes,
+  finalizeGeneratedQuestion,
+  loadPreviousQuestionsById,
   ValidationError,
 };

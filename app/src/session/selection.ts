@@ -6,14 +6,17 @@ import type { ProgressRecord } from '../review/types';
 import type { SessionConfig } from './types';
 
 // Types with a rendering/checking path built in the app so far. Phase 2 built en_to_pt; Phase 3
-// added the three self-assessed types. The remaining exact-mode types (pt_to_en, fill_blank,
-// choose_form, correct_sentence, context_choice, build_sentence) exist in the schema for forward
-// compatibility but have no UI yet — a future phase's job, not this list's.
+// added the three self-assessed types; verb_conjugation/conjugation_pattern reuse that same
+// self-assessed reveal/rate path (checkingMode.ts's SELF_ASSESSED_TYPES). The remaining exact-mode
+// types (pt_to_en, fill_blank, choose_form, correct_sentence, context_choice, build_sentence) exist
+// in the schema for forward compatibility but have no UI yet — a future phase's job, not this list's.
 export const IMPLEMENTED_QUESTION_TYPES: readonly QuestionType[] = [
   'en_to_pt',
   'open_completion',
   'explain_difference',
   'speak_aloud',
+  'verb_conjugation',
+  'conjugation_pattern',
 ];
 
 export function distinctTopics(bundle: ContentBundle): string[] {
