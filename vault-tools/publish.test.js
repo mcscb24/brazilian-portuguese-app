@@ -181,6 +181,13 @@ function makeVault() {
   writeYaml(path.join(vaultPath, 'Grammar', 'Verbs', 'Single', 'Ter.md'), '# Ter\n');
   writeYaml(path.join(vaultPath, 'Grammar', 'Verbs', 'Single', 'notes.txt'), 'not a note');
   writeYaml(path.join(vaultPath, 'Bits and Bobs', 'Untracked.md'), '# Untracked\n');
+  // Fixtures for recursive folder/**/*.md resolution: a flat note and a two-levels-deep note under
+  // the same subfolder (Pronouns), a dot-prefixed directory that must never surface, and a sibling
+  // top-level folder outside any configured recursive root.
+  writeYaml(path.join(vaultPath, 'Grammar', 'Pronouns', 'Direct.md'), '# Direct\n');
+  writeYaml(path.join(vaultPath, 'Grammar', 'Pronouns', 'Deep', 'Nested.md'), '# Nested\n');
+  writeYaml(path.join(vaultPath, 'Grammar', '.obsidian', 'config.md'), 'not a real note');
+  writeYaml(path.join(vaultPath, 'Scratch', 'Unrelated.md'), '# Unrelated\n');
   return vaultPath;
 }
 
@@ -251,12 +258,84 @@ test('resolvePublishedNotePaths throws when a folder/*.md entry\'s folder does n
   }
 });
 
-test('resolvePublishedNotePaths rejects wildcard shapes other than a trailing folder/*.md', () => {
+test('resolvePublishedNotePaths rejects wildcard shapes other than folder/*.md or folder/**/*.md', () => {
   const vaultPath = makeVault();
   try {
     assert.throws(
       () => resolvePublishedNotePaths(vaultPath, ['Grammar/Verbs/Single/*.markdown']),
-      /only exact paths or.*folder\/\*\.md.*wildcards are supported/
+      /only exact paths.*folder\/\*\.md.*folder\/\*\*\/\*\.md.*wildcards are supported/
+    );
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+test('resolvePublishedNotePaths resolves a folder/**/*.md wildcard recursively through nested subfolders', () => {
+  const vaultPath = makeVault();
+  try {
+    const { merged, perEntry } = resolvePublishedNotePaths(vaultPath, ['Grammar/Pronouns/**/*.md']);
+    assert.deepEqual(merged, [
+      'Grammar/Pronouns/Deep/Nested.md',
+      'Grammar/Pronouns/Direct.md',
+    ]);
+    assert.equal(perEntry.length, 1);
+    assert.deepEqual(perEntry[0].paths, merged);
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+test('resolvePublishedNotePaths dedupes a recursive folder/**/*.md entry against an already-explicit exact path', () => {
+  const vaultPath = makeVault();
+  try {
+    const { merged } = resolvePublishedNotePaths(vaultPath, [
+      'Grammar/Verbs/Conjugations.md',
+      'Grammar/**/*.md',
+    ]);
+    assert.equal(merged.filter((p) => p === 'Grammar/Verbs/Conjugations.md').length, 1);
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+test('resolvePublishedNotePaths returns a deterministically sorted list for a recursive entry', () => {
+  const vaultPath = makeVault();
+  try {
+    const { merged } = resolvePublishedNotePaths(vaultPath, ['Grammar/**/*.md']);
+    assert.deepEqual(merged, [...merged].sort());
+    assert.ok(merged.length > 1);
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+test('resolvePublishedNotePaths skips dot-prefixed directories when resolving recursively', () => {
+  const vaultPath = makeVault();
+  try {
+    const { merged } = resolvePublishedNotePaths(vaultPath, ['Grammar/**/*.md']);
+    assert.ok(!merged.includes('Grammar/.obsidian/config.md'));
+    assert.ok(!merged.some((p) => p.split('/').some((segment) => segment.startsWith('.'))));
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+test('resolvePublishedNotePaths does not include an unrelated sibling folder outside the configured recursive roots', () => {
+  const vaultPath = makeVault();
+  try {
+    const { merged } = resolvePublishedNotePaths(vaultPath, ['Grammar/**/*.md', 'Bits and Bobs/**/*.md']);
+    assert.ok(!merged.some((p) => p.startsWith('Scratch/')));
+  } finally {
+    fs.rmSync(vaultPath, { recursive: true, force: true });
+  }
+});
+
+test('resolvePublishedNotePaths throws a clear error when a recursive folder/**/*.md root does not exist', () => {
+  const vaultPath = makeVault();
+  try {
+    assert.throws(
+      () => resolvePublishedNotePaths(vaultPath, ['Grammar/Missing/**/*.md']),
+      /folder does not exist/
     );
   } finally {
     fs.rmSync(vaultPath, { recursive: true, force: true });

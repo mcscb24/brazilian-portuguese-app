@@ -299,11 +299,43 @@ function extractHeadings(bodyText) {
   return headings;
 }
 
-// Resolves one vault.config.json publishedNotes entry — either an exact vault-relative path, or a
-// non-recursive "folder/*.md" wildcard — into a sorted list of vault-relative note paths. Throws
-// loudly if a configured path/folder doesn't exist, or if a pattern isn't one of the two supported
-// shapes (no glob dependency, no recursive/nested wildcards — deliberately simple).
+// Recursively walks an already-resolved absolute directory, collecting every .md file at any depth
+// as a vault-relative path (relativePrefix is the vault-relative path to dirFull itself, '' for the
+// vault root). Skips any entry - file or directory - whose name starts with "." at any depth: vault
+// hygiene (.obsidian, .trash, etc.) rather than a hardcoded name list, since none currently exist in
+// this vault but could reappear if it's reopened in Obsidian. Unsorted - callers sort the result.
+function walkMarkdownFilesRecursive(dirFull, relativePrefix) {
+  const results = [];
+  for (const entry of fs.readdirSync(dirFull, { withFileTypes: true })) {
+    if (entry.name.startsWith('.')) continue;
+    const childRelative = relativePrefix ? `${relativePrefix}/${entry.name}` : entry.name;
+    const childFull = path.join(dirFull, entry.name);
+    if (entry.isDirectory()) {
+      results.push(...walkMarkdownFilesRecursive(childFull, childRelative));
+    } else if (entry.isFile() && entry.name.endsWith('.md')) {
+      results.push(childRelative);
+    }
+  }
+  return results;
+}
+
+// Resolves one vault.config.json publishedNotes entry - an exact vault-relative path, a
+// non-recursive "folder/*.md" wildcard, or a recursive "folder/**/*.md" wildcard - into a sorted
+// list of vault-relative note paths. Throws loudly if a configured path/folder doesn't exist, or if
+// a pattern isn't one of these supported shapes (no glob dependency - each shape is matched and
+// walked explicitly). A bare vault-root "**/*.md" is deliberately not supported: every recursive
+// root must name an actual top-level folder, keeping the allowlist an intentional, auditable list
+// rather than "everything under vaultPath, whatever that becomes."
 function resolvePublishedNoteEntry(vaultPath, entry) {
+  if (entry.endsWith('/**/*.md')) {
+    const folder = entry.slice(0, -'/**/*.md'.length);
+    const dirFull = path.join(vaultPath, ...folder.split('/'));
+    if (!fs.existsSync(dirFull) || !fs.statSync(dirFull).isDirectory()) {
+      throw new Error(`vault.config.json publishedNotes entry ${JSON.stringify(entry)}: folder does not exist: ${dirFull}`);
+    }
+    return walkMarkdownFilesRecursive(dirFull, folder).sort();
+  }
+
   if (entry.endsWith('/*.md')) {
     const folder = entry.slice(0, -'/*.md'.length);
     const dirFull = path.join(vaultPath, ...folder.split('/'));
@@ -319,8 +351,8 @@ function resolvePublishedNoteEntry(vaultPath, entry) {
 
   if (entry.includes('*')) {
     throw new Error(
-      `vault.config.json publishedNotes entry ${JSON.stringify(entry)}: only exact paths or ` +
-      `non-recursive "folder/*.md" wildcards are supported.`
+      `vault.config.json publishedNotes entry ${JSON.stringify(entry)}: only exact paths, ` +
+      `non-recursive "folder/*.md" wildcards, or recursive "folder/**/*.md" wildcards are supported.`
     );
   }
 
