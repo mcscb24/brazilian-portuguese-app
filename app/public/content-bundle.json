@@ -1,7 +1,676 @@
 {
   "schema_version": 1,
-  "bundle_version": "2026-07-26T20:49:55.432Z",
+  "bundle_version": "2026-07-28T07:19:23.385Z",
   "questions": [
+    {
+      "type": "explain_difference",
+      "topic": "Adjectives",
+      "subtopic": "Este vs esse vs aquele — three-way distance system",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the three-way distance distinction that este, esse, and aquele express, which English's single word \"that\" doesn't fully capture.",
+      "model_answers": [
+        "Portuguese splits distance into three levels: este is used for something near the speaker (Este livro é interessante — the book I'm holding), esse is for something near the listener or already mentioned (Esse livro é novo — the book you're holding), and aquele is for something far from both speaker and listener (Aquele livro é antigo — the book across the room). English collapses este/esse into 'this/that' and aquele into 'that (over there)'."
+      ],
+      "explanation": "Grounded in the note's room example distinguishing este, esse, and aquele.",
+      "source": {
+        "note": "Grammar/Adjectives/Demonstrative Adjectives.md",
+        "heading": "2. The three-way system"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-demonstrative-0001",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:c38be0f08af5922aba419b313fddbb4452b4d2c579a88556f2a5814648654f37",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Adjectives",
+      "subtopic": "Este with a masculine singular noun",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "This restaurant is excellent.",
+      "accepted_answers": [
+        {
+          "text": "Este restaurante é excelente.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "este agrees with the masculine singular noun restaurante — from the note's Common examples.",
+      "source": {
+        "note": "Grammar/Adjectives/Demonstrative Adjectives.md",
+        "heading": "8. Common examples"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-demonstrative-0002",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:c40be62ffd0645cbe1100eab3fe3b5b5bc10c97a8ec022c716cd3a180aa47920",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Adjectives",
+      "subtopic": "Aquele/aquela for something far from speaker and listener",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "That mountain over there is very high.",
+      "accepted_answers": [
+        {
+          "text": "Aquela montanha é muito alta.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "aquela is used because the mountain is far from both speaker and listener — from the note's Mini practice.",
+      "source": {
+        "note": "Grammar/Adjectives/Demonstrative Adjectives.md",
+        "heading": "11. Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-demonstrative-0003",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:d42b64c7f6818764b0e1c111d2c29b6bb3769d4c25b604d4a7b528e6f0190778",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Adjectives",
+      "subtopic": "Aqueles — masculine plural, far away",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "Those cars are expensive.",
+      "accepted_answers": [
+        {
+          "text": "Aqueles carros são caros.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "aqueles is the masculine plural of aquele — from the note's Mini practice.",
+      "source": {
+        "note": "Grammar/Adjectives/Demonstrative Adjectives.md",
+        "heading": "11. Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-demonstrative-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:3373e7ac1996eeb24f55e26942d5c4320517c8e1085019f23dac3cad25fa68a2",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Adjectives",
+      "subtopic": "Esse replacing este in everyday Brazilian speech",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why a Brazilian might say \"Esse carro é bonito.\" instead of the formally-taught \"Este carro é bonito.\", even when holding the car keys themselves.",
+      "model_answers": [
+        "In everyday Brazilian Portuguese, esse/essa has largely taken over the role of este/esta — both are grammatically correct, but este is more common in formal writing while esse is what Brazilians actually say in conversation, even for something near the speaker. Aquele still firmly means 'far away' in both registers."
+      ],
+      "explanation": "Grounded in the note's Modern Brazilian Portuguese section: 'Este is more common in formal writing. Esse is more common in conversation.'",
+      "source": {
+        "note": "Grammar/Adjectives/Demonstrative Adjectives.md",
+        "heading": "4. Modern Brazilian Portuguese"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-demonstrative-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:57c033cfafa813b0d9e2a830afb55b14c8794cae998a6ca37ce104c5d033f593",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Adjectives",
+      "subtopic": "Esse referring back to something already mentioned",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "Someone says \"Comprei um carro novo.\" (I bought a new car.). Reply in Portuguese asking \"Is that car fast?\", referring back to the car just mentioned.",
+      "model_answers": [
+        "Esse carro é rápido?"
+      ],
+      "explanation": "esse points back to the car already mentioned by the other speaker — one of its most common uses, per the note.",
+      "source": {
+        "note": "Grammar/Adjectives/Demonstrative Adjectives.md",
+        "heading": "6. Referring back to something"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-demonstrative-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:32b3cd8c1e5ae4ff028803cc97a6173d864ff9b58060ceb58db3e47ebe994463",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Adjectives",
+      "subtopic": "Este vs esse — near me vs near you",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "In the exchange \"Você quer este livro?\" / \"Não, quero esse.\", explain what este and esse each point to.",
+      "model_answers": [
+        "Este livro refers to the book the first speaker is holding (near them). Esse in the reply refers back to that same book, but now from the second speaker's perspective it's 'the one near you' — esse marks something near the listener or just mentioned, in contrast to este for something near the speaker."
+      ],
+      "explanation": "Grounded in the note's subtle-point dialogue distinguishing something near me from something near you.",
+      "source": {
+        "note": "Grammar/Adjectives/Demonstrative Adjectives.md",
+        "heading": "10. One subtle point"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-demonstrative-0007",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:e9a0b8803b339b28a0d567a906e48e3c104b95553e002e30217d711601549990",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Adjectives",
+      "subtopic": "Algum amigo vs amigo algum — word order flips the meaning",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain how \"Algum amigo\" and \"Amigo algum\" differ in meaning, even though they use the same two words.",
+      "model_answers": [
+        "Algum amigo (before the noun) means 'some friend' — a positive, indefinite reference. Amigo algum (after the noun) means 'no friend' — moving algum after the noun completely flips it to a negative meaning."
+      ],
+      "explanation": "Grounded in the note's 'Word order changes the meaning' subsection under Algum.",
+      "source": {
+        "note": "Grammar/Adjectives/Indefinite Adjectives.md",
+        "heading": "3. Algum (some, any)"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-indefinite-0001",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:e084d8d03b9bc043423128a9256f7b4b19a9e117fc7119949bc7f784e574a8a7",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "fill_blank",
+      "topic": "Adjectives",
+      "subtopic": "Nenhum with double negation",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete: \"Não tenho ___ problema.\" (I don't have any problem.)",
+      "accepted_answers": [
+        {
+          "text": "nenhum",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "Unlike English, Portuguese normally uses double negation: não + nenhum, and this is completely correct.",
+      "source": {
+        "note": "Grammar/Adjectives/Indefinite Adjectives.md",
+        "heading": "4. Nenhum (no, not any)"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-indefinite-0002",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:c8b1dee7f98efb782dd4b64f74ba8b3e114e53cbbaf29470ee1e5d5c0e39f0a4",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Adjectives",
+      "subtopic": "Todo livro vs todos os livros",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the difference in meaning between \"Todo livro conta uma história.\" and \"Todos os livros contam uma história.\"",
+      "model_answers": [
+        "Todo livro (singular, no article) means 'every book' — each one individually. Todos os livros (plural, with the article os) means 'all the books' — the whole group together. Both use todo/todos but express a subtly different scope."
+      ],
+      "explanation": "Grounded in the note's distinction: 'Todo livro = every book. Todos os livros = all the books.'",
+      "source": {
+        "note": "Grammar/Adjectives/Indefinite Adjectives.md",
+        "heading": "5. Todo (every, all)"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-indefinite-0003",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:94c03e1a68ae4719145e4c9d07c70e099adf28097ce169b29fe122183d6ec3be",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "correct_sentence",
+      "topic": "Adjectives",
+      "subtopic": "Cada is invariant — no plural form",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "neutral",
+      "prompt": "Fix the error in this sentence: \"Cadas pessoas chegaram.\"",
+      "accepted_answers": [
+        {
+          "text": "Cada pessoa chegou.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "cada never changes form and always takes a singular noun — the note marks 'Cadas pessoas' explicitly as incorrect (✅ Cada pessoa).",
+      "source": {
+        "note": "Grammar/Adjectives/Indefinite Adjectives.md",
+        "heading": "6. Cada (each)"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-indefinite-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:3bf82dbddb7c0de5f1b4f30b1ea260424207a9e634cf794663a78f3061082880",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Adjectives",
+      "subtopic": "Certa resposta vs resposta certa",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the difference in meaning between \"certa resposta\" and \"resposta certa\".",
+      "model_answers": [
+        "Certa resposta (before the noun) means 'a certain answer' — certo functioning as an indefinite adjective. Resposta certa (after the noun) means 'the correct answer' — certo here functions as a descriptive adjective. Word order changes the meaning, just as it does with algum."
+      ],
+      "explanation": "Grounded in the note's Certo section: 'certa resposta = a certain answer, resposta certa = the correct answer.'",
+      "source": {
+        "note": "Grammar/Adjectives/Indefinite Adjectives.md",
+        "heading": "9. Certo (certain)"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-indefinite-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:d76a59b4398d99385266c85cc1561ed1fbb99c8511a7a1659af9d7926f339f79",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Adjectives",
+      "subtopic": "Todo as \"every\"",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Every student.",
+      "accepted_answers": [
+        {
+          "text": "Todo aluno.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "Todo aluno uses the singular, no-article form of todo to mean 'every student' — from the note's Mini practice.",
+      "source": {
+        "note": "Grammar/Adjectives/Indefinite Adjectives.md",
+        "heading": "13. Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-indefinite-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:4deb149767d2c3bcb0a16a4ac80c5ac65dd62251ab5f8be7c59512cfc198a551",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Adjectives",
+      "subtopic": "Seu is ambiguous — your/his/her/their",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why \"Seu carro chegou.\" is ambiguous out of context.",
+      "model_answers": [
+        "Seu can mean your, his, her, or their, so 'Seu carro chegou.' could mean 'Your car arrived', 'His car arrived', 'Her car arrived', or 'Their car arrived' — without context there is no way to tell which one is meant."
+      ],
+      "explanation": "Grounded in the note's '\"Seu\" can be confusing' section, which lists all four possible readings of the same sentence.",
+      "source": {
+        "note": "Grammar/Adjectives/Possessive Adjectives.md",
+        "heading": "4. \"Seu\" can be confusing"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-possessive-0001",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:740b4b5503e6c1bc80c6ee0395e358e16613f7516afb2409be874b6cacbcb855",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Adjectives",
+      "subtopic": "Dele/dela/deles/delas disambiguate seu/sua",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain how Brazilians commonly avoid the ambiguity of seu/sua when they want to be clear about whose car or house they mean.",
+      "model_answers": [
+        "Instead of the ambiguous seu/sua, Brazilians often use dele (his), dela (hers), deles (theirs, masculine/mixed), or delas (theirs, feminine) placed after the noun — e.g. O carro dele (his car) or A bolsa dela (her handbag) — which removes the ambiguity that seu/sua would otherwise carry."
+      ],
+      "explanation": "Grounded in the note's 'How Brazilians avoid ambiguity' section.",
+      "source": {
+        "note": "Grammar/Adjectives/Possessive Adjectives.md",
+        "heading": "5. How Brazilians avoid ambiguity"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-possessive-0002",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:cea9323bf0e422b3fc1aab9ffa69b47af2df1b7839800c97939a261e815d71d1",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Adjectives",
+      "subtopic": "Meu carro — possessive with a masculine noun",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "My car is new.",
+      "accepted_answers": [
+        {
+          "text": "Meu carro é novo.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "meu agrees with the masculine noun carro — from the note's 'Talking about possessions' section.",
+      "source": {
+        "note": "Grammar/Adjectives/Possessive Adjectives.md",
+        "heading": "9. Talking about possessions"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-possessive-0003",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:521ee6a26404ceef27b92d6f7104b430f11a4b31bd9deb506db4324157efb74c",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Adjectives",
+      "subtopic": "Nossos filhos — plural possessive",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Our children.",
+      "accepted_answers": [
+        {
+          "text": "Nossos filhos.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "nossos is the masculine plural of nosso, agreeing with filhos — from the note's Mini practice.",
+      "source": {
+        "note": "Grammar/Adjectives/Possessive Adjectives.md",
+        "heading": "12. Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-possessive-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:16f2ec63e08ed872746dec1e073a7d658a6be9a5be9732a555d21cd140a9e200",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Adjectives",
+      "subtopic": "De + pronoun instead of a possessive adjective",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "Her house. (Use dela rather than sua, to be unambiguous.)",
+      "accepted_answers": [
+        {
+          "text": "A casa dela.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "The note's Mini practice gives 'A casa dela' as the answer, noting dela is clearer in Brazilian Portuguese than the ambiguous sua casa.",
+      "source": {
+        "note": "Grammar/Adjectives/Possessive Adjectives.md",
+        "heading": "12. Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-possessive-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:1cb3c8474bf1f0286aff7fca371fa063ee0ac5a3be367f2e33ea3c6d4f878ec9",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Adjectives",
+      "subtopic": "Teu vs seu — regional variation",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain when a learner of general Brazilian Portuguese would hear teu/tua used instead of seu/sua.",
+      "model_answers": [
+        "Teu/tua goes with tu (the informal singular 'you'), while seu/sua traditionally goes with você. Since você is far more common than tu across most of Brazil, seu/sua is heard much more often overall — though tu (and teu/tua) is used regularly in some regions, such as much of Rio Grande do Sul and parts of the North and Northeast."
+      ],
+      "explanation": "Grounded in the note's dedicated section 'A note on \"teu\" vs. \"seu\"'.",
+      "source": {
+        "note": "Grammar/Adjectives/Possessive Adjectives.md",
+        "heading": "13. A note on \"teu\" vs. \"seu\""
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "adjectives-possessive-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:dcfd4c55b02f80586d2130f3097f8ba63a0842ad796dc5f58f524cf1bfb49431",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Articles",
+      "subtopic": "Indefinite articles — plural (uns/umas)",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Some books.",
+      "accepted_answers": [
+        {
+          "text": "Uns livros.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "Uns is the masculine plural indefinite article, used here for 'some books' — from the note's Mini practice.",
+      "source": {
+        "note": "Grammar/Articles.md",
+        "heading": "12. Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "articles-0001",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:a58dc9782600605e7fcf3f20e488a3963b9f1f2c3ea39f41b638631270b5e719",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Articles",
+      "subtopic": "Definite articles — plural (as)",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "The children.",
+      "accepted_answers": [
+        {
+          "text": "As crianças.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "As is the feminine plural definite article — from the note's Mini practice.",
+      "source": {
+        "note": "Grammar/Articles.md",
+        "heading": "12. Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "articles-0002",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:d1bd1c14699d5a503e7e0883bb3d17dc00b55d898567602a95c0e59e6cd30273",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "fill_blank",
+      "topic": "Articles",
+      "subtopic": "Article + preposition contractions — de + o = do",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete with the correct contraction: \"O carro ___ João é novo.\" (João's car is new.)",
+      "accepted_answers": [
+        {
+          "text": "do",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "de + o contracts to do, used to show possession: 'o carro do João' = João's car.",
+      "source": {
+        "note": "Grammar/Articles.md",
+        "heading": "11. Articles with prepositions"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "articles-0003",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:116278108e97ac34cc66080af2040f3a449371906c1eac1971bf4e54334b032e",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "fill_blank",
+      "topic": "Articles",
+      "subtopic": "Article + preposition contractions — a + a = à",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete with the correct contraction: \"Vou ___ escola.\" (I'm going to school.)",
+      "accepted_answers": [
+        {
+          "text": "à",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "a + a contracts to à before a feminine noun like escola.",
+      "source": {
+        "note": "Grammar/Articles.md",
+        "heading": "11. Articles with prepositions"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "articles-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:b8479f301d0df1e210edc1921e07ebb1df1f1493e5e765f69028a0774fe2e099",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Articles",
+      "subtopic": "Professions — article dropped after ser, kept with a description",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why \"Ela é médica.\" has no article, while \"Ela é uma excelente médica.\" does.",
+      "model_answers": [
+        "After ser, professions normally take no article when simply stating what someone is (Ela é médica = She is a doctor). Once the profession is described with an adjective (uma excelente médica = an excellent doctor), the indefinite article reappears because you're now characterizing her, not just naming her job."
+      ],
+      "explanation": "Grounded in the note's Professions section: 'the article is used because you're describing her as an excellent doctor, not just stating her profession.'",
+      "source": {
+        "note": "Grammar/Articles.md",
+        "heading": "7. Professions"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "articles-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:5b43a7d9773fb41be3a825017932380e8052b9a42769834989283a593a87b801",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "context_choice",
+      "topic": "Articles",
+      "subtopic": "Definite vs indefinite — first mention vs already known",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Choose the correct article: \"Vi um cachorro. ___ cachorro era grande.\" (I saw a dog. The dog was big.)",
+      "accepted_answers": [
+        {
+          "text": "O",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "The dog is introduced with the indefinite article um (first mention), then referred back to with the definite article O, because now everyone knows which dog is meant.",
+      "source": {
+        "note": "Grammar/Articles.md",
+        "heading": "4. Definite vs. indefinite"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "articles-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:91888d325843cf5bc5f556f26d87f74603efccf70486d13d9856551c1dac98a4",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "build_sentence",
+      "topic": "Articles",
+      "subtopic": "Article + preposition contractions — a + o = ao",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Say \"I'm going to the supermarket\" in Portuguese, using the a + o contraction.",
+      "accepted_answers": [
+        {
+          "text": "Vou ao supermercado.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "a + o contracts to ao before a masculine noun like supermercado — from the note's Mini practice.",
+      "source": {
+        "note": "Grammar/Articles.md",
+        "heading": "12. Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "articles-0007",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:819d256673b63c72be7e70250a7f76427f2aedee0a1712d21ff100226ca53fdd",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
     {
       "type": "explain_difference",
       "topic": "Bits and Bobs",
@@ -80,6 +749,57 @@
       "content_hash": "sha256:957b63f07c11a85b26e3d1ef33a1f0e4c70ce5ae1a78b8b5bc0656aa14d176c3",
       "version": 1,
       "updated_at": "2026-07-24"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Bits and Bobs",
+      "subtopic": "Algum meaning \"any\" in questions",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Do you have any brothers?",
+      "accepted_answers": [
+        {
+          "text": "Você tem algum irmão?",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "In questions, algum often corresponds to English 'any' rather than 'some' — Portuguese keeps algum where English switches words.",
+      "source": {
+        "note": "Bits and Bobs/Algum & Nenhum.md",
+        "heading": "2. Algum in questions = Any"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-algum-nenhum-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:c649085c31e3115534385fc3006f595c6b1dbacd78741b7740e7ac8872b04b4a",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "Livro algum — emphatic word order exception",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "Explain the difference in style between \"Não encontrei nenhum livro.\" and \"Livro algum foi encontrado.\", even though both mean \"Not a single book was found.\"",
+      "model_answers": [
+        "Não encontrei nenhum livro is the normal, everyday way to say it, with nenhum before the noun. Livro algum foi encontrado places algum after the noun instead — an exception to the usual algum/nenhum-before-noun word order — which makes the sentence sound much more emphatic and literary. As a learner, nenhum livro is the form to use in everyday speech."
+      ],
+      "explanation": "Grounded in the note's section on \"Livro algum\" as a more emphatic style, contrasted directly with the normal-conversation nenhum livro example.",
+      "source": {
+        "note": "Bits and Bobs/Algum & Nenhum.md",
+        "heading": "9. \"Livro algum\" – a more emphatic style"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-algum-nenhum-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:7dfb7f1d9355ecfed4715d59b445c0c78702fee323368fc669211d22f65f9b36",
+      "version": 1,
+      "updated_at": "2026-07-28"
     },
     {
       "type": "explain_difference",
@@ -163,6 +883,237 @@
       "content_hash": "sha256:028ea357d479d64bb8e129b015e3049ebe46f4a10596d19d6bf69d923958afb3",
       "version": 1,
       "updated_at": "2026-07-24"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Bits and Bobs",
+      "subtopic": "Acabar de + infinitive — \"have just\"",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "I have just eaten.",
+      "accepted_answers": [
+        {
+          "text": "Acabei de comer.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "acabar (conjugated) + de + infinitive means 'to have just done something' — literally 'to finish doing something'.",
+      "source": {
+        "note": "Bits and Bobs/Common Structures.md",
+        "heading": "1. Acabar de = \"have just\""
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-common-structures-0001",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:7a72e0abb268f71f9b47afd47b41e6923681d775afe98818cc41d6feea28b154",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Bits and Bobs",
+      "subtopic": "Ter que + infinitive — obligation",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "I have to work tomorrow.",
+      "accepted_answers": [
+        {
+          "text": "Tenho que trabalhar amanhã.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "ter que + infinitive is the most common way Brazilians express obligation.",
+      "source": {
+        "note": "Bits and Bobs/Common Structures.md",
+        "heading": "2. Ter que = Have to / Need to"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-common-structures-0002",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:1689478b031ad5f2dde7bc917373a743dc74903443132ced10f1237ffd21d457",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "Ser vs ficar — permanent trait vs change of state",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the difference between \"Ele é inteligente.\" and \"Ele ficou inteligente.\"",
+      "model_answers": [
+        "Ser (é) describes a permanent characteristic — he is intelligent, as a lasting trait. Ficar (ficou) describes a change of state — he became intelligent, entering a new condition he wasn't necessarily in before. Ficar captures the idea of entering a state and remaining there, unlike ser's permanence."
+      ],
+      "explanation": "Grounded in the note's Compare section contrasting Ser (permanent characteristic) with Ficar (change of state).",
+      "source": {
+        "note": "Bits and Bobs/Common Structures.md",
+        "heading": "3. Ficar + adjective = Become / Get"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-common-structures-0003",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:bce19fad42aa81a407fbb0c8dc5df7bebcdf5af27b407b512236d75e62bd5743",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "Dar para — possibility, permission, and sufficiency",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the different meanings dar para can have, using \"Não dá para ir hoje.\", \"Dá para usar seu telefone?\", and \"Esse dinheiro dá para comprar um carro?\" as examples.",
+      "model_answers": [
+        "Dar para is very versatile: 'Não dá para ir hoje' means it's not possible to go today (possibility); 'Dá para usar seu telefone?' means 'Can I use your phone?' (asking permission); and 'Esse dinheiro dá para comprar um carro?' asks whether the money is enough to buy a car (sufficiency). The same structure covers possibility, permission, and 'is it enough'."
+      ],
+      "explanation": "Grounded in the note's three numbered meanings under Dar para: Is it possible?, Can I?, and Enough.",
+      "source": {
+        "note": "Bits and Bobs/Common Structures.md",
+        "heading": "4. Dar para = Possible / Enough / Suitable"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-common-structures-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:1b812454288715beb4881a0d33b8e69224ea46ba9a85219d0798e6b4c3631b64",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Bits and Bobs",
+      "subtopic": "Ir + gerund — gradual or ongoing action",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "I'm gradually learning.",
+      "accepted_answers": [
+        {
+          "text": "Vou aprendendo.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "ir + gerund expresses a gradual or ongoing process, different from English 'going to' — it means 'keep doing something gradually', not a future plan.",
+      "source": {
+        "note": "Bits and Bobs/Common Structures.md",
+        "heading": "5. Ir + gerund = Going to keep doing / gradually"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-common-structures-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:14cbea642f8cb2b6364604d67c6302cff02ac67dc4cafc5bbe1b7f3d353433a9",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "Já — already vs right now",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the two different meanings of já in \"Já comi.\" and \"Já vou.\"",
+      "model_answers": [
+        "In 'Já comi' (I've already eaten), já marks something already completed — 'already'. In 'Já vou' (I'm coming now), já instead marks immediacy — 'now/right away' — a very common way to say you're coming immediately, not that you've already gone."
+      ],
+      "explanation": "Grounded in the note's separate 'Already' and 'Now / immediately' subsections under já.",
+      "source": {
+        "note": "Bits and Bobs/Common Structures.md",
+        "heading": "6. Já = Already / Now / Soon"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-common-structures-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:cdaa07c1fc62e4109c529ff45c8f34195f22ff2a148dbed21c4d300e7516257c",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Bits and Bobs",
+      "subtopic": "Ainda não — not yet",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "I don't know yet.",
+      "accepted_answers": [
+        {
+          "text": "Ainda não sei.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "ainda não is the very common fixed phrase for 'not yet' — from the note's Ainda section.",
+      "source": {
+        "note": "Bits and Bobs/Common Structures.md",
+        "heading": "7. Ainda = Still / Yet"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-common-structures-0007",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:9e8e7d44960fde6e43489c5791ed2bd942af2cee60b03db55e0c59c97122c949",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Bits and Bobs",
+      "subtopic": "Só meaning only",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "I only have ten reais.",
+      "accepted_answers": [
+        {
+          "text": "Tenho só dez reais.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "só here means 'only' — from the note's Só section.",
+      "source": {
+        "note": "Bits and Bobs/Common Structures.md",
+        "heading": "8. Só = Only / Just"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-common-structures-0008",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:ff8da0ed1a947f2dad753f817f06ff00c27c8834a85f4b1703f8a91077891964",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "Né? as a softening tag question",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Explain what né? does in a sentence like \"Está quente hoje, né?\", and where the word comes from.",
+      "model_answers": [
+        "Né? comes from não é? (isn't it?) and is added to the end of a sentence as a tag question, similar to English 'isn't it?' or 'right?'. In 'Está quente hoje, né?' (It's hot today, isn't it?), it softens the statement and invites agreement, making the conversation feel more natural."
+      ],
+      "explanation": "Grounded in the note's Né? section: 'It comes from não é? ... It makes conversation softer.'",
+      "source": {
+        "note": "Bits and Bobs/Common Structures.md",
+        "heading": "11. Né?"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-common-structures-0009",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:9bbb28aa20f829429a330af9c89480739c13fb8c64f9256d8732f6d912dcf5c5",
+      "version": 1,
+      "updated_at": "2026-07-28"
     },
     {
       "type": "explain_difference",
@@ -272,6 +1223,60 @@
       "content_hash": "sha256:33c916dbb25501d00914212a13f93968eeb4f1417d9845d02e51c141b0ddc5aa",
       "version": 1,
       "updated_at": "2026-07-24"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Bits and Bobs",
+      "subtopic": "Equality — tão...quanto",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "She is as tall as her sister.",
+      "accepted_answers": [
+        {
+          "text": "Ela é tão alta quanto a irmã.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "tão + adjective + quanto is the equality-comparison pattern ('as ... as'), from the note's Equality section.",
+      "source": {
+        "note": "Bits and Bobs/Making Comparisons.md",
+        "heading": "1. Equality — \"As … as\""
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-making-comparisons-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:fd9f45a287e2c44f12cc578d8836534d74213f7b612bfecab86c213fb1ae8e5a",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Bits and Bobs",
+      "subtopic": "Menos...que — less than",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "The work is less difficult than I thought.",
+      "accepted_answers": [
+        {
+          "text": "O trabalho é menos difícil que pensei.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "menos + adjective + que is the mirror image of mais...que, from the note's Less Than section.",
+      "source": {
+        "note": "Bits and Bobs/Making Comparisons.md",
+        "heading": "3. Less Than"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-making-comparisons-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:2a4c706b0c681d0f47b8fa631ad246bbc17948f036a75c5478c231396f37a769",
+      "version": 1,
+      "updated_at": "2026-07-28"
     },
     {
       "id": "bits-tao-tanto-0001",
@@ -461,6 +1466,557 @@
       "content_hash": "sha256:7a1786a8c919ba5bff337fbb91baa797cf1a6e2a5374eac4ba16b52b97aa6b63",
       "version": 1,
       "updated_at": "2026-07-23"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "É vs São for telling the hour",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "neutral",
+      "prompt": "Explain when to use É and when to use São when saying what time it is.",
+      "model_answers": [
+        "É is used only with one o'clock (É uma hora), while São is used for two o'clock or more (São duas horas, São cinco horas). This is because ser agrees with the number of hours: one hour is singular, two or more hours are plural."
+      ],
+      "explanation": "Grounded in the note's 'Important: É vs São' subsection.",
+      "source": {
+        "note": "Bits and Bobs/Telling the Time.md",
+        "heading": "Saying the hour"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-telling-time-0001",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:b02c885652e5d49584d09f3e2652e6192913f4df1cdb794645a2cc8803faa443",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Bits and Bobs",
+      "subtopic": "Meia for half past",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "It's 8:30.",
+      "accepted_answers": [
+        {
+          "text": "São oito e meia.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "meia (not meio) is used for half past because it refers to meia hora — half an hour — and hora is feminine.",
+      "source": {
+        "note": "Bits and Bobs/Telling the Time.md",
+        "heading": "Meia — half past"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-telling-time-0002",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:b1d86ae8168c42e6b0da8ca9aa4eb508ee03ba0dc8c22a5b72fd4092fd8a69fd",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Bits and Bobs",
+      "subtopic": "Faltar to express minutes to the next hour",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "It's 28 minutes to seven.",
+      "accepted_answers": [
+        {
+          "text": "Faltam vinte e oito para as sete.",
+          "accent_sensitive": true
+        },
+        {
+          "text": "São vinte e oito para as sete.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "faltar expresses how many minutes remain until the next hour, following the pattern Faltam + minutes + para as + next hour; the time may also be expressed directly with São.",
+      "source": {
+        "note": "Bits and Bobs/Telling the Time.md",
+        "heading": "Saying \"to\" the next hour"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-telling-time-0003",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:2f6dbd92fba78fe4bc7a935c5589443368257ea433a564b011420b7a0eb8920e",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "Ao meio-dia vs à meia-noite — gender of noon/midnight",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why \"at noon\" is \"ao meio-dia\" but \"at midnight\" is \"à meia-noite\".",
+      "model_answers": [
+        "meio-dia (noon) is masculine, so it takes the masculine contraction ao (a + o). meia-noite (midnight) is feminine, so it takes the feminine contraction à (a + a). The gender of each word determines which contraction is used."
+      ],
+      "explanation": "Grounded in the note's 'At noon and midnight' section: 'meio-dia is masculine → ao meio-dia. meia-noite is feminine → à meia-noite.'",
+      "source": {
+        "note": "Bits and Bobs/Telling the Time.md",
+        "heading": "At noon and midnight"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-telling-time-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:f4e090002cb6d113175205eb664cf09fd4bd915e5eaa39873be5cea98a8e1511",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Bits and Bobs",
+      "subtopic": "À uma — at one o'clock",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "At one o'clock.",
+      "accepted_answers": [
+        {
+          "text": "À uma.",
+          "accent_sensitive": true
+        },
+        {
+          "text": "À uma hora.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "à uma is used because uma hora is singular — the a + a contraction gives à, not às.",
+      "source": {
+        "note": "Bits and Bobs/Telling the Time.md",
+        "heading": "At one o'clock"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-telling-time-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:eb9d9f7ef5b1ec54729b895230bed555f6a58f488c97c2e42d2d5cb2283e9ba1",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Bits and Bobs",
+      "subtopic": "São duas e dois — hours vs minutes take different genders",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "In \"São duas e dois.\" (It's 2:02), explain why duas and dois are both used even though they refer to the same two-value time.",
+      "model_answers": [
+        "duas is feminine because it refers to horas (hours, feminine), while dois is masculine because it refers to minutos (minutes, masculine). The same number takes a different gender depending on whether it's counting hours or minutes."
+      ],
+      "explanation": "Grounded in the note's explanation: 'The first duas refers to horas. The second dois refers to minutos.'",
+      "source": {
+        "note": "Bits and Bobs/Telling the Time.md",
+        "heading": "One and two are feminine when referring to hours"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "bits-telling-time-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:c48fabae55607c467f06ea9d47bbb71a9e31bf400f555416365959c23c6f8ae6",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Prepositions",
+      "subtopic": "Gostar de — verbs that require \"de\"",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "I like coffee.",
+      "accepted_answers": [
+        {
+          "text": "Eu gosto de café.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "gostar always requires the preposition de — English speakers commonly drop it by mistake (Eu gosto café), but Portuguese requires it.",
+      "source": {
+        "note": "Grammar/Prepositions.md",
+        "heading": "1️⃣ \"I like\" — Missing de"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "prepositions-0001",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:f656debee07011570c93f7cd9eb4ee3c4698f6da8217ff5eaa9b5030e7094779",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "fill_blank",
+      "topic": "Prepositions",
+      "subtopic": "Verbs requiring de — precisar de",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "neutral",
+      "prompt": "Complete: \"Eu preciso ___ ajuda.\" (I need help.)",
+      "accepted_answers": [
+        {
+          "text": "de",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "precisar de is one of the verbs that always requires de, alongside gostar de and lembrar de.",
+      "source": {
+        "note": "Grammar/Prepositions.md",
+        "heading": "4️⃣ De (One of the Most Common)"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "prepositions-0002",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:51c1a7e2f5c18173bbf87f33be75c9fa4d533b1f31827aff29ec7f7a61a9d440",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "choose_form",
+      "topic": "Prepositions",
+      "subtopic": "A vs Para — destination/purpose",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Choose the correct preposition: \"Vou ___ Brasil.\" (I'm going to Brazil.) — a or para?",
+      "accepted_answers": [
+        {
+          "text": "para",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "para expresses destination/purpose (Vou para o Brasil), while a expresses short-term movement (Vou ao banco).",
+      "source": {
+        "note": "Grammar/Prepositions.md",
+        "heading": "3️⃣ A vs Para (Very Important)"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "prepositions-0003",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:ba7a54236247f6b008823a2efeb8846a29714c11962de76021d6141c4f3cd119",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "choose_form",
+      "topic": "Prepositions",
+      "subtopic": "A vs Para — short movement (a + o = ao)",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Choose the correct contraction: \"Vou ___ banco.\" (I'm going to the bank.) — a+o or para+o?",
+      "accepted_answers": [
+        {
+          "text": "ao",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "a is used for movement to a place, often a short/temporary visit like the bank; a + o contracts to ao.",
+      "source": {
+        "note": "Grammar/Prepositions.md",
+        "heading": "3️⃣ A vs Para (Very Important)"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "prepositions-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:6328fedb49fc036d67f5ac10c80ee3e21355cf2168832e9f0f528c0cc66c4c5f",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "fill_blank",
+      "topic": "Prepositions",
+      "subtopic": "Por + article contraction — pelo",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete with the correct contraction: \"Passei ___ parque.\" (I walked through the park.)",
+      "accepted_answers": [
+        {
+          "text": "pelo",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "por + o contracts to pelo.",
+      "source": {
+        "note": "Grammar/Prepositions.md",
+        "heading": "6️⃣ Contractions (Very Important in Portuguese)"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "prepositions-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:2109abf050d0c60bd45ddf0ab8a940f6f31561e3bf473b4e4731e36e566a4a08",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Prepositions",
+      "subtopic": "Prepositions fused with pronouns — comigo",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "He came with me.",
+      "accepted_answers": [
+        {
+          "text": "Ele veio comigo.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "com + mim fuses into comigo (with me), rather than being said as two separate words.",
+      "source": {
+        "note": "Grammar/Prepositions.md",
+        "heading": "7️⃣ Prepositions + Pronouns"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "prepositions-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:856c155a436e6a5edecaf4e867dcf37c80f49e09da47609be9df15fef5b7310b",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "fill_blank",
+      "topic": "Prepositions",
+      "subtopic": "Prepositions of time — desde",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete: \"Trabalho aqui ___ 2020.\" (I've worked here since 2020.)",
+      "accepted_answers": [
+        {
+          "text": "desde",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "desde means 'since', marking the starting point of an ongoing situation.",
+      "source": {
+        "note": "Grammar/Prepositions.md",
+        "heading": "8️⃣ Prepositions of Time"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "prepositions-0007",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:660e08c30724045f17f10d7d469f9e51095d887a484f9cc953f9c8143e6fe889",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "build_sentence",
+      "topic": "Prepositions",
+      "subtopic": "Para — purpose (\"for you\")",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Say \"This is for you\" in Portuguese, using para.",
+      "accepted_answers": [
+        {
+          "text": "Isso é para você.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "para expresses purpose here (this exists for the purpose of being given to you), matching the note's a-vs-para mistake section.",
+      "source": {
+        "note": "Grammar/Prepositions.md",
+        "heading": "3️⃣ \"To\" — a vs para"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "prepositions-0008",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:0e1255c478a3dfddac80a96e8589c4b4bda8ed1be6a1b525d2dcddff7e7f7578",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Prepositions",
+      "subtopic": "Em covers English in/on/at",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "neutral",
+      "prompt": "Explain why English speakers often get confused using a single Portuguese word for \"in\", \"on\", and \"at\".",
+      "model_answers": [
+        "English uses three different words (in/on/at) depending on the kind of location, but Portuguese usually collapses all three into one word, em — e.g. Estou em casa (I am at home), Moro em Londres (I live in London), O livro está na mesa (The book is on the table, em+a=na)."
+      ],
+      "explanation": "Grounded in the note's '\"In / On / At\" confusion' mistake section.",
+      "source": {
+        "note": "Grammar/Prepositions.md",
+        "heading": "2️⃣ \"In / On / At\" confusion"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "prepositions-0009",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:0f04eaa19ff41469cb940885154822fc140e5309a1689ab369e7328c2e0684b2",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Pronouns",
+      "subtopic": "Demonstrative adjective vs demonstrative pronoun",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the difference between \"Este livro é interessante.\" and \"Este é interessante.\"",
+      "model_answers": [
+        "In the first sentence este is a demonstrative adjective describing the noun livro (this book is interesting). In the second sentence the noun has disappeared and este is a demonstrative pronoun replacing it entirely (this one is interesting) — same word, different job."
+      ],
+      "explanation": "Grounded in Step 1 of the note: 'The noun has disappeared. Este replaces it.'",
+      "source": {
+        "note": "Grammar/Pronouns/Demonstrative Pronouns.md",
+        "heading": "Step 1 – What's the difference?"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-demonstrative-0001",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:fa675a35bfcf26aebf1a5a4d66ebf6ae04b39ad4f86edff2d66573e4c63d4c2a",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Pronouns",
+      "subtopic": "Isso referring to an idea, not an object",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "Someone asks 'Você passou no exame?' (Did you pass the exam?). Reply in Portuguese with 'That's great!', referring back to the whole idea rather than any object.",
+      "model_answers": [
+        "Isso é ótimo!"
+      ],
+      "explanation": "Isso here doesn't refer to a thing — it refers to the whole idea just mentioned.",
+      "source": {
+        "note": "Grammar/Pronouns/Demonstrative Pronouns.md",
+        "heading": "Step 6 – Referring back to ideas"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-demonstrative-0002",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:a7601cf1b0839a78ff1d87b77636386186a281b7e6f56da3b4bbbb20114ba571",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Pronouns",
+      "subtopic": "Neuter demonstrative pronouns have no gender",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why isto, isso, and aquilo have no gender, unlike este, esse, and aquele.",
+      "model_answers": [
+        "Este/esse/aquele (and their feminine/plural forms) agree with a specific noun they replace or describe, so they carry gender and number. Isto/isso/aquilo are neuter — they don't refer to any specific noun at all, only to situations, ideas, facts, or actions, so there is nothing for them to agree with."
+      ],
+      "explanation": "Grounded in Step 7: neuter pronouns 'have no gender because they don't refer to a specific noun. Instead they refer to: situations, ideas, facts, actions.'",
+      "source": {
+        "note": "Grammar/Pronouns/Demonstrative Pronouns.md",
+        "heading": "Step 7 – The neutral pronouns"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-demonstrative-0003",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:ed4390e174de3e143156966e5142b4cdee57cdf3faf0026a922a6d7cf738422e",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "correct_sentence",
+      "topic": "Pronouns",
+      "subtopic": "Neuter pronouns never function as adjectives",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Fix the error in this sentence: \"Isto livro é bom.\"",
+      "accepted_answers": [
+        {
+          "text": "Este livro é bom.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "isto/isso/aquilo can never describe a noun the way este/esse/aquele can — the note marks 'Isto livro' explicitly as incorrect.",
+      "source": {
+        "note": "Grammar/Pronouns/Demonstrative Pronouns.md",
+        "heading": "Step 7 – The neutral pronouns"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-demonstrative-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:5f1eefb1cd59120d187641f4052da011f9c661c5f45381cf456d5a9f3d5abf62",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Pronouns",
+      "subtopic": "Isso — common fixed expressions",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Exactly.",
+      "accepted_answers": [
+        {
+          "text": "Isso mesmo.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "Isso mesmo is one of the most common Brazilian expressions built on isso.",
+      "source": {
+        "note": "Grammar/Pronouns/Demonstrative Pronouns.md",
+        "heading": "Step 8 – This is one of the most common words in Brazil"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-demonstrative-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:d37638a6e61df011731906eb0c816141c770daaf67e9407d259552fd17de2b4d",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Pronouns",
+      "subtopic": "Isso vs isto in modern spoken Brazilian Portuguese",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Traditional grammar assigns isto to 'this' and isso to 'that'. Explain why isso is nonetheless far more common than isto in modern spoken Brazilian Portuguese.",
+      "model_answers": [
+        "Even though isto is technically 'this' (near me) and isso is 'that' (near you / already mentioned), everyday Brazilian speech has largely shifted to using isso for both — e.g. 'O que é isso?' is much more common than 'O que é isto?', and 'É isso.' is a fixed everyday expression. Isto survives mainly in formal writing."
+      ],
+      "explanation": "Grounded in the note's dedicated section 'A note on isto, isso, and aquilo'.",
+      "source": {
+        "note": "Grammar/Pronouns/Demonstrative Pronouns.md",
+        "heading": "A note on isto, isso, and aquilo"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-demonstrative-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:336c1cc56196f517a11ae33fa459e48b5646f2e9651c7d39cd663273428e1ff5",
+      "version": 1,
+      "updated_at": "2026-07-28"
     },
     {
       "id": "pronouns-direct-object-0001",
@@ -668,6 +2224,218 @@
       "updated_at": "2026-07-23"
     },
     {
+      "type": "explain_difference",
+      "topic": "Pronouns",
+      "subtopic": "Direct object vs indirect object",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the difference between a direct object and an indirect object, using \"Eu vi o livro.\" and \"Eu dei o livro para ele.\" as examples.",
+      "model_answers": [
+        "The direct object receives the action directly with no preposition — o livro in 'Eu vi o livro' (I saw the book) is what was seen. The indirect object is the person who benefits from or receives the action, usually introduced by a preposition like para/a — ele in 'Eu dei o livro para ele' (I gave the book to him) is who received it, not what was given."
+      ],
+      "explanation": "Grounded in Step 1 of the note, contrasting 'Direct object' and 'Indirect object'.",
+      "source": {
+        "note": "Grammar/Pronouns/Indirect Object Pronouns.md",
+        "heading": "Step 1 – What's an indirect object?"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-indirect-object-0001",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:5a4f3747188a6b86a3e44530d2be499f9ed4e1dc9465cb46626a14998d87e1eb",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Pronouns",
+      "subtopic": "Indirect object pronoun me",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "He gave me the book.",
+      "accepted_answers": [
+        {
+          "text": "Ele me deu o livro.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "me is the first-person singular indirect object pronoun, placed before the verb — from the note's Give examples.",
+      "source": {
+        "note": "Grammar/Pronouns/Indirect Object Pronouns.md",
+        "heading": "Step 5 – Examples"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-indirect-object-0002",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:57cd640e896adb7bf65a15e85b28850af60c6e7ca8d7016bdb9bcc5f69a3053f",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Pronouns",
+      "subtopic": "Indirect object pronoun nos",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "She showed us the photos.",
+      "accepted_answers": [
+        {
+          "text": "Ela nos mostrou as fotos.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "nos is the first-person plural indirect object pronoun, used with mostrar (to show) — from the note's Show examples.",
+      "source": {
+        "note": "Grammar/Pronouns/Indirect Object Pronouns.md",
+        "heading": "Step 5 – Examples"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-indirect-object-0003",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:227e828d413ef1e858d8f455a78d0c2d83fc5e9317135424ed6a81da4ad3dd5d",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Pronouns",
+      "subtopic": "Lhe replaced by para + pronoun in spoken Brazilian Portuguese",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Formal grammar uses lhe for 'to him/her/you'. Explain what Brazilians actually say instead in everyday spoken Portuguese.",
+      "model_answers": [
+        "In everyday spoken Brazilian Portuguese, lhe is largely avoided. Instead of 'Eu lhe dei o livro', people say 'Eu dei o livro para ele/para ela/para você' — using para + the appropriate pronoun makes it clearer exactly who is meant, whereas lhe alone is ambiguous between him, her, and you."
+      ],
+      "explanation": "Grounded in Step 3 – The modern Brazilian reality and Step 7 – \"Lhe\" vs \"para ele\".",
+      "source": {
+        "note": "Grammar/Pronouns/Indirect Object Pronouns.md",
+        "heading": "Step 3 – The modern Brazilian reality"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-indirect-object-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:3918bf46c3e11609fd56f8bcd9e059eafd72da8eb33f26dd7db79f97a2243fab",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Pronouns",
+      "subtopic": "Contraction of para + ele",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "I gave the book to him.",
+      "accepted_answers": [
+        {
+          "text": "Eu dei o livro pra ele.",
+          "accent_sensitive": true
+        },
+        {
+          "text": "Eu dei o livro para ele.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "para commonly contracts to pra in spoken Brazilian Portuguese, especially before ele/ela — from the note's contraction section.",
+      "source": {
+        "note": "Grammar/Pronouns/Indirect Object Pronouns.md",
+        "heading": "Step 9 – A very common contraction"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-indirect-object-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:f8242a743ddeaee717f6fe515dbe9a7ed3e367fc282a219a85a72ecc6b1855f7",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "choose_form",
+      "topic": "Pronouns",
+      "subtopic": "Direct vs indirect object pronoun choice with dar",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Choose the correct pronoun: \"Eu ___ dei um presente.\" (I gave her a present.) — a or lhe/pra ela?",
+      "accepted_answers": [
+        {
+          "text": "lhe",
+          "accent_sensitive": true
+        },
+        {
+          "text": "pra ela",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "The person receiving the gift is the indirect object here, so it takes an indirect object pronoun (lhe, or more commonly pra ela), not a direct object pronoun.",
+      "source": {
+        "note": "Grammar/Pronouns/Indirect Object Pronouns.md",
+        "heading": "Step 10 – Direct vs indirect"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-indirect-object-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:18696e77ff2833f012e2ca8feaa1dfcbcf5b2083ea0db30d647d4a3a073d846f",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Pronouns",
+      "subtopic": "Spoken preference for pra + pronoun over lhe",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Complete naturally in spoken Brazilian Portuguese: \"Vou mandar uma mensagem ___.\" (I'm going to send her a message.)",
+      "model_answers": [
+        "Vou mandar uma mensagem pra ela."
+      ],
+      "explanation": "pra ela is the natural spoken choice over the formal lhe, consistent with the note's Mini practice answers.",
+      "source": {
+        "note": "Grammar/Pronouns/Indirect Object Pronouns.md",
+        "heading": "Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-indirect-object-0007",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:cb106d0e4a35b208672932152e055c69629ef1f6bfce895b5336c987faa7ba90",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Pronouns",
+      "subtopic": "A vs para with indirect objects",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the note's guidance on choosing between a and para when marking an indirect object in spoken Brazilian Portuguese.",
+      "model_answers": [
+        "Formal Portuguese can mark the indirect object with a (Dei o livro a ele), but in everyday spoken Brazilian Portuguese para (often shortened to pra) is far more common and natural, so learners are better off defaulting to para/pra rather than a."
+      ],
+      "explanation": "Grounded in the note's dedicated section 'A note about a vs para'.",
+      "source": {
+        "note": "Grammar/Pronouns/Indirect Object Pronouns.md",
+        "heading": "A note about a vs para"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-indirect-object-0008",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:7e68fb8082f136189436d7c866010fcb4587a6c61e4a1bf8e7fbed6c54fe50f7",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
       "type": "en_to_pt",
       "topic": "Pronouns",
       "subtopic": "Reflexive pronoun forms — nos",
@@ -819,6 +2587,162 @@
     {
       "type": "en_to_pt",
       "topic": "Pronouns",
+      "subtopic": "Que as the most common relative pronoun",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "The book that I bought.",
+      "accepted_answers": [
+        {
+          "text": "O livro que comprei.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "que is the most common relative pronoun, used for both people and things — from the note's Mini practice.",
+      "source": {
+        "note": "Grammar/Pronouns/Relative Pronouns.md",
+        "heading": "Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-relative-0001",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:6eb620269b9fa38401db64f749e3a73286f7a4939fee8774f7908614165564e1",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "correct_sentence",
+      "topic": "Pronouns",
+      "subtopic": "Que cannot be omitted in Portuguese",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Fix the error in this sentence: \"O livro comprei.\" (intended meaning: The book I bought.)",
+      "accepted_answers": [
+        {
+          "text": "O livro que comprei.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "English often omits 'that' (the book I bought), but Portuguese never omits que — the note explicitly marks 'O livro comprei' as incorrect.",
+      "source": {
+        "note": "Grammar/Pronouns/Relative Pronouns.md",
+        "heading": "3. Where English often omits \"that\""
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-relative-0002",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:625edc23b75e4cb1218c48c334af913a66cc2a5d7a227c133c85b88ee80f6bf8",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Pronouns",
+      "subtopic": "Quem after a preposition, for people",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "The friend I spoke with.",
+      "accepted_answers": [
+        {
+          "text": "O amigo com quem falei.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "quem is used for people after a preposition like com — from the note's Mini practice.",
+      "source": {
+        "note": "Grammar/Pronouns/Relative Pronouns.md",
+        "heading": "Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-relative-0003",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:3260418f8dda6e7a06c8a82368bc490fe4e0bb5d4e342fe914e2b2dd2136f66a",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Pronouns",
+      "subtopic": "Onde for places",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "The city where I was born.",
+      "accepted_answers": [
+        {
+          "text": "A cidade onde nasci.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "onde is the relative pronoun used for places — from the note's Mini practice.",
+      "source": {
+        "note": "Grammar/Pronouns/Relative Pronouns.md",
+        "heading": "Mini practice"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-relative-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:0d89fb2e0d9bc331355bc3f7e8bc7ec97ed1d64d6314b76f04dd8e0111ee7f1f",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Pronouns",
+      "subtopic": "Cujo is formal and rare in speech",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why cujo (whose) is a relative pronoun best recognised for reading rather than used often in everyday spoken Brazilian Portuguese.",
+      "model_answers": [
+        "Cujo (and its forms cuja/cujos/cujas) means 'whose' and agrees with the noun that follows it, but it belongs mainly to formal or written Portuguese. In everyday speech Brazilians tend to rephrase around it rather than use it directly, so learners mainly need to recognise it when reading rather than produce it fluently in conversation."
+      ],
+      "explanation": "Grounded in the note's section on cujo.",
+      "source": {
+        "note": "Grammar/Pronouns/Relative Pronouns.md",
+        "heading": "6. Cujo (whose)"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-relative-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:11926e006962c9158624c5bb4c04abc186268a02fc107bc3d0a156ba2d6acd6d",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Pronouns",
+      "subtopic": "Common fixed expression — o que aconteceu",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Ask in Portuguese: \"What happened?\", using the relative pronoun que.",
+      "model_answers": [
+        "O que aconteceu?"
+      ],
+      "explanation": "O que aconteceu? is one of the note's very common fixed expressions built with que.",
+      "source": {
+        "note": "Grammar/Pronouns/Relative Pronouns.md",
+        "heading": "11. Very common fixed expressions"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "pronouns-relative-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:6bab876b4b33805455f92a50e140692f850e0701843129b440d896bb97a6074f",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Pronouns",
       "subtopic": "Subject pronouns — a gente",
       "direction": "en_to_pt",
       "difficulty": "easy",
@@ -942,6 +2866,165 @@
       "updated_at": "2026-07-24"
     },
     {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "Present Continuous formula — estar + gerund",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "I am speaking.",
+      "accepted_answers": [
+        {
+          "text": "Estou falando.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "Present Continuous uses the formula estar (present) + gerund; estou is the eu form of estar, and falando is the -AR gerund (-ando).",
+      "source": {
+        "note": "Grammar/Verbs/Conjugations.md",
+        "heading": "Present Continuous"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-conjugations-extra-0001",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:737e16a44daec5b94b5ad630324ffbc6d17904ae8232a2e1dfd2907111d1d8b4",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "Present Continuous — nós form with an -ER verb",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "We are eating.",
+      "accepted_answers": [
+        {
+          "text": "Estamos comendo.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "estamos is the nós form of estar, and comendo is the -ER gerund (-endo), from the note's Present Continuous formula and Estar/ Gerund tables.",
+      "source": {
+        "note": "Grammar/Verbs/Conjugations.md",
+        "heading": "Present Continuous"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-conjugations-extra-0002",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:f96b9c5ad40fdf5bd94e16a2e45b0fddb8ebf2bc98cd10900f796a45a3775287",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "Near Future formula — ir (present) + infinitive",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "I am going to eat.",
+      "accepted_answers": [
+        {
+          "text": "Vou comer.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "Near Future uses the formula ir (present) + infinitive; vou is the eu form of ir, followed by the plain infinitive comer.",
+      "source": {
+        "note": "Grammar/Verbs/Conjugations.md",
+        "heading": "Near Future"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-conjugations-extra-0003",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:59a6db6ccf26758aaf83855aafa984cc36d014dc6385add0dfacad24c1bc7439",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "Spoken Conditional formula — ir (imperfect) + infinitive",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "I was going to eat.",
+      "accepted_answers": [
+        {
+          "text": "Ia comer.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "Spoken Conditional uses the formula ir (imperfect) + infinitive; ia is the eu imperfect form of ir, followed by the plain infinitive comer.",
+      "source": {
+        "note": "Grammar/Verbs/Conjugations.md",
+        "heading": "Spoken Conditional"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-conjugations-extra-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:5bbc514e68eff1a74461a027c1047e688b9047db8da2a4fa876efb4590ef829a",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Near Future vs Spoken Conditional — same formula, different tense of ir",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain how \"vou comer\" (Near Future) and \"ia comer\" (Spoken Conditional) are built from the same underlying formula, and what actually changes between them.",
+      "model_answers": [
+        "Both use the pattern ir + infinitive, and the infinitive (comer) never changes. What changes is the tense of ir itself: Near Future uses the present tense of ir (vou, vai, vamos, vão) to mean 'going to do something', while Spoken Conditional uses the imperfect tense of ir (ia, ia, íamos, iam) to mean 'was going to do something'. The same simple construction shifts from a future meaning to a past-future meaning just by changing which tense of ir is used."
+      ],
+      "explanation": "Grounded in the note's two side-by-side formulas: ir (present) + infinitive for Near Future, and ir (imperfect) + infinitive for Spoken Conditional.",
+      "source": {
+        "note": "Grammar/Verbs/Conjugations.md",
+        "heading": "Spoken Conditional"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-conjugations-extra-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:7f9691e9ff1ddc798d100549e6c0383fdbf80975c52782c138fbb63d9813056a",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "fill_blank",
+      "topic": "Verbs",
+      "subtopic": "Gerund of abrir",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "neutral",
+      "prompt": "Complete the gerund: \"abrir → ___\"",
+      "accepted_answers": [
+        {
+          "text": "abrindo",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "The note's standalone Gerund table lists abrir → abrindo alongside falar → falando and comer → comendo.",
+      "source": {
+        "note": "Grammar/Verbs/Conjugations.md",
+        "heading": "Gerund"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-conjugations-extra-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:d5f36892b2bded2e7348a58a56a0e73edeb31123943c22897a164b00ac11d7e0",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
       "type": "open_completion",
       "topic": "Verbs",
       "subtopic": "Familiar imperative — -ir verbs",
@@ -1017,6 +3100,139 @@
       "content_hash": "sha256:128692193bd9a9fb74d4be06b65effb06cb9beb44342c30943b7db1bc3ea046c",
       "version": 1,
       "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Indicative vs subjunctive vs imperative — same verb, three moods",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "Using the verb fechar (to close), explain what changes between \"Você fecha a porta.\", \"Espero que você feche a porta.\", and \"Fecha a porta!\"",
+      "model_answers": [
+        "All three use the same verb, fechar, but in a different mood. Você fecha a porta is indicative — a plain statement of fact (You close the door). Espero que você feche a porta is subjunctive — expressing a hope, not a fact (I hope you close the door). Fecha a porta! is imperative — a direct command (Close the door!). The mood, not the tense, is what changes the verb's job in the sentence."
+      ],
+      "explanation": "Grounded in the note's Key Mental Model table, which lines up Indicative/Subjunctive/Imperative against the same verb fechar to show how mood — not tense — is what's different.",
+      "source": {
+        "note": "Grammar/Verbs/Imperative Mood.md",
+        "heading": "9️⃣ The Key Mental Model"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-imperative-mood-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:37fcd422de351eb5943ead74f6e8d5486dc97a19a2a4bbeff5964b723ec0cd99",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "-ER verb imperative pattern",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Eat everything!",
+      "accepted_answers": [
+        {
+          "text": "Come tudo.",
+          "accent_sensitive": true
+        },
+        {
+          "text": "Come tudo!",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "-er verbs form the familiar imperative by ending in -e: você come -> Come!, from the note's -ER verbs pattern.",
+      "source": {
+        "note": "Grammar/Verbs/Imperative Mood.md",
+        "heading": "2️⃣ -ER verbs"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-imperative-mood-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:c162f96305c5fa6ea102d912f6f65cadd00d3650dd8f47c48c81dce7d888aa12",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "fill_blank",
+      "topic": "Verbs",
+      "subtopic": "Irregular imperative of ir",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "Complete the command with the irregular imperative of ir: \"___ embora.\" (Go away.)",
+      "accepted_answers": [
+        {
+          "text": "Vai",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "ir is one of the imperative's irregular verbs — its command form is vai, not a regular -a/-e ending — from the note's One Important Exception table.",
+      "source": {
+        "note": "Grammar/Verbs/Imperative Mood.md",
+        "heading": "One Important Exception"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-imperative-mood-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:1be7be789a8bb9698a6434827c3170a874cee11e84c42fe1029862f503394cf9",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "Plural imperative (vocês)",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "Make yourselves comfortable.",
+      "accepted_answers": [
+        {
+          "text": "Fiquem à vontade.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "The vocês imperative uses the present subjunctive plural form (fiquem), from the note's Plural Imperative section.",
+      "source": {
+        "note": "Grammar/Verbs/Imperative Mood.md",
+        "heading": "5️⃣ Plural Imperative (vocês)"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-imperative-mood-0007",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:c63ea108e19da13123819d1c0d329911aa04932f2ae3dec2ce19545a86c185d1",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Familiar vs formal imperative",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the difference between the familiar imperative \"Fala a verdade!\" and the formal imperative \"Abra aqui.\", including when each is used.",
+      "model_answers": [
+        "The familiar imperative (Fala a verdade!) is built from the present indicative você form and is used in everyday spoken Brazilian Portuguese, even with friends. The formal imperative (Abra aqui.) is built from the present subjunctive instead, and is used with o senhor, a senhora, in formal speech, or in written instructions. Same command function, but a different underlying verb form depending on how formal the situation is."
+      ],
+      "explanation": "Grounded in the note's Formal Imperative section, which contrasts the present-subjunctive-based formal form against the indicative-based familiar imperative introduced earlier.",
+      "source": {
+        "note": "Grammar/Verbs/Imperative Mood.md",
+        "heading": "4️⃣ Formal Imperative"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-imperative-mood-0008",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:64cb18df104eb803acb76bcd52e4f23bf0300547c41dec33180b385ee9b671d3",
+      "version": 1,
+      "updated_at": "2026-07-28"
     },
     {
       "type": "explain_difference",
@@ -1272,6 +3488,398 @@
       "content_hash": "sha256:163b452d3af3240d865370fa4e09e46b7b130ace493ed1f47cbadbdf8a53cdcb",
       "version": 1,
       "updated_at": "2026-07-24"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Verbs",
+      "subtopic": "The five core subjunctive verbs",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete with the present subjunctive of ter, one of the five core subjunctive verbs: \"Duvido que ele ___ dinheiro.\" (I doubt he has money.)",
+      "model_answers": [
+        "Duvido que ele tenha dinheiro."
+      ],
+      "useful_structures": [
+        "duvido que + subjunctive",
+        "ter -> tenha (one of the five core subjunctive verbs)"
+      ],
+      "explanation": "tenha is the present subjunctive of ter, one of the note's Five Core Verbs (vir, ser, ter, fazer, dar) to memorise first.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive.md",
+        "heading": "The Five Core Verbs"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:fbb622fdc00665051de165c59b818e1dc2089c0eec5dc097513ec9f4d6bd2cd8",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "Talvez + subjunctive",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Maybe he'll come.",
+      "accepted_answers": [
+        {
+          "text": "Talvez ele venha.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "talvez (maybe) is one of the biggest subjunctive triggers, from the note's 12 Most Useful Everyday Sentences list.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive.md",
+        "heading": "The 12 Most Useful Everyday Sentences"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-0007",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:ea9fc0a8512ad956ea08d1cebf311a823195e13a2ec2699e4c473f86e4b2559a",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "Caso + subjunctive",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "In case you need anything, let me know.",
+      "accepted_answers": [
+        {
+          "text": "Caso você precise, me avise.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "caso is a subjunctive trigger meaning 'in case', from the note's 12 Most Useful Everyday Sentences list.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive.md",
+        "heading": "The 12 Most Useful Everyday Sentences"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-0008",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:955ceabe08a3c97ca1b4573a4a59289ecbd1ffe394ceb399108847738b508b3a",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "The two-doors mental picture for the future subjunctive",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "Explain the \"two doors\" way of deciding between the indicative and the future subjunctive, and how the question \"Has the event happened?\" fits into it.",
+      "model_answers": [
+        "Imagine two doors: Door A is something you already know what's behind — that's the indicative, used for facts. Door B hasn't been opened yet — that's the future subjunctive, used for an event that hasn't happened yet. The test is simply to ask: Has the event happened? If yes, use the indicative. If no, use the future subjunctive. The future subjunctive isn't really about future time in general — it's specifically about an unfinished, not-yet-real event."
+      ],
+      "explanation": "Grounded in the note's Secret of the Future Subjunctive section and its two-doors mental picture.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive.md",
+        "heading": "The Secret of the Future Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-0009",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:4dc68555680d7fce0bf92a7ed766e90ebc21a49bf58ac3ab4c5dc755e6dd7050",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "Assim que + future subjunctive",
+      "direction": "en_to_pt",
+      "difficulty": "hard",
+      "register": "spoken",
+      "prompt": "As soon as he finishes...",
+      "accepted_answers": [
+        {
+          "text": "Assim que ele terminar...",
+          "accent_sensitive": true
+        },
+        {
+          "text": "Assim que ele terminar",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "assim que (as soon as) triggers the future subjunctive because the event — him finishing — hasn't happened yet, from the note's worked \"As soon as\" example.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive.md",
+        "heading": "As soon as"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-0010",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:ca742f34c2a990d1a5db53126363bab7478ee4d87f8cbc78d3cc821d00c1ec29",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "Pretérito Perfeito — completed one-time events",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "Have you eaten?",
+      "accepted_answers": [
+        {
+          "text": "Você já comeu?",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "Pretérito Perfeito is used for completed, one-time actions — from the note's Examples table.",
+      "source": {
+        "note": "Grammar/Verbs/Tenses Overview.md",
+        "heading": "Pretérito Perfeito"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-tenses-overview-0001",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:b418f69d0f03f6eea679cd8f34b1e570ae282b88de2eec88197272e8c2732e1f",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "Imperfeito — background description",
+      "direction": "en_to_pt",
+      "difficulty": "easy",
+      "register": "spoken",
+      "prompt": "It was summer.",
+      "accepted_answers": [
+        {
+          "text": "Era verão.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "Imperfeito is used for background descriptions — from the note's Examples table.",
+      "source": {
+        "note": "Grammar/Verbs/Tenses Overview.md",
+        "heading": "Imperfeito"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-tenses-overview-0002",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:7b4dd3dd18657e37bdc90b3bb7558264265d481cb3060f3abd52e3294aafd7d6",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Vou falar vs falarei — spoken vs formal future",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why Brazilians say \"vou falar\" far more often than \"falarei\", even though both mean roughly the same thing.",
+      "model_answers": [
+        "Vou falar (going to speak) is the natural, everyday way to express the future in spoken Brazilian Portuguese, while falarei is the formal simple future — grammatically correct but much less common in everyday speech, used mainly in writing or formal contexts."
+      ],
+      "explanation": "Grounded in the note's Future section, which pairs 'vou falar' directly against 'falarei' as the spoken vs formal choice.",
+      "source": {
+        "note": "Grammar/Verbs/Tenses Overview.md",
+        "heading": "Future"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-tenses-overview-0003",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:7ad6062db3a889004efd2da951ea6e3369066b390640c04f55d189db4516edf0",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Ia falar vs falaria — spoken vs formal conditional",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain why Brazilians say \"ia falar\" far more often than \"falaria\", even though both mean roughly the same thing.",
+      "model_answers": [
+        "Ia falar (was going to speak) is the natural, everyday way to express the conditional in spoken Brazilian Portuguese, while falaria is the formal conditional — grammatically correct but much less common in everyday speech."
+      ],
+      "explanation": "Grounded in the note's Conditional section, which pairs 'ia falar' directly against 'falaria' as the spoken vs formal choice.",
+      "source": {
+        "note": "Grammar/Verbs/Tenses Overview.md",
+        "heading": "Conditional"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-tenses-overview-0004",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:1bd37669f296a131508a551e836c27b426c14054584fd8984008b69800ee7e8d",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "No direct Portuguese equivalent to English present perfect",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "English \"Have you eaten?\" uses the present perfect. Explain what Portuguese uses instead, and why.",
+      "model_answers": [
+        "Portuguese has no direct equivalent to the English present perfect (have + past participle). Instead it usually prefers the simple past — Você já comeu? (literally 'Did you already eat?') rather than a compound 'have eaten' construction."
+      ],
+      "explanation": "Grounded in the note's explicit statement: 'English Present Perfect has no direct equivalent in Portuguese' and the paired example Have you eaten? → Você já comeu?",
+      "source": {
+        "note": "Grammar/Verbs/Tenses Overview.md",
+        "heading": "English Present Perfect"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-tenses-overview-0005",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:6ee4e9b5481f253bfe82cf3bf9a5fd9849a66d0a85f43318d2889b7cecf26065",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Tenho + participle means repeated/ongoing, not \"have done\"",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "Explain what \"Tenho estudado muito.\" actually means, and why it should NOT be translated as \"I have studied.\"",
+      "model_answers": [
+        "Tenho estudado muito means 'I've been studying a lot' — it implies a repeated or ongoing action that is recent and still continuing. It does not mean the single completed event 'I have studied' — that meaning is instead usually covered by the simple past in Portuguese."
+      ],
+      "explanation": "Grounded in the note's ter + participle section: 'Tenho estudado muito. Meaning: I've been studying a lot. Not: I have studied.'",
+      "source": {
+        "note": "Grammar/Verbs/Tenses Overview.md",
+        "heading": "When Portuguese Uses ter + participle"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-tenses-overview-0006",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:73be146e0fcf8c3337b453d10f64f65f620547038e60f81e3c8642b48397bfb9",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "Present tense for an ongoing situation since the past",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "I've lived here for five years.",
+      "accepted_answers": [
+        {
+          "text": "Moro aqui há cinco anos.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "Portuguese uses the present tense (moro) rather than tenho morado for an ongoing situation that started in the past — from the note's Living Somewhere section.",
+      "source": {
+        "note": "Grammar/Verbs/Tenses Overview.md",
+        "heading": "Living Somewhere"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-tenses-overview-0007",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:d67f55f9b2e8fe57ddce071aceed5e415b424982a8b4cfa95a49a2c88d3d10f4",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Imperfeito vs tenho + participle — finished vs still continuing",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "Explain the difference between \"Eu estudava muito.\" and \"Tenho estudado muito.\" when both are translated as being about studying a lot.",
+      "model_answers": [
+        "Eu estudava muito (Imperfeito) describes a habit belonging entirely to a finished past period — you may not study that much anymore. Tenho estudado muito (tenho + participle) describes something recent that is still continuing — including today and probably tomorrow. The two tenses answer different questions: was it purely in the past, or is it still going on?"
+      ],
+      "explanation": "Grounded in the note's Imperfeito vs Tenho + Particípio section and its worked Compare example (A: Eu estudava muito / B: Tenho estudado muito).",
+      "source": {
+        "note": "Grammar/Verbs/Tenses Overview.md",
+        "heading": "Imperfeito vs Tenho + Particípio"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-tenses-overview-0008",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:eae9833155b5dcc42e6566ff051c1c8dec762c6e47cb6d5979ce0e2c8c6c738b",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "en_to_pt",
+      "topic": "Verbs",
+      "subtopic": "Pluperfect — tinha + past participle",
+      "direction": "en_to_pt",
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "I had finished before leaving.",
+      "accepted_answers": [
+        {
+          "text": "Eu tinha terminado antes de sair.",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "tinha + past participle (tinha terminado) works very similarly to the English Past Perfect — from the note's Pluperfect section.",
+      "source": {
+        "note": "Grammar/Verbs/Tenses Overview.md",
+        "heading": "Pluperfect"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-tenses-overview-0009",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:ff1cc777bdce669b9fa1f12c8c1afbfc22cf266282161459010c90c8c95c13a0",
+      "version": 1,
+      "updated_at": "2026-07-28"
+    },
+    {
+      "type": "context_choice",
+      "topic": "Verbs",
+      "subtopic": "Vou falar vs ia falar — present vs past \"going to\"",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Choose the correct translation for \"I was going to speak\": \"Vou falar\" or \"Ia falar\"?",
+      "accepted_answers": [
+        {
+          "text": "Ia falar",
+          "accent_sensitive": true
+        }
+      ],
+      "explanation": "Vou falar is 'I'm going to speak' (present), while Ia falar is 'I was going to speak' (past) — from the note's Quick Summary table.",
+      "source": {
+        "note": "Grammar/Verbs/Tenses Overview.md",
+        "heading": "Quick Summary"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-tenses-overview-0010",
+      "created_at": "2026-07-28",
+      "content_hash": "sha256:8869d6e9d9de9d6c118dbc807158f102b0fa048b4297a96eb27d7fa711352bea",
+      "version": 1,
+      "updated_at": "2026-07-28"
     },
     {
       "id": "caber-present",
@@ -6545,7 +9153,7 @@
     {
       "path": "Grammar/Articles.md",
       "title": "1. What is an article?",
-      "topic": "Grammar",
+      "topic": "Articles",
       "headings": [
         "1. What is an article?",
         "2. The two types of articles",
@@ -6571,7 +9179,7 @@
     {
       "path": "Grammar/Prepositions.md",
       "title": "Brazilian Portuguese Prepositions — Cheat Sheet",
-      "topic": "Grammar",
+      "topic": "Prepositions",
       "headings": [
         "Brazilian Portuguese Prepositions — Cheat Sheet",
         "1️⃣ What a Preposition Is",

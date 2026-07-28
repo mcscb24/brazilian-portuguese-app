@@ -1,0 +1,153 @@
+# Review file for questions sourced from
+# "Grammar/Adjectives/Possessive Adjectives.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+
+questions:
+  - type: explain_difference
+    topic: Adjectives
+    subtopic: Seu is ambiguous — your/his/her/their
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why \"Seu carro chegou.\" is ambiguous out of context."
+    model_answers:
+      - "Seu can mean your, his, her, or their, so 'Seu carro chegou.' could
+        mean 'Your car arrived', 'His car arrived', 'Her car arrived', or 'Their
+        car arrived' — without context there is no way to tell which one is
+        meant."
+    explanation: "Grounded in the note's '\"Seu\" can be confusing' section, which
+      lists all four possible readings of the same sentence."
+    source:
+      note: "Grammar/Adjectives/Possessive Adjectives.md"
+      heading: "4. \"Seu\" can be confusing"
+    status: approved
+    generation_version: 1
+    id: adjectives-possessive-0001
+    created_at: 2026-07-28
+    content_hash: sha256:740b4b5503e6c1bc80c6ee0395e358e16613f7516afb2409be874b6cacbcb855
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Adjectives
+    subtopic: Dele/dela/deles/delas disambiguate seu/sua
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain how Brazilians commonly avoid the ambiguity of seu/sua when
+      they want to be clear about whose car or house they mean."
+    model_answers:
+      - "Instead of the ambiguous seu/sua, Brazilians often use dele (his), dela
+        (hers), deles (theirs, masculine/mixed), or delas (theirs, feminine)
+        placed after the noun — e.g. O carro dele (his car) or A bolsa dela (her
+        handbag) — which removes the ambiguity that seu/sua would otherwise
+        carry."
+    explanation: "Grounded in the note's 'How Brazilians avoid ambiguity' section."
+    source:
+      note: "Grammar/Adjectives/Possessive Adjectives.md"
+      heading: "5. How Brazilians avoid ambiguity"
+    status: approved
+    generation_version: 1
+    id: adjectives-possessive-0002
+    created_at: 2026-07-28
+    content_hash: sha256:cea9323bf0e422b3fc1aab9ffa69b47af2df1b7839800c97939a261e815d71d1
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Adjectives
+    subtopic: Meu carro — possessive with a masculine noun
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "My car is new."
+    accepted_answers:
+      - text: "Meu carro é novo."
+        accent_sensitive: true
+    explanation: "meu agrees with the masculine noun carro — from the note's
+      'Talking about possessions' section."
+    source:
+      note: "Grammar/Adjectives/Possessive Adjectives.md"
+      heading: "9. Talking about possessions"
+    status: approved
+    generation_version: 1
+    id: adjectives-possessive-0003
+    created_at: 2026-07-28
+    content_hash: sha256:521ee6a26404ceef27b92d6f7104b430f11a4b31bd9deb506db4324157efb74c
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Adjectives
+    subtopic: Nossos filhos — plural possessive
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "Our children."
+    accepted_answers:
+      - text: "Nossos filhos."
+        accent_sensitive: true
+    explanation: "nossos is the masculine plural of nosso, agreeing with filhos —
+      from the note's Mini practice."
+    source:
+      note: "Grammar/Adjectives/Possessive Adjectives.md"
+      heading: "12. Mini practice"
+    status: approved
+    generation_version: 1
+    id: adjectives-possessive-0004
+    created_at: 2026-07-28
+    content_hash: sha256:16f2ec63e08ed872746dec1e073a7d658a6be9a5be9732a555d21cd140a9e200
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Adjectives
+    subtopic: De + pronoun instead of a possessive adjective
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "Her house. (Use dela rather than sua, to be unambiguous.)"
+    accepted_answers:
+      - text: "A casa dela."
+        accent_sensitive: true
+    explanation: "The note's Mini practice gives 'A casa dela' as the answer, noting
+      dela is clearer in Brazilian Portuguese than the ambiguous sua casa."
+    source:
+      note: "Grammar/Adjectives/Possessive Adjectives.md"
+      heading: "12. Mini practice"
+    status: approved
+    generation_version: 1
+    id: adjectives-possessive-0005
+    created_at: 2026-07-28
+    content_hash: sha256:1cb3c8474bf1f0286aff7fca371fa063ee0ac5a3be367f2e33ea3c6d4f878ec9
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Adjectives
+    subtopic: Teu vs seu — regional variation
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain when a learner of general Brazilian Portuguese would hear
+      teu/tua used instead of seu/sua."
+    model_answers:
+      - "Teu/tua goes with tu (the informal singular 'you'), while seu/sua
+        traditionally goes with você. Since você is far more common than tu
+        across most of Brazil, seu/sua is heard much more often overall — though
+        tu (and teu/tua) is used regularly in some regions, such as much of Rio
+        Grande do Sul and parts of the North and Northeast."
+    explanation: "Grounded in the note's dedicated section 'A note on \"teu\" vs. \"seu\"'."
+    source:
+      note: "Grammar/Adjectives/Possessive Adjectives.md"
+      heading: "13. A note on \"teu\" vs. \"seu\""
+    status: approved
+    generation_version: 1
+    id: adjectives-possessive-0006
+    created_at: 2026-07-28
+    content_hash: sha256:dcfd4c55b02f80586d2130f3097f8ba63a0842ad796dc5f58f524cf1bfb49431
+    version: 1
+    updated_at: 2026-07-28

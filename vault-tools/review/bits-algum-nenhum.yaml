@@ -97,3 +97,56 @@ questions:
     content_hash: sha256:957b63f07c11a85b26e3d1ef33a1f0e4c70ce5ae1a78b8b5bc0656aa14d176c3
     version: 1
     updated_at: 2026-07-24
+
+  - type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Algum meaning "any" in questions
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "Do you have any brothers?"
+    accepted_answers:
+      - text: "Você tem algum irmão?"
+        accent_sensitive: true
+    explanation: "In questions, algum often corresponds to English 'any' rather than
+      'some' — Portuguese keeps algum where English switches words."
+    source:
+      note: "Bits and Bobs/Algum & Nenhum.md"
+      heading: "2. Algum in questions = Any"
+    status: approved
+    generation_version: 1
+    id: bits-algum-nenhum-0004
+    created_at: 2026-07-28
+    content_hash: sha256:c649085c31e3115534385fc3006f595c6b1dbacd78741b7740e7ac8872b04b4a
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: Livro algum — emphatic word order exception
+    direction: null
+    difficulty: hard
+    register: neutral
+    prompt: "Explain the difference in style between \"Não encontrei nenhum livro.\"
+      and \"Livro algum foi encontrado.\", even though both mean \"Not a single
+      book was found.\""
+    model_answers:
+      - "Não encontrei nenhum livro is the normal, everyday way to say it, with
+        nenhum before the noun. Livro algum foi encontrado places algum after
+        the noun instead — an exception to the usual algum/nenhum-before-noun
+        word order — which makes the sentence sound much more emphatic and
+        literary. As a learner, nenhum livro is the form to use in everyday
+        speech."
+    explanation: "Grounded in the note's section on \"Livro algum\" as a more
+      emphatic style, contrasted directly with the normal-conversation nenhum
+      livro example."
+    source:
+      note: "Bits and Bobs/Algum & Nenhum.md"
+      heading: "9. \"Livro algum\" – a more emphatic style"
+    status: approved
+    generation_version: 1
+    id: bits-algum-nenhum-0005
+    created_at: 2026-07-28
+    content_hash: sha256:7dfb7f1d9355ecfed4715d59b445c0c78702fee323368fc669211d22f65f9b36
+    version: 1
+    updated_at: 2026-07-28

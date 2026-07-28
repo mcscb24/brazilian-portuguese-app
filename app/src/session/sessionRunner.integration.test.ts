@@ -661,6 +661,45 @@ describe('SessionRunner integration (real checking + review + storage)', () => {
     expect(result.items.find((i) => i.question_id === firstId)?.final_result).toBe('correct');
   });
 
+  it('the "I got it wrong" rating (again) on a self-assessed question counts as incorrect, unlike Difficult which still counts as correct', async () => {
+    const { SessionRunner } = await freshModules();
+    const wrongQuestion = makeQuestion('self-wrong', 'A', {
+      type: 'open_completion',
+      accepted_answers: undefined,
+      model_answers: ['Resposta modelo 1'],
+    });
+    const difficultQuestion = makeQuestion('self-difficult', 'A', {
+      type: 'open_completion',
+      accepted_answers: undefined,
+      model_answers: ['Resposta modelo 2'],
+    });
+    const bundle = makeBundle([wrongQuestion, difficultQuestion]);
+    const runner = await SessionRunner.start(bundle, {
+      ...baseConfig,
+      count: 2,
+      topics: ['A'],
+      types: ['open_completion'],
+    });
+
+    while (!runner.isFinished()) {
+      const q = runner.currentQuestion()!;
+      runner.revealSelfAssessed('');
+      // 'again' is the rating the UI's explicit "I got it wrong" button confirms; 'difficult'
+      // still represents a successful (if effortful) recall.
+      await runner.confirmRating(q.id === 'self-wrong' ? 'again' : 'difficult');
+      runner.proceedToNext();
+    }
+
+    const result = await runner.finish();
+    expect(result.items.find((i) => i.question_id === 'self-wrong')?.final_result).toBe('incorrect');
+    expect(result.items.find((i) => i.question_id === 'self-difficult')?.final_result).toBe('correct');
+
+    const display = runner.buildDisplaySummary();
+    expect(display.answered).toBe(2);
+    expect(display.correct).toBe(1);
+    expect(display.incorrect).toBe(1);
+  });
+
   it('confirmRating on a self-assessed item schedules identically to a checked item given the same rating', async () => {
     const { SessionRunner, getProgress } = await freshModules();
     const checkedQuestion = makeQuestion('checked-1', 'A');

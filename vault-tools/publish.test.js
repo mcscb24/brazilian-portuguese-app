@@ -14,6 +14,8 @@ const {
   resolvePublishedNotePaths,
   mirrorVaultNotes,
   finalizeGeneratedQuestion,
+  findZeroCoverageNotes,
+  deriveTopic,
 } = require('./publish');
 
 function makeTempDir() {
@@ -409,4 +411,44 @@ test('finalizeGeneratedQuestion bumps version and updated_at (but not created_at
   assert.equal(changed.version, first.version + 1);
   assert.equal(changed.created_at, first.created_at);
   assert.notEqual(changed.content_hash, first.content_hash);
+});
+
+test('deriveTopic uses the subfolder name for notes nested under Grammar/<subfolder>/', () => {
+  assert.equal(deriveTopic('Grammar/Verbs/Single/Estar.md'), 'Verbs');
+  assert.equal(deriveTopic('Grammar/Pronouns/Direct Object Pronouns.md'), 'Pronouns');
+});
+
+test('deriveTopic falls back to the filename for a note directly under Grammar/ with no subfolder', () => {
+  assert.equal(deriveTopic('Grammar/Articles.md'), 'Articles');
+  assert.equal(deriveTopic('Grammar/Prepositions.md'), 'Prepositions');
+});
+
+test('deriveTopic uses the top-level folder name outside Grammar/', () => {
+  assert.equal(deriveTopic('Bits and Bobs/Tão and Tanto.md'), 'Bits and Bobs');
+});
+
+function note(notePath) {
+  return { path: notePath };
+}
+
+function question(sourceNote) {
+  return { source: { note: sourceNote } };
+}
+
+test('findZeroCoverageNotes returns notes with no question referencing them', () => {
+  const notes = [note('A.md'), note('B.md'), note('C.md')];
+  const questions = [question('A.md'), question('A.md')];
+  assert.deepEqual(findZeroCoverageNotes(notes, questions), ['B.md', 'C.md']);
+});
+
+test('findZeroCoverageNotes returns an empty array when every note has at least one question', () => {
+  const notes = [note('A.md'), note('B.md')];
+  const questions = [question('A.md'), question('B.md'), question('B.md')];
+  assert.deepEqual(findZeroCoverageNotes(notes, questions), []);
+});
+
+test('findZeroCoverageNotes does not count thin (single-question) coverage as zero coverage', () => {
+  const notes = [note('A.md')];
+  const questions = [question('A.md')];
+  assert.deepEqual(findZeroCoverageNotes(notes, questions), []);
 });

@@ -1,0 +1,159 @@
+# Review file for questions sourced from
+# "Grammar/Pronouns/Demonstrative Pronouns.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+
+questions:
+  - type: explain_difference
+    topic: Pronouns
+    subtopic: Demonstrative adjective vs demonstrative pronoun
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the difference between \"Este livro é interessante.\" and
+      \"Este é interessante.\""
+    model_answers:
+      - "In the first sentence este is a demonstrative adjective describing the
+        noun livro (this book is interesting). In the second sentence the noun
+        has disappeared and este is a demonstrative pronoun replacing it
+        entirely (this one is interesting) — same word, different job."
+    explanation: "Grounded in Step 1 of the note: 'The noun has disappeared. Este
+      replaces it.'"
+    source:
+      note: "Grammar/Pronouns/Demonstrative Pronouns.md"
+      heading: "Step 1 – What's the difference?"
+    status: approved
+    generation_version: 1
+    id: pronouns-demonstrative-0001
+    created_at: 2026-07-28
+    content_hash: sha256:fa675a35bfcf26aebf1a5a4d66ebf6ae04b39ad4f86edff2d66573e4c63d4c2a
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: open_completion
+    topic: Pronouns
+    subtopic: Isso referring to an idea, not an object
+    direction: null
+    difficulty: medium
+    register: spoken
+    prompt: "Someone asks 'Você passou no exame?' (Did you pass the exam?). Reply in
+      Portuguese with 'That's great!', referring back to the whole idea rather
+      than any object."
+    model_answers:
+      - "Isso é ótimo!"
+    explanation: "Isso here doesn't refer to a thing — it refers to the whole idea
+      just mentioned."
+    source:
+      note: "Grammar/Pronouns/Demonstrative Pronouns.md"
+      heading: "Step 6 – Referring back to ideas"
+    status: approved
+    generation_version: 1
+    id: pronouns-demonstrative-0002
+    created_at: 2026-07-28
+    content_hash: sha256:a7601cf1b0839a78ff1d87b77636386186a281b7e6f56da3b4bbbb20114ba571
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Pronouns
+    subtopic: Neuter demonstrative pronouns have no gender
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why isto, isso, and aquilo have no gender, unlike este, esse,
+      and aquele."
+    model_answers:
+      - "Este/esse/aquele (and their feminine/plural forms) agree with a
+        specific noun they replace or describe, so they carry gender and number.
+        Isto/isso/aquilo are neuter — they don't refer to any specific noun at
+        all, only to situations, ideas, facts, or actions, so there is nothing
+        for them to agree with."
+    explanation: "Grounded in Step 7: neuter pronouns 'have no gender because they
+      don't refer to a specific noun. Instead they refer to: situations, ideas,
+      facts, actions.'"
+    source:
+      note: "Grammar/Pronouns/Demonstrative Pronouns.md"
+      heading: "Step 7 – The neutral pronouns"
+    status: approved
+    generation_version: 1
+    id: pronouns-demonstrative-0003
+    created_at: 2026-07-28
+    content_hash: sha256:ed4390e174de3e143156966e5142b4cdee57cdf3faf0026a922a6d7cf738422e
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: correct_sentence
+    topic: Pronouns
+    subtopic: Neuter pronouns never function as adjectives
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Fix the error in this sentence: \"Isto livro é bom.\""
+    accepted_answers:
+      - text: "Este livro é bom."
+        accent_sensitive: true
+    explanation: "isto/isso/aquilo can never describe a noun the way
+      este/esse/aquele can — the note marks 'Isto livro' explicitly as
+      incorrect."
+    source:
+      note: "Grammar/Pronouns/Demonstrative Pronouns.md"
+      heading: "Step 7 – The neutral pronouns"
+    status: approved
+    generation_version: 1
+    id: pronouns-demonstrative-0004
+    created_at: 2026-07-28
+    content_hash: sha256:5f1eefb1cd59120d187641f4052da011f9c661c5f45381cf456d5a9f3d5abf62
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Pronouns
+    subtopic: Isso — common fixed expressions
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "Exactly."
+    accepted_answers:
+      - text: "Isso mesmo."
+        accent_sensitive: true
+    explanation: "Isso mesmo is one of the most common Brazilian expressions built on isso."
+    source:
+      note: "Grammar/Pronouns/Demonstrative Pronouns.md"
+      heading: "Step 8 – This is one of the most common words in Brazil"
+    status: approved
+    generation_version: 1
+    id: pronouns-demonstrative-0005
+    created_at: 2026-07-28
+    content_hash: sha256:d37638a6e61df011731906eb0c816141c770daaf67e9407d259552fd17de2b4d
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Pronouns
+    subtopic: Isso vs isto in modern spoken Brazilian Portuguese
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Traditional grammar assigns isto to 'this' and isso to 'that'. Explain
+      why isso is nonetheless far more common than isto in modern spoken
+      Brazilian Portuguese."
+    model_answers:
+      - "Even though isto is technically 'this' (near me) and isso is 'that'
+        (near you / already mentioned), everyday Brazilian speech has largely
+        shifted to using isso for both — e.g. 'O que é isso?' is much more
+        common than 'O que é isto?', and 'É isso.' is a fixed everyday
+        expression. Isto survives mainly in formal writing."
+    explanation: "Grounded in the note's dedicated section 'A note on isto, isso,
+      and aquilo'."
+    source:
+      note: "Grammar/Pronouns/Demonstrative Pronouns.md"
+      heading: "A note on isto, isso, and aquilo"
+    status: approved
+    generation_version: 1
+    id: pronouns-demonstrative-0006
+    created_at: 2026-07-28
+    content_hash: sha256:336c1cc56196f517a11ae33fa459e48b5646f2e9651c7d39cd663273428e1ff5
+    version: 1
+    updated_at: 2026-07-28

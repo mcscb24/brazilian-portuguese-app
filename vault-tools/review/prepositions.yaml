@@ -1,0 +1,216 @@
+# Review file for questions sourced from "Grammar/Prepositions.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+
+questions:
+  - type: en_to_pt
+    topic: Prepositions
+    subtopic: Gostar de — verbs that require "de"
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "I like coffee."
+    accepted_answers:
+      - text: "Eu gosto de café."
+        accent_sensitive: true
+    explanation: "gostar always requires the preposition de — English speakers
+      commonly drop it by mistake (Eu gosto café), but Portuguese requires it."
+    source:
+      note: "Grammar/Prepositions.md"
+      heading: "1️⃣ \"I like\" — Missing de"
+    status: approved
+    generation_version: 1
+    id: prepositions-0001
+    created_at: 2026-07-28
+    content_hash: sha256:f656debee07011570c93f7cd9eb4ee3c4698f6da8217ff5eaa9b5030e7094779
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: fill_blank
+    topic: Prepositions
+    subtopic: Verbs requiring de — precisar de
+    direction: null
+    difficulty: easy
+    register: neutral
+    prompt: "Complete: \"Eu preciso ___ ajuda.\" (I need help.)"
+    accepted_answers:
+      - text: "de"
+        accent_sensitive: true
+    explanation: "precisar de is one of the verbs that always requires de, alongside
+      gostar de and lembrar de."
+    source:
+      note: "Grammar/Prepositions.md"
+      heading: "4️⃣ De (One of the Most Common)"
+    status: approved
+    generation_version: 1
+    id: prepositions-0002
+    created_at: 2026-07-28
+    content_hash: sha256:51c1a7e2f5c18173bbf87f33be75c9fa4d533b1f31827aff29ec7f7a61a9d440
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: choose_form
+    topic: Prepositions
+    subtopic: A vs Para — destination/purpose
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Choose the correct preposition: \"Vou ___ Brasil.\" (I'm going to
+      Brazil.) — a or para?"
+    accepted_answers:
+      - text: "para"
+        accent_sensitive: true
+    explanation: "para expresses destination/purpose (Vou para o Brasil), while a
+      expresses short-term movement (Vou ao banco)."
+    source:
+      note: "Grammar/Prepositions.md"
+      heading: "3️⃣ A vs Para (Very Important)"
+    status: approved
+    generation_version: 1
+    id: prepositions-0003
+    created_at: 2026-07-28
+    content_hash: sha256:ba7a54236247f6b008823a2efeb8846a29714c11962de76021d6141c4f3cd119
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: choose_form
+    topic: Prepositions
+    subtopic: A vs Para — short movement (a + o = ao)
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Choose the correct contraction: \"Vou ___ banco.\" (I'm going to the
+      bank.) — a+o or para+o?"
+    accepted_answers:
+      - text: "ao"
+        accent_sensitive: true
+    explanation: "a is used for movement to a place, often a short/temporary visit
+      like the bank; a + o contracts to ao."
+    source:
+      note: "Grammar/Prepositions.md"
+      heading: "3️⃣ A vs Para (Very Important)"
+    status: approved
+    generation_version: 1
+    id: prepositions-0004
+    created_at: 2026-07-28
+    content_hash: sha256:6328fedb49fc036d67f5ac10c80ee3e21355cf2168832e9f0f528c0cc66c4c5f
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: fill_blank
+    topic: Prepositions
+    subtopic: Por + article contraction — pelo
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Complete with the correct contraction: \"Passei ___ parque.\" (I walked
+      through the park.)"
+    accepted_answers:
+      - text: "pelo"
+        accent_sensitive: true
+    explanation: "por + o contracts to pelo."
+    source:
+      note: "Grammar/Prepositions.md"
+      heading: "6️⃣ Contractions (Very Important in Portuguese)"
+    status: approved
+    generation_version: 1
+    id: prepositions-0005
+    created_at: 2026-07-28
+    content_hash: sha256:2109abf050d0c60bd45ddf0ab8a940f6f31561e3bf473b4e4731e36e566a4a08
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Prepositions
+    subtopic: Prepositions fused with pronouns — comigo
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "He came with me."
+    accepted_answers:
+      - text: "Ele veio comigo."
+        accent_sensitive: true
+    explanation: "com + mim fuses into comigo (with me), rather than being said as
+      two separate words."
+    source:
+      note: "Grammar/Prepositions.md"
+      heading: "7️⃣ Prepositions + Pronouns"
+    status: approved
+    generation_version: 1
+    id: prepositions-0006
+    created_at: 2026-07-28
+    content_hash: sha256:856c155a436e6a5edecaf4e867dcf37c80f49e09da47609be9df15fef5b7310b
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: fill_blank
+    topic: Prepositions
+    subtopic: Prepositions of time — desde
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Complete: \"Trabalho aqui ___ 2020.\" (I've worked here since 2020.)"
+    accepted_answers:
+      - text: "desde"
+        accent_sensitive: true
+    explanation: "desde means 'since', marking the starting point of an ongoing situation."
+    source:
+      note: "Grammar/Prepositions.md"
+      heading: "8️⃣ Prepositions of Time"
+    status: approved
+    generation_version: 1
+    id: prepositions-0007
+    created_at: 2026-07-28
+    content_hash: sha256:660e08c30724045f17f10d7d469f9e51095d887a484f9cc953f9c8143e6fe889
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: build_sentence
+    topic: Prepositions
+    subtopic: Para — purpose ("for you")
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Say \"This is for you\" in Portuguese, using para."
+    accepted_answers:
+      - text: "Isso é para você."
+        accent_sensitive: true
+    explanation: "para expresses purpose here (this exists for the purpose of being
+      given to you), matching the note's a-vs-para mistake section."
+    source:
+      note: "Grammar/Prepositions.md"
+      heading: "3️⃣ \"To\" — a vs para"
+    status: approved
+    generation_version: 1
+    id: prepositions-0008
+    created_at: 2026-07-28
+    content_hash: sha256:0e1255c478a3dfddac80a96e8589c4b4bda8ed1be6a1b525d2dcddff7e7f7578
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Prepositions
+    subtopic: Em covers English in/on/at
+    direction: null
+    difficulty: easy
+    register: neutral
+    prompt: "Explain why English speakers often get confused using a single
+      Portuguese word for \"in\", \"on\", and \"at\"."
+    model_answers:
+      - "English uses three different words (in/on/at) depending on the kind of
+        location, but Portuguese usually collapses all three into one word, em —
+        e.g. Estou em casa (I am at home), Moro em Londres (I live in London), O
+        livro está na mesa (The book is on the table, em+a=na)."
+    explanation: "Grounded in the note's '\"In / On / At\" confusion' mistake section."
+    source:
+      note: "Grammar/Prepositions.md"
+      heading: "2️⃣ \"In / On / At\" confusion"
+    status: approved
+    generation_version: 1
+    id: prepositions-0009
+    created_at: 2026-07-28
+    content_hash: sha256:0f04eaa19ff41469cb940885154822fc140e5309a1689ab369e7328c2e0684b2
+    version: 1
+    updated_at: 2026-07-28

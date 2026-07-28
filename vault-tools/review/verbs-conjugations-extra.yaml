@@ -1,0 +1,158 @@
+# Review file for questions sourced from "Grammar/Verbs/Conjugations.md",
+# covering only the non-tense constructions NOT already generated
+# deterministically by conjugation_pattern (which covers Present, Preterite,
+# Imperfect, Present Subjunctive, Imperfect Subjunctive, and Future
+# Subjunctive across the -AR/-ER/-IR families).
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+
+questions:
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: Present Continuous formula — estar + gerund
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "I am speaking."
+    accepted_answers:
+      - text: "Estou falando."
+        accent_sensitive: true
+    explanation: "Present Continuous uses the formula estar (present) + gerund;
+      estou is the eu form of estar, and falando is the -AR gerund (-ando)."
+    source:
+      note: "Grammar/Verbs/Conjugations.md"
+      heading: "Present Continuous"
+    status: approved
+    generation_version: 1
+    id: verbs-conjugations-extra-0001
+    created_at: 2026-07-28
+    content_hash: sha256:737e16a44daec5b94b5ad630324ffbc6d17904ae8232a2e1dfd2907111d1d8b4
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: Present Continuous — nós form with an -ER verb
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "We are eating."
+    accepted_answers:
+      - text: "Estamos comendo."
+        accent_sensitive: true
+    explanation: "estamos is the nós form of estar, and comendo is the -ER gerund
+      (-endo), from the note's Present Continuous formula and Estar/ Gerund
+      tables."
+    source:
+      note: "Grammar/Verbs/Conjugations.md"
+      heading: "Present Continuous"
+    status: approved
+    generation_version: 1
+    id: verbs-conjugations-extra-0002
+    created_at: 2026-07-28
+    content_hash: sha256:f96b9c5ad40fdf5bd94e16a2e45b0fddb8ebf2bc98cd10900f796a45a3775287
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: Near Future formula — ir (present) + infinitive
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "I am going to eat."
+    accepted_answers:
+      - text: "Vou comer."
+        accent_sensitive: true
+    explanation: "Near Future uses the formula ir (present) + infinitive; vou is the
+      eu form of ir, followed by the plain infinitive comer."
+    source:
+      note: "Grammar/Verbs/Conjugations.md"
+      heading: "Near Future"
+    status: approved
+    generation_version: 1
+    id: verbs-conjugations-extra-0003
+    created_at: 2026-07-28
+    content_hash: sha256:59a6db6ccf26758aaf83855aafa984cc36d014dc6385add0dfacad24c1bc7439
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: Spoken Conditional formula — ir (imperfect) + infinitive
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "I was going to eat."
+    accepted_answers:
+      - text: "Ia comer."
+        accent_sensitive: true
+    explanation: "Spoken Conditional uses the formula ir (imperfect) + infinitive;
+      ia is the eu imperfect form of ir, followed by the plain infinitive
+      comer."
+    source:
+      note: "Grammar/Verbs/Conjugations.md"
+      heading: "Spoken Conditional"
+    status: approved
+    generation_version: 1
+    id: verbs-conjugations-extra-0004
+    created_at: 2026-07-28
+    content_hash: sha256:5bbc514e68eff1a74461a027c1047e688b9047db8da2a4fa876efb4590ef829a
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Near Future vs Spoken Conditional — same formula, different tense of ir
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain how \"vou comer\" (Near Future) and \"ia comer\" (Spoken
+      Conditional) are built from the same underlying formula, and what actually
+      changes between them."
+    model_answers:
+      - "Both use the pattern ir + infinitive, and the infinitive (comer) never
+        changes. What changes is the tense of ir itself: Near Future uses the
+        present tense of ir (vou, vai, vamos, vão) to mean 'going to do
+        something', while Spoken Conditional uses the imperfect tense of ir (ia,
+        ia, íamos, iam) to mean 'was going to do something'. The same simple
+        construction shifts from a future meaning to a past-future meaning just
+        by changing which tense of ir is used."
+    explanation: "Grounded in the note's two side-by-side formulas: ir (present) +
+      infinitive for Near Future, and ir (imperfect) + infinitive for Spoken
+      Conditional."
+    source:
+      note: "Grammar/Verbs/Conjugations.md"
+      heading: "Spoken Conditional"
+    status: approved
+    generation_version: 1
+    id: verbs-conjugations-extra-0005
+    created_at: 2026-07-28
+    content_hash: sha256:7f9691e9ff1ddc798d100549e6c0383fdbf80975c52782c138fbb63d9813056a
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: fill_blank
+    topic: Verbs
+    subtopic: Gerund of abrir
+    direction: null
+    difficulty: easy
+    register: neutral
+    prompt: "Complete the gerund: \"abrir → ___\""
+    accepted_answers:
+      - text: "abrindo"
+        accent_sensitive: true
+    explanation: "The note's standalone Gerund table lists abrir → abrindo alongside
+      falar → falando and comer → comendo."
+    source:
+      note: "Grammar/Verbs/Conjugations.md"
+      heading: "Gerund"
+    status: approved
+    generation_version: 1
+    id: verbs-conjugations-extra-0006
+    created_at: 2026-07-28
+    content_hash: sha256:d5f36892b2bded2e7348a58a56a0e73edeb31123943c22897a164b00ac11d7e0
+    version: 1
+    updated_at: 2026-07-28

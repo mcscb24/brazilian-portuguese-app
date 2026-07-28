@@ -153,3 +153,132 @@ questions:
     content_hash: sha256:163b452d3af3240d865370fa4e09e46b7b130ace493ed1f47cbadbdf8a53cdcb
     version: 1
     updated_at: 2026-07-24
+
+  - type: open_completion
+    topic: Verbs
+    subtopic: The five core subjunctive verbs
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Complete with the present subjunctive of ter, one of the five core
+      subjunctive verbs: \"Duvido que ele ___ dinheiro.\" (I doubt he has
+      money.)"
+    model_answers:
+      - "Duvido que ele tenha dinheiro."
+    useful_structures:
+      - "duvido que + subjunctive"
+      - "ter -> tenha (one of the five core subjunctive verbs)"
+    explanation: "tenha is the present subjunctive of ter, one of the note's Five
+      Core Verbs (vir, ser, ter, fazer, dar) to memorise first."
+    source:
+      note: "Grammar/Verbs/Subjunctive.md"
+      heading: "The Five Core Verbs"
+    status: approved
+    generation_version: 1
+    id: verbs-subjunctive-0006
+    created_at: 2026-07-28
+    content_hash: sha256:fbb622fdc00665051de165c59b818e1dc2089c0eec5dc097513ec9f4d6bd2cd8
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: Talvez + subjunctive
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "Maybe he'll come."
+    accepted_answers:
+      - text: "Talvez ele venha."
+        accent_sensitive: true
+    explanation: "talvez (maybe) is one of the biggest subjunctive triggers, from
+      the note's 12 Most Useful Everyday Sentences list."
+    source:
+      note: "Grammar/Verbs/Subjunctive.md"
+      heading: "The 12 Most Useful Everyday Sentences"
+    status: approved
+    generation_version: 1
+    id: verbs-subjunctive-0007
+    created_at: 2026-07-28
+    content_hash: sha256:ea9fc0a8512ad956ea08d1cebf311a823195e13a2ec2699e4c473f86e4b2559a
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: Caso + subjunctive
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "In case you need anything, let me know."
+    accepted_answers:
+      - text: "Caso você precise, me avise."
+        accent_sensitive: true
+    explanation: "caso is a subjunctive trigger meaning 'in case', from the note's
+      12 Most Useful Everyday Sentences list."
+    source:
+      note: "Grammar/Verbs/Subjunctive.md"
+      heading: "The 12 Most Useful Everyday Sentences"
+    status: approved
+    generation_version: 1
+    id: verbs-subjunctive-0008
+    created_at: 2026-07-28
+    content_hash: sha256:955ceabe08a3c97ca1b4573a4a59289ecbd1ffe394ceb399108847738b508b3a
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: The two-doors mental picture for the future subjunctive
+    direction: null
+    difficulty: hard
+    register: neutral
+    prompt: "Explain the \"two doors\" way of deciding between the indicative and
+      the future subjunctive, and how the question \"Has the event happened?\"
+      fits into it."
+    model_answers:
+      - "Imagine two doors: Door A is something you already know what's behind —
+        that's the indicative, used for facts. Door B hasn't been opened yet —
+        that's the future subjunctive, used for an event that hasn't happened
+        yet. The test is simply to ask: Has the event happened? If yes, use the
+        indicative. If no, use the future subjunctive. The future subjunctive
+        isn't really about future time in general — it's specifically about an
+        unfinished, not-yet-real event."
+    explanation: "Grounded in the note's Secret of the Future Subjunctive section
+      and its two-doors mental picture."
+    source:
+      note: "Grammar/Verbs/Subjunctive.md"
+      heading: "The Secret of the Future Subjunctive"
+    status: approved
+    generation_version: 1
+    id: verbs-subjunctive-0009
+    created_at: 2026-07-28
+    content_hash: sha256:4dc68555680d7fce0bf92a7ed766e90ebc21a49bf58ac3ab4c5dc755e6dd7050
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: Assim que + future subjunctive
+    direction: en_to_pt
+    difficulty: hard
+    register: spoken
+    prompt: "As soon as he finishes..."
+    accepted_answers:
+      - text: "Assim que ele terminar..."
+        accent_sensitive: true
+      - text: "Assim que ele terminar"
+        accent_sensitive: true
+    explanation: "assim que (as soon as) triggers the future subjunctive because the
+      event — him finishing — hasn't happened yet, from the note's worked \"As
+      soon as\" example."
+    source:
+      note: "Grammar/Verbs/Subjunctive.md"
+      heading: "As soon as"
+    status: approved
+    generation_version: 1
+    id: verbs-subjunctive-0010
+    created_at: 2026-07-28
+    content_hash: sha256:ca742f34c2a990d1a5db53126363bab7478ee4d87f8cbc78d3cc821d00c1ec29
+    version: 1
+    updated_at: 2026-07-28

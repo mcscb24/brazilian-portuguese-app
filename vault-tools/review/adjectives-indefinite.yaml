@@ -1,0 +1,153 @@
+# Review file for questions sourced from
+# "Grammar/Adjectives/Indefinite Adjectives.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+
+questions:
+  - type: explain_difference
+    topic: Adjectives
+    subtopic: Algum amigo vs amigo algum — word order flips the meaning
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain how \"Algum amigo\" and \"Amigo algum\" differ in meaning, even
+      though they use the same two words."
+    model_answers:
+      - "Algum amigo (before the noun) means 'some friend' — a positive,
+        indefinite reference. Amigo algum (after the noun) means 'no friend' —
+        moving algum after the noun completely flips it to a negative meaning."
+    explanation: "Grounded in the note's 'Word order changes the meaning' subsection
+      under Algum."
+    source:
+      note: "Grammar/Adjectives/Indefinite Adjectives.md"
+      heading: "3. Algum (some, any)"
+    status: approved
+    generation_version: 1
+    id: adjectives-indefinite-0001
+    created_at: 2026-07-28
+    content_hash: sha256:e084d8d03b9bc043423128a9256f7b4b19a9e117fc7119949bc7f784e574a8a7
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: fill_blank
+    topic: Adjectives
+    subtopic: Nenhum with double negation
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Complete: \"Não tenho ___ problema.\" (I don't have any problem.)"
+    accepted_answers:
+      - text: "nenhum"
+        accent_sensitive: true
+    explanation: "Unlike English, Portuguese normally uses double negation: não +
+      nenhum, and this is completely correct."
+    source:
+      note: "Grammar/Adjectives/Indefinite Adjectives.md"
+      heading: "4. Nenhum (no, not any)"
+    status: approved
+    generation_version: 1
+    id: adjectives-indefinite-0002
+    created_at: 2026-07-28
+    content_hash: sha256:c8b1dee7f98efb782dd4b64f74ba8b3e114e53cbbaf29470ee1e5d5c0e39f0a4
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Adjectives
+    subtopic: Todo livro vs todos os livros
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the difference in meaning between \"Todo livro conta uma
+      história.\" and \"Todos os livros contam uma história.\""
+    model_answers:
+      - "Todo livro (singular, no article) means 'every book' — each one
+        individually. Todos os livros (plural, with the article os) means 'all
+        the books' — the whole group together. Both use todo/todos but express a
+        subtly different scope."
+    explanation: "Grounded in the note's distinction: 'Todo livro = every book.
+      Todos os livros = all the books.'"
+    source:
+      note: "Grammar/Adjectives/Indefinite Adjectives.md"
+      heading: "5. Todo (every, all)"
+    status: approved
+    generation_version: 1
+    id: adjectives-indefinite-0003
+    created_at: 2026-07-28
+    content_hash: sha256:94c03e1a68ae4719145e4c9d07c70e099adf28097ce169b29fe122183d6ec3be
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: correct_sentence
+    topic: Adjectives
+    subtopic: Cada is invariant — no plural form
+    direction: null
+    difficulty: easy
+    register: neutral
+    prompt: "Fix the error in this sentence: \"Cadas pessoas chegaram.\""
+    accepted_answers:
+      - text: "Cada pessoa chegou."
+        accent_sensitive: true
+    explanation: "cada never changes form and always takes a singular noun — the
+      note marks 'Cadas pessoas' explicitly as incorrect (✅ Cada pessoa)."
+    source:
+      note: "Grammar/Adjectives/Indefinite Adjectives.md"
+      heading: "6. Cada (each)"
+    status: approved
+    generation_version: 1
+    id: adjectives-indefinite-0004
+    created_at: 2026-07-28
+    content_hash: sha256:3bf82dbddb7c0de5f1b4f30b1ea260424207a9e634cf794663a78f3061082880
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Adjectives
+    subtopic: Certa resposta vs resposta certa
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the difference in meaning between \"certa resposta\" and
+      \"resposta certa\"."
+    model_answers:
+      - "Certa resposta (before the noun) means 'a certain answer' — certo
+        functioning as an indefinite adjective. Resposta certa (after the noun)
+        means 'the correct answer' — certo here functions as a descriptive
+        adjective. Word order changes the meaning, just as it does with algum."
+    explanation: "Grounded in the note's Certo section: 'certa resposta = a certain
+      answer, resposta certa = the correct answer.'"
+    source:
+      note: "Grammar/Adjectives/Indefinite Adjectives.md"
+      heading: "9. Certo (certain)"
+    status: approved
+    generation_version: 1
+    id: adjectives-indefinite-0005
+    created_at: 2026-07-28
+    content_hash: sha256:d76a59b4398d99385266c85cc1561ed1fbb99c8511a7a1659af9d7926f339f79
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Adjectives
+    subtopic: Todo as "every"
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "Every student."
+    accepted_answers:
+      - text: "Todo aluno."
+        accent_sensitive: true
+    explanation: "Todo aluno uses the singular, no-article form of todo to mean
+      'every student' — from the note's Mini practice."
+    source:
+      note: "Grammar/Adjectives/Indefinite Adjectives.md"
+      heading: "13. Mini practice"
+    status: approved
+    generation_version: 1
+    id: adjectives-indefinite-0006
+    created_at: 2026-07-28
+    content_hash: sha256:4deb149767d2c3bcb0a16a4ac80c5ac65dd62251ab5f8be7c59512cfc198a551
+    version: 1
+    updated_at: 2026-07-28

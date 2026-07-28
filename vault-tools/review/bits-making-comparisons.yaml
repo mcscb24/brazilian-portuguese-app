@@ -115,3 +115,49 @@ questions:
     content_hash: sha256:33c916dbb25501d00914212a13f93968eeb4f1417d9845d02e51c141b0ddc5aa
     version: 1
     updated_at: 2026-07-24
+
+  - type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Equality — tão...quanto
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "She is as tall as her sister."
+    accepted_answers:
+      - text: "Ela é tão alta quanto a irmã."
+        accent_sensitive: true
+    explanation: "tão + adjective + quanto is the equality-comparison pattern ('as
+      ... as'), from the note's Equality section."
+    source:
+      note: "Bits and Bobs/Making Comparisons.md"
+      heading: "1. Equality — \"As … as\""
+    status: approved
+    generation_version: 1
+    id: bits-making-comparisons-0005
+    created_at: 2026-07-28
+    content_hash: sha256:fd9f45a287e2c44f12cc578d8836534d74213f7b612bfecab86c213fb1ae8e5a
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Menos...que — less than
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "The work is less difficult than I thought."
+    accepted_answers:
+      - text: "O trabalho é menos difícil que pensei."
+        accent_sensitive: true
+    explanation: "menos + adjective + que is the mirror image of mais...que, from
+      the note's Less Than section."
+    source:
+      note: "Bits and Bobs/Making Comparisons.md"
+      heading: "3. Less Than"
+    status: approved
+    generation_version: 1
+    id: bits-making-comparisons-0006
+    created_at: 2026-07-28
+    content_hash: sha256:2a4c706b0c681d0f47b8fa631ad246bbc17948f036a75c5478c231396f37a769
+    version: 1
+    updated_at: 2026-07-28

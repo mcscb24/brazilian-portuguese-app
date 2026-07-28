@@ -1,0 +1,184 @@
+# Review file for questions sourced from
+# "Grammar/Adjectives/Demonstrative Adjectives.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+
+questions:
+  - type: explain_difference
+    topic: Adjectives
+    subtopic: Este vs esse vs aquele — three-way distance system
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the three-way distance distinction that este, esse, and aquele
+      express, which English's single word \"that\" doesn't fully capture."
+    model_answers:
+      - "Portuguese splits distance into three levels: este is used for
+        something near the speaker (Este livro é interessante — the book I'm
+        holding), esse is for something near the listener or already mentioned
+        (Esse livro é novo — the book you're holding), and aquele is for
+        something far from both speaker and listener (Aquele livro é antigo —
+        the book across the room). English collapses este/esse into 'this/that'
+        and aquele into 'that (over there)'."
+    explanation: "Grounded in the note's room example distinguishing este, esse, and
+      aquele."
+    source:
+      note: "Grammar/Adjectives/Demonstrative Adjectives.md"
+      heading: "2. The three-way system"
+    status: approved
+    generation_version: 1
+    id: adjectives-demonstrative-0001
+    created_at: 2026-07-28
+    content_hash: sha256:c38be0f08af5922aba419b313fddbb4452b4d2c579a88556f2a5814648654f37
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Adjectives
+    subtopic: Este with a masculine singular noun
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "This restaurant is excellent."
+    accepted_answers:
+      - text: "Este restaurante é excelente."
+        accent_sensitive: true
+    explanation: "este agrees with the masculine singular noun restaurante — from
+      the note's Common examples."
+    source:
+      note: "Grammar/Adjectives/Demonstrative Adjectives.md"
+      heading: "8. Common examples"
+    status: approved
+    generation_version: 1
+    id: adjectives-demonstrative-0002
+    created_at: 2026-07-28
+    content_hash: sha256:c40be62ffd0645cbe1100eab3fe3b5b5bc10c97a8ec022c716cd3a180aa47920
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Adjectives
+    subtopic: Aquele/aquela for something far from speaker and listener
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "That mountain over there is very high."
+    accepted_answers:
+      - text: "Aquela montanha é muito alta."
+        accent_sensitive: true
+    explanation: "aquela is used because the mountain is far from both speaker and
+      listener — from the note's Mini practice."
+    source:
+      note: "Grammar/Adjectives/Demonstrative Adjectives.md"
+      heading: "11. Mini practice"
+    status: approved
+    generation_version: 1
+    id: adjectives-demonstrative-0003
+    created_at: 2026-07-28
+    content_hash: sha256:d42b64c7f6818764b0e1c111d2c29b6bb3769d4c25b604d4a7b528e6f0190778
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Adjectives
+    subtopic: Aqueles — masculine plural, far away
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "Those cars are expensive."
+    accepted_answers:
+      - text: "Aqueles carros são caros."
+        accent_sensitive: true
+    explanation: "aqueles is the masculine plural of aquele — from the note's Mini
+      practice."
+    source:
+      note: "Grammar/Adjectives/Demonstrative Adjectives.md"
+      heading: "11. Mini practice"
+    status: approved
+    generation_version: 1
+    id: adjectives-demonstrative-0004
+    created_at: 2026-07-28
+    content_hash: sha256:3373e7ac1996eeb24f55e26942d5c4320517c8e1085019f23dac3cad25fa68a2
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Adjectives
+    subtopic: Esse replacing este in everyday Brazilian speech
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why a Brazilian might say \"Esse carro é bonito.\" instead of
+      the formally-taught \"Este carro é bonito.\", even when holding the car
+      keys themselves."
+    model_answers:
+      - "In everyday Brazilian Portuguese, esse/essa has largely taken over the
+        role of este/esta — both are grammatically correct, but este is more
+        common in formal writing while esse is what Brazilians actually say in
+        conversation, even for something near the speaker. Aquele still firmly
+        means 'far away' in both registers."
+    explanation: "Grounded in the note's Modern Brazilian Portuguese section: 'Este
+      is more common in formal writing. Esse is more common in conversation.'"
+    source:
+      note: "Grammar/Adjectives/Demonstrative Adjectives.md"
+      heading: "4. Modern Brazilian Portuguese"
+    status: approved
+    generation_version: 1
+    id: adjectives-demonstrative-0005
+    created_at: 2026-07-28
+    content_hash: sha256:57c033cfafa813b0d9e2a830afb55b14c8794cae998a6ca37ce104c5d033f593
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: open_completion
+    topic: Adjectives
+    subtopic: Esse referring back to something already mentioned
+    direction: null
+    difficulty: medium
+    register: spoken
+    prompt: "Someone says \"Comprei um carro novo.\" (I bought a new car.). Reply in
+      Portuguese asking \"Is that car fast?\", referring back to the car just
+      mentioned."
+    model_answers:
+      - "Esse carro é rápido?"
+    explanation: "esse points back to the car already mentioned by the other speaker
+      — one of its most common uses, per the note."
+    source:
+      note: "Grammar/Adjectives/Demonstrative Adjectives.md"
+      heading: "6. Referring back to something"
+    status: approved
+    generation_version: 1
+    id: adjectives-demonstrative-0006
+    created_at: 2026-07-28
+    content_hash: sha256:32b3cd8c1e5ae4ff028803cc97a6173d864ff9b58060ceb58db3e47ebe994463
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Adjectives
+    subtopic: Este vs esse — near me vs near you
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "In the exchange \"Você quer este livro?\" / \"Não, quero esse.\",
+      explain what este and esse each point to."
+    model_answers:
+      - "Este livro refers to the book the first speaker is holding (near them).
+        Esse in the reply refers back to that same book, but now from the second
+        speaker's perspective it's 'the one near you' — esse marks something
+        near the listener or just mentioned, in contrast to este for something
+        near the speaker."
+    explanation: "Grounded in the note's subtle-point dialogue distinguishing
+      something near me from something near you."
+    source:
+      note: "Grammar/Adjectives/Demonstrative Adjectives.md"
+      heading: "10. One subtle point"
+    status: approved
+    generation_version: 1
+    id: adjectives-demonstrative-0007
+    created_at: 2026-07-28
+    content_hash: sha256:e9a0b8803b339b28a0d567a906e48e3c104b95553e002e30217d711601549990
+    version: 1
+    updated_at: 2026-07-28

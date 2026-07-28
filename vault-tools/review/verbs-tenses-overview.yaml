@@ -1,0 +1,258 @@
+# Review file for questions sourced from
+# "Grammar/Verbs/Tenses Overview.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+
+questions:
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: Pretérito Perfeito — completed one-time events
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "Have you eaten?"
+    accepted_answers:
+      - text: "Você já comeu?"
+        accent_sensitive: true
+    explanation: "Pretérito Perfeito is used for completed, one-time actions — from
+      the note's Examples table."
+    source:
+      note: "Grammar/Verbs/Tenses Overview.md"
+      heading: "Pretérito Perfeito"
+    status: approved
+    generation_version: 1
+    id: verbs-tenses-overview-0001
+    created_at: 2026-07-28
+    content_hash: sha256:b418f69d0f03f6eea679cd8f34b1e570ae282b88de2eec88197272e8c2732e1f
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: Imperfeito — background description
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "It was summer."
+    accepted_answers:
+      - text: "Era verão."
+        accent_sensitive: true
+    explanation: "Imperfeito is used for background descriptions — from the note's
+      Examples table."
+    source:
+      note: "Grammar/Verbs/Tenses Overview.md"
+      heading: "Imperfeito"
+    status: approved
+    generation_version: 1
+    id: verbs-tenses-overview-0002
+    created_at: 2026-07-28
+    content_hash: sha256:7b4dd3dd18657e37bdc90b3bb7558264265d481cb3060f3abd52e3294aafd7d6
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Vou falar vs falarei — spoken vs formal future
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why Brazilians say \"vou falar\" far more often than
+      \"falarei\", even though both mean roughly the same thing."
+    model_answers:
+      - "Vou falar (going to speak) is the natural, everyday way to express the
+        future in spoken Brazilian Portuguese, while falarei is the formal
+        simple future — grammatically correct but much less common in everyday
+        speech, used mainly in writing or formal contexts."
+    explanation: "Grounded in the note's Future section, which pairs 'vou falar'
+      directly against 'falarei' as the spoken vs formal choice."
+    source:
+      note: "Grammar/Verbs/Tenses Overview.md"
+      heading: "Future"
+    status: approved
+    generation_version: 1
+    id: verbs-tenses-overview-0003
+    created_at: 2026-07-28
+    content_hash: sha256:7ad6062db3a889004efd2da951ea6e3369066b390640c04f55d189db4516edf0
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Ia falar vs falaria — spoken vs formal conditional
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why Brazilians say \"ia falar\" far more often than
+      \"falaria\", even though both mean roughly the same thing."
+    model_answers:
+      - "Ia falar (was going to speak) is the natural, everyday way to express
+        the conditional in spoken Brazilian Portuguese, while falaria is the
+        formal conditional — grammatically correct but much less common in
+        everyday speech."
+    explanation: "Grounded in the note's Conditional section, which pairs 'ia falar'
+      directly against 'falaria' as the spoken vs formal choice."
+    source:
+      note: "Grammar/Verbs/Tenses Overview.md"
+      heading: "Conditional"
+    status: approved
+    generation_version: 1
+    id: verbs-tenses-overview-0004
+    created_at: 2026-07-28
+    content_hash: sha256:1bd37669f296a131508a551e836c27b426c14054584fd8984008b69800ee7e8d
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: No direct Portuguese equivalent to English present perfect
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "English \"Have you eaten?\" uses the present perfect. Explain what
+      Portuguese uses instead, and why."
+    model_answers:
+      - "Portuguese has no direct equivalent to the English present perfect
+        (have + past participle). Instead it usually prefers the simple past —
+        Você já comeu? (literally 'Did you already eat?') rather than a compound
+        'have eaten' construction."
+    explanation: "Grounded in the note's explicit statement: 'English Present
+      Perfect has no direct equivalent in Portuguese' and the paired example
+      Have you eaten? → Você já comeu?"
+    source:
+      note: "Grammar/Verbs/Tenses Overview.md"
+      heading: "English Present Perfect"
+    status: approved
+    generation_version: 1
+    id: verbs-tenses-overview-0005
+    created_at: 2026-07-28
+    content_hash: sha256:6ee4e9b5481f253bfe82cf3bf9a5fd9849a66d0a85f43318d2889b7cecf26065
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Tenho + participle means repeated/ongoing, not "have done"
+    direction: null
+    difficulty: hard
+    register: neutral
+    prompt: "Explain what \"Tenho estudado muito.\" actually means, and why it
+      should NOT be translated as \"I have studied.\""
+    model_answers:
+      - "Tenho estudado muito means 'I've been studying a lot' — it implies a
+        repeated or ongoing action that is recent and still continuing. It does
+        not mean the single completed event 'I have studied' — that meaning is
+        instead usually covered by the simple past in Portuguese."
+    explanation: "Grounded in the note's ter + participle section: 'Tenho estudado
+      muito. Meaning: I've been studying a lot. Not: I have studied.'"
+    source:
+      note: "Grammar/Verbs/Tenses Overview.md"
+      heading: "When Portuguese Uses ter + participle"
+    status: approved
+    generation_version: 1
+    id: verbs-tenses-overview-0006
+    created_at: 2026-07-28
+    content_hash: sha256:73be146e0fcf8c3337b453d10f64f65f620547038e60f81e3c8642b48397bfb9
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: Present tense for an ongoing situation since the past
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "I've lived here for five years."
+    accepted_answers:
+      - text: "Moro aqui há cinco anos."
+        accent_sensitive: true
+    explanation: "Portuguese uses the present tense (moro) rather than tenho morado
+      for an ongoing situation that started in the past — from the note's Living
+      Somewhere section."
+    source:
+      note: "Grammar/Verbs/Tenses Overview.md"
+      heading: "Living Somewhere"
+    status: approved
+    generation_version: 1
+    id: verbs-tenses-overview-0007
+    created_at: 2026-07-28
+    content_hash: sha256:d67f55f9b2e8fe57ddce071aceed5e415b424982a8b4cfa95a49a2c88d3d10f4
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Imperfeito vs tenho + participle — finished vs still continuing
+    direction: null
+    difficulty: hard
+    register: neutral
+    prompt: "Explain the difference between \"Eu estudava muito.\" and \"Tenho
+      estudado muito.\" when both are translated as being about studying a lot."
+    model_answers:
+      - "Eu estudava muito (Imperfeito) describes a habit belonging entirely to
+        a finished past period — you may not study that much anymore. Tenho
+        estudado muito (tenho + participle) describes something recent that is
+        still continuing — including today and probably tomorrow. The two tenses
+        answer different questions: was it purely in the past, or is it still
+        going on?"
+    explanation: "Grounded in the note's Imperfeito vs Tenho + Particípio section
+      and its worked Compare example (A: Eu estudava muito / B: Tenho estudado
+      muito)."
+    source:
+      note: "Grammar/Verbs/Tenses Overview.md"
+      heading: "Imperfeito vs Tenho + Particípio"
+    status: approved
+    generation_version: 1
+    id: verbs-tenses-overview-0008
+    created_at: 2026-07-28
+    content_hash: sha256:eae9833155b5dcc42e6566ff051c1c8dec762c6e47cb6d5979ce0e2c8c6c738b
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: Pluperfect — tinha + past participle
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "I had finished before leaving."
+    accepted_answers:
+      - text: "Eu tinha terminado antes de sair."
+        accent_sensitive: true
+    explanation: "tinha + past participle (tinha terminado) works very similarly to
+      the English Past Perfect — from the note's Pluperfect section."
+    source:
+      note: "Grammar/Verbs/Tenses Overview.md"
+      heading: "Pluperfect"
+    status: approved
+    generation_version: 1
+    id: verbs-tenses-overview-0009
+    created_at: 2026-07-28
+    content_hash: sha256:ff1cc777bdce669b9fa1f12c8c1afbfc22cf266282161459010c90c8c95c13a0
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: context_choice
+    topic: Verbs
+    subtopic: Vou falar vs ia falar — present vs past "going to"
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Choose the correct translation for \"I was going to speak\": \"Vou
+      falar\" or \"Ia falar\"?"
+    accepted_answers:
+      - text: "Ia falar"
+        accent_sensitive: true
+    explanation: "Vou falar is 'I'm going to speak' (present), while Ia falar is 'I
+      was going to speak' (past) — from the note's Quick Summary table."
+    source:
+      note: "Grammar/Verbs/Tenses Overview.md"
+      heading: "Quick Summary"
+    status: approved
+    generation_version: 1
+    id: verbs-tenses-overview-0010
+    created_at: 2026-07-28
+    content_hash: sha256:8869d6e9d9de9d6c118dbc807158f102b0fa048b4297a96eb27d7fa711352bea
+    version: 1
+    updated_at: 2026-07-28

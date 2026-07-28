@@ -287,6 +287,9 @@ function deriveTitle(relativePath, bodyText) {
 function deriveTopic(relativePath) {
   const segments = relativePath.split('/');
   if (segments[0] === 'Grammar' && segments.length > 2) return segments[1];
+  // A note directly under Grammar/ with no subfolder (e.g. Grammar/Articles.md) has no natural
+  // subfolder-derived topic - fall back to its own filename rather than the meaningless "Grammar".
+  if (segments[0] === 'Grammar') return path.basename(segments[segments.length - 1], '.md');
   return segments[0];
 }
 
@@ -462,6 +465,16 @@ function finalizeGeneratedQuestion(rawEntry, previousById) {
   };
 }
 
+// Every published note must have at least one Practice question - deterministic or hand/AI-authored -
+// pointing at it via source.note. This is a hard invariant, not an editorial judgement: zero coverage
+// silently breaks the "every published note appears in Practice" contract, whereas thin/partial
+// coverage is a matter of degree that a coverage audit should report on, not one this check should
+// second-guess by counting questions per note.
+function findZeroCoverageNotes(notes, questions) {
+  const covered = new Set(questions.map((q) => q.source.note));
+  return notes.map((n) => n.path).filter((notePath) => !covered.has(notePath));
+}
+
 function main() {
   const { vaultPath, publishedNotes } = loadVaultConfig();
   const { merged: notePaths, perEntry } = resolvePublishedNotePaths(vaultPath, publishedNotes);
@@ -505,6 +518,14 @@ function main() {
   const questions = [...handQuestions, ...generatedQuestions];
   const notes = mirrorVaultNotes(vaultPath, notePaths);
 
+  const zeroCoverageNotes = findZeroCoverageNotes(notes, questions);
+  if (zeroCoverageNotes.length > 0) {
+    throw new Error(
+      `Coverage check failed: ${zeroCoverageNotes.length} published note(s) have zero Practice questions:\n` +
+      zeroCoverageNotes.map((p) => `  - ${p}`).join('\n')
+    );
+  }
+
   const bundle = {
     schema_version: 1,
     bundle_version: new Date().toISOString(),
@@ -541,5 +562,7 @@ module.exports = {
   mirrorVaultNotes,
   finalizeGeneratedQuestion,
   loadPreviousQuestionsById,
+  findZeroCoverageNotes,
+  deriveTopic,
   ValidationError,
 };

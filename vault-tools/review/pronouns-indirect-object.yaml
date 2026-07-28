@@ -1,0 +1,207 @@
+# Review file for questions sourced from
+# "Grammar/Pronouns/Indirect Object Pronouns.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+
+questions:
+  - type: explain_difference
+    topic: Pronouns
+    subtopic: Direct object vs indirect object
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the difference between a direct object and an indirect object,
+      using \"Eu vi o livro.\" and \"Eu dei o livro para ele.\" as examples."
+    model_answers:
+      - "The direct object receives the action directly with no preposition — o
+        livro in 'Eu vi o livro' (I saw the book) is what was seen. The indirect
+        object is the person who benefits from or receives the action, usually
+        introduced by a preposition like para/a — ele in 'Eu dei o livro para
+        ele' (I gave the book to him) is who received it, not what was given."
+    explanation: "Grounded in Step 1 of the note, contrasting 'Direct object' and
+      'Indirect object'."
+    source:
+      note: "Grammar/Pronouns/Indirect Object Pronouns.md"
+      heading: "Step 1 – What's an indirect object?"
+    status: approved
+    generation_version: 1
+    id: pronouns-indirect-object-0001
+    created_at: 2026-07-28
+    content_hash: sha256:5a4f3747188a6b86a3e44530d2be499f9ed4e1dc9465cb46626a14998d87e1eb
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Pronouns
+    subtopic: Indirect object pronoun me
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "He gave me the book."
+    accepted_answers:
+      - text: "Ele me deu o livro."
+        accent_sensitive: true
+    explanation: "me is the first-person singular indirect object pronoun, placed
+      before the verb — from the note's Give examples."
+    source:
+      note: "Grammar/Pronouns/Indirect Object Pronouns.md"
+      heading: "Step 5 – Examples"
+    status: approved
+    generation_version: 1
+    id: pronouns-indirect-object-0002
+    created_at: 2026-07-28
+    content_hash: sha256:57cd640e896adb7bf65a15e85b28850af60c6e7ca8d7016bdb9bcc5f69a3053f
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Pronouns
+    subtopic: Indirect object pronoun nos
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "She showed us the photos."
+    accepted_answers:
+      - text: "Ela nos mostrou as fotos."
+        accent_sensitive: true
+    explanation: "nos is the first-person plural indirect object pronoun, used with
+      mostrar (to show) — from the note's Show examples."
+    source:
+      note: "Grammar/Pronouns/Indirect Object Pronouns.md"
+      heading: "Step 5 – Examples"
+    status: approved
+    generation_version: 1
+    id: pronouns-indirect-object-0003
+    created_at: 2026-07-28
+    content_hash: sha256:227e828d413ef1e858d8f455a78d0c2d83fc5e9317135424ed6a81da4ad3dd5d
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Pronouns
+    subtopic: Lhe replaced by para + pronoun in spoken Brazilian Portuguese
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Formal grammar uses lhe for 'to him/her/you'. Explain what Brazilians
+      actually say instead in everyday spoken Portuguese."
+    model_answers:
+      - "In everyday spoken Brazilian Portuguese, lhe is largely avoided.
+        Instead of 'Eu lhe dei o livro', people say 'Eu dei o livro para
+        ele/para ela/para você' — using para + the appropriate pronoun makes it
+        clearer exactly who is meant, whereas lhe alone is ambiguous between
+        him, her, and you."
+    explanation: "Grounded in Step 3 – The modern Brazilian reality and Step 7 –
+      \"Lhe\" vs \"para ele\"."
+    source:
+      note: "Grammar/Pronouns/Indirect Object Pronouns.md"
+      heading: "Step 3 – The modern Brazilian reality"
+    status: approved
+    generation_version: 1
+    id: pronouns-indirect-object-0004
+    created_at: 2026-07-28
+    content_hash: sha256:3918bf46c3e11609fd56f8bcd9e059eafd72da8eb33f26dd7db79f97a2243fab
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Pronouns
+    subtopic: Contraction of para + ele
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "I gave the book to him."
+    accepted_answers:
+      - text: "Eu dei o livro pra ele."
+        accent_sensitive: true
+      - text: "Eu dei o livro para ele."
+        accent_sensitive: true
+    explanation: "para commonly contracts to pra in spoken Brazilian Portuguese,
+      especially before ele/ela — from the note's contraction section."
+    source:
+      note: "Grammar/Pronouns/Indirect Object Pronouns.md"
+      heading: "Step 9 – A very common contraction"
+    status: approved
+    generation_version: 1
+    id: pronouns-indirect-object-0005
+    created_at: 2026-07-28
+    content_hash: sha256:f8242a743ddeaee717f6fe515dbe9a7ed3e367fc282a219a85a72ecc6b1855f7
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: choose_form
+    topic: Pronouns
+    subtopic: Direct vs indirect object pronoun choice with dar
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Choose the correct pronoun: \"Eu ___ dei um presente.\" (I gave her a
+      present.) — a or lhe/pra ela?"
+    accepted_answers:
+      - text: "lhe"
+        accent_sensitive: true
+      - text: "pra ela"
+        accent_sensitive: true
+    explanation: "The person receiving the gift is the indirect object here, so it
+      takes an indirect object pronoun (lhe, or more commonly pra ela), not a
+      direct object pronoun."
+    source:
+      note: "Grammar/Pronouns/Indirect Object Pronouns.md"
+      heading: "Step 10 – Direct vs indirect"
+    status: approved
+    generation_version: 1
+    id: pronouns-indirect-object-0006
+    created_at: 2026-07-28
+    content_hash: sha256:18696e77ff2833f012e2ca8feaa1dfcbcf5b2083ea0db30d647d4a3a073d846f
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: open_completion
+    topic: Pronouns
+    subtopic: Spoken preference for pra + pronoun over lhe
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Complete naturally in spoken Brazilian Portuguese: \"Vou mandar uma
+      mensagem ___.\" (I'm going to send her a message.)"
+    model_answers:
+      - "Vou mandar uma mensagem pra ela."
+    explanation: "pra ela is the natural spoken choice over the formal lhe,
+      consistent with the note's Mini practice answers."
+    source:
+      note: "Grammar/Pronouns/Indirect Object Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    id: pronouns-indirect-object-0007
+    created_at: 2026-07-28
+    content_hash: sha256:cb106d0e4a35b208672932152e055c69629ef1f6bfce895b5336c987faa7ba90
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Pronouns
+    subtopic: A vs para with indirect objects
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the note's guidance on choosing between a and para when marking
+      an indirect object in spoken Brazilian Portuguese."
+    model_answers:
+      - "Formal Portuguese can mark the indirect object with a (Dei o livro a
+        ele), but in everyday spoken Brazilian Portuguese para (often shortened
+        to pra) is far more common and natural, so learners are better off
+        defaulting to para/pra rather than a."
+    explanation: "Grounded in the note's dedicated section 'A note about a vs para'."
+    source:
+      note: "Grammar/Pronouns/Indirect Object Pronouns.md"
+      heading: "A note about a vs para"
+    status: approved
+    generation_version: 1
+    id: pronouns-indirect-object-0008
+    created_at: 2026-07-28
+    content_hash: sha256:7e68fb8082f136189436d7c866010fcb4587a6c61e4a1bf8e7fbed6c54fe50f7
+    version: 1
+    updated_at: 2026-07-28

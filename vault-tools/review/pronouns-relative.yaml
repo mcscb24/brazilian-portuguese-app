@@ -1,0 +1,149 @@
+# Review file for questions sourced from
+# "Grammar/Pronouns/Relative Pronouns.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+
+questions:
+  - type: en_to_pt
+    topic: Pronouns
+    subtopic: Que as the most common relative pronoun
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "The book that I bought."
+    accepted_answers:
+      - text: "O livro que comprei."
+        accent_sensitive: true
+    explanation: "que is the most common relative pronoun, used for both people and
+      things — from the note's Mini practice."
+    source:
+      note: "Grammar/Pronouns/Relative Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    id: pronouns-relative-0001
+    created_at: 2026-07-28
+    content_hash: sha256:6eb620269b9fa38401db64f749e3a73286f7a4939fee8774f7908614165564e1
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: correct_sentence
+    topic: Pronouns
+    subtopic: Que cannot be omitted in Portuguese
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Fix the error in this sentence: \"O livro comprei.\" (intended meaning:
+      The book I bought.)"
+    accepted_answers:
+      - text: "O livro que comprei."
+        accent_sensitive: true
+    explanation: "English often omits 'that' (the book I bought), but Portuguese
+      never omits que — the note explicitly marks 'O livro comprei' as
+      incorrect."
+    source:
+      note: "Grammar/Pronouns/Relative Pronouns.md"
+      heading: "3. Where English often omits \"that\""
+    status: approved
+    generation_version: 1
+    id: pronouns-relative-0002
+    created_at: 2026-07-28
+    content_hash: sha256:625edc23b75e4cb1218c48c334af913a66cc2a5d7a227c133c85b88ee80f6bf8
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Pronouns
+    subtopic: Quem after a preposition, for people
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "The friend I spoke with."
+    accepted_answers:
+      - text: "O amigo com quem falei."
+        accent_sensitive: true
+    explanation: "quem is used for people after a preposition like com — from the
+      note's Mini practice."
+    source:
+      note: "Grammar/Pronouns/Relative Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    id: pronouns-relative-0003
+    created_at: 2026-07-28
+    content_hash: sha256:3260418f8dda6e7a06c8a82368bc490fe4e0bb5d4e342fe914e2b2dd2136f66a
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Pronouns
+    subtopic: Onde for places
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "The city where I was born."
+    accepted_answers:
+      - text: "A cidade onde nasci."
+        accent_sensitive: true
+    explanation: "onde is the relative pronoun used for places — from the note's
+      Mini practice."
+    source:
+      note: "Grammar/Pronouns/Relative Pronouns.md"
+      heading: "Mini practice"
+    status: approved
+    generation_version: 1
+    id: pronouns-relative-0004
+    created_at: 2026-07-28
+    content_hash: sha256:0d89fb2e0d9bc331355bc3f7e8bc7ec97ed1d64d6314b76f04dd8e0111ee7f1f
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Pronouns
+    subtopic: Cujo is formal and rare in speech
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why cujo (whose) is a relative pronoun best recognised for
+      reading rather than used often in everyday spoken Brazilian Portuguese."
+    model_answers:
+      - "Cujo (and its forms cuja/cujos/cujas) means 'whose' and agrees with the
+        noun that follows it, but it belongs mainly to formal or written
+        Portuguese. In everyday speech Brazilians tend to rephrase around it
+        rather than use it directly, so learners mainly need to recognise it
+        when reading rather than produce it fluently in conversation."
+    explanation: "Grounded in the note's section on cujo."
+    source:
+      note: "Grammar/Pronouns/Relative Pronouns.md"
+      heading: "6. Cujo (whose)"
+    status: approved
+    generation_version: 1
+    id: pronouns-relative-0005
+    created_at: 2026-07-28
+    content_hash: sha256:11926e006962c9158624c5bb4c04abc186268a02fc107bc3d0a156ba2d6acd6d
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: open_completion
+    topic: Pronouns
+    subtopic: Common fixed expression — o que aconteceu
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Ask in Portuguese: \"What happened?\", using the relative pronoun que."
+    model_answers:
+      - "O que aconteceu?"
+    explanation: "O que aconteceu? is one of the note's very common fixed
+      expressions built with que."
+    source:
+      note: "Grammar/Pronouns/Relative Pronouns.md"
+      heading: "11. Very common fixed expressions"
+    status: approved
+    generation_version: 1
+    id: pronouns-relative-0006
+    created_at: 2026-07-28
+    content_hash: sha256:6bab876b4b33805455f92a50e140692f850e0701843129b440d896bb97a6074f
+    version: 1
+    updated_at: 2026-07-28

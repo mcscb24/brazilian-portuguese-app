@@ -89,3 +89,137 @@ questions:
     content_hash: sha256:128692193bd9a9fb74d4be06b65effb06cb9beb44342c30943b7db1bc3ea046c
     version: 1
     updated_at: 2026-07-24
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Indicative vs subjunctive vs imperative — same verb, three moods
+    direction: null
+    difficulty: hard
+    register: neutral
+    prompt: "Using the verb fechar (to close), explain what changes between \"Você
+      fecha a porta.\", \"Espero que você feche a porta.\", and \"Fecha a
+      porta!\""
+    model_answers:
+      - "All three use the same verb, fechar, but in a different mood. Você
+        fecha a porta is indicative — a plain statement of fact (You close the
+        door). Espero que você feche a porta is subjunctive — expressing a hope,
+        not a fact (I hope you close the door). Fecha a porta! is imperative — a
+        direct command (Close the door!). The mood, not the tense, is what
+        changes the verb's job in the sentence."
+    explanation: "Grounded in the note's Key Mental Model table, which lines up
+      Indicative/Subjunctive/Imperative against the same verb fechar to show how
+      mood — not tense — is what's different."
+    source:
+      note: "Grammar/Verbs/Imperative Mood.md"
+      heading: "9️⃣ The Key Mental Model"
+    status: approved
+    generation_version: 1
+    id: verbs-imperative-mood-0004
+    created_at: 2026-07-28
+    content_hash: sha256:37fcd422de351eb5943ead74f6e8d5486dc97a19a2a4bbeff5964b723ec0cd99
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: -ER verb imperative pattern
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "Eat everything!"
+    accepted_answers:
+      - text: "Come tudo."
+        accent_sensitive: true
+      - text: "Come tudo!"
+        accent_sensitive: true
+    explanation: "-er verbs form the familiar imperative by ending in -e: você come
+      -> Come!, from the note's -ER verbs pattern."
+    source:
+      note: "Grammar/Verbs/Imperative Mood.md"
+      heading: "2️⃣ -ER verbs"
+    status: approved
+    generation_version: 1
+    id: verbs-imperative-mood-0005
+    created_at: 2026-07-28
+    content_hash: sha256:c162f96305c5fa6ea102d912f6f65cadd00d3650dd8f47c48c81dce7d888aa12
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: fill_blank
+    topic: Verbs
+    subtopic: Irregular imperative of ir
+    direction: null
+    difficulty: medium
+    register: spoken
+    prompt: "Complete the command with the irregular imperative of ir: \"___
+      embora.\" (Go away.)"
+    accepted_answers:
+      - text: "Vai"
+        accent_sensitive: true
+    explanation: "ir is one of the imperative's irregular verbs — its command form
+      is vai, not a regular -a/-e ending — from the note's One Important
+      Exception table."
+    source:
+      note: "Grammar/Verbs/Imperative Mood.md"
+      heading: "One Important Exception"
+    status: approved
+    generation_version: 1
+    id: verbs-imperative-mood-0006
+    created_at: 2026-07-28
+    content_hash: sha256:1be7be789a8bb9698a6434827c3170a874cee11e84c42fe1029862f503394cf9
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Verbs
+    subtopic: Plural imperative (vocês)
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "Make yourselves comfortable."
+    accepted_answers:
+      - text: "Fiquem à vontade."
+        accent_sensitive: true
+    explanation: "The vocês imperative uses the present subjunctive plural form
+      (fiquem), from the note's Plural Imperative section."
+    source:
+      note: "Grammar/Verbs/Imperative Mood.md"
+      heading: "5️⃣ Plural Imperative (vocês)"
+    status: approved
+    generation_version: 1
+    id: verbs-imperative-mood-0007
+    created_at: 2026-07-28
+    content_hash: sha256:c63ea108e19da13123819d1c0d329911aa04932f2ae3dec2ce19545a86c185d1
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Verbs
+    subtopic: Familiar vs formal imperative
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the difference between the familiar imperative \"Fala a
+      verdade!\" and the formal imperative \"Abra aqui.\", including when each
+      is used."
+    model_answers:
+      - "The familiar imperative (Fala a verdade!) is built from the present
+        indicative você form and is used in everyday spoken Brazilian
+        Portuguese, even with friends. The formal imperative (Abra aqui.) is
+        built from the present subjunctive instead, and is used with o senhor, a
+        senhora, in formal speech, or in written instructions. Same command
+        function, but a different underlying verb form depending on how formal
+        the situation is."
+    explanation: "Grounded in the note's Formal Imperative section, which contrasts
+      the present-subjunctive-based formal form against the indicative-based
+      familiar imperative introduced earlier."
+    source:
+      note: "Grammar/Verbs/Imperative Mood.md"
+      heading: "4️⃣ Formal Imperative"
+    status: approved
+    generation_version: 1
+    id: verbs-imperative-mood-0008
+    created_at: 2026-07-28
+    content_hash: sha256:64cb18df104eb803acb76bcd52e4f23bf0300547c41dec33180b385ee9b671d3
+    version: 1
+    updated_at: 2026-07-28

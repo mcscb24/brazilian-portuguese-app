@@ -25,9 +25,13 @@ const RATING_LABELS: Record<Rating, string> = {
 
 // Design doc §13's exact self-assessed wording — same underlying Rating values as RATING_LABELS,
 // just phrased for "how did you do against the model answer" rather than "was this checked answer
-// right".
+// right". `again` is deliberately labelled as an explicit wrongness judgement (not "Could not
+// answer") — that softer wording let users who *had* attempted an answer but got it wrong avoid
+// picking it, reaching for "Difficult" instead even though Difficult counts as correct in
+// scheduling/stats (sessionRunner.ts's wasCorrect is `rating !== 'again'`), which made session/
+// progress stats look artificially perfect.
 const SELF_ASSESSED_RATING_LABELS: Record<Rating, string> = {
-  again: 'Could not answer',
+  again: 'I got it wrong',
   difficult: 'Difficult',
   good: 'Mostly correct',
   easy: 'Easy',

@@ -1,0 +1,156 @@
+# Review file for questions sourced from "Bits and Bobs/Telling the Time.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+
+questions:
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: É vs São for telling the hour
+    direction: null
+    difficulty: easy
+    register: neutral
+    prompt: "Explain when to use É and when to use São when saying what time it is."
+    model_answers:
+      - "É is used only with one o'clock (É uma hora), while São is used for two
+        o'clock or more (São duas horas, São cinco horas). This is because ser
+        agrees with the number of hours: one hour is singular, two or more hours
+        are plural."
+    explanation: "Grounded in the note's 'Important: É vs São' subsection."
+    source:
+      note: "Bits and Bobs/Telling the Time.md"
+      heading: "Saying the hour"
+    status: approved
+    generation_version: 1
+    id: bits-telling-time-0001
+    created_at: 2026-07-28
+    content_hash: sha256:b02c885652e5d49584d09f3e2652e6192913f4df1cdb794645a2cc8803faa443
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Meia for half past
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "It's 8:30."
+    accepted_answers:
+      - text: "São oito e meia."
+        accent_sensitive: true
+    explanation: "meia (not meio) is used for half past because it refers to meia
+      hora — half an hour — and hora is feminine."
+    source:
+      note: "Bits and Bobs/Telling the Time.md"
+      heading: "Meia — half past"
+    status: approved
+    generation_version: 1
+    id: bits-telling-time-0002
+    created_at: 2026-07-28
+    content_hash: sha256:b1d86ae8168c42e6b0da8ca9aa4eb508ee03ba0dc8c22a5b72fd4092fd8a69fd
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Faltar to express minutes to the next hour
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "It's 28 minutes to seven."
+    accepted_answers:
+      - text: "Faltam vinte e oito para as sete."
+        accent_sensitive: true
+      - text: "São vinte e oito para as sete."
+        accent_sensitive: true
+    explanation: "faltar expresses how many minutes remain until the next hour,
+      following the pattern Faltam + minutes + para as + next hour; the time may
+      also be expressed directly with São."
+    source:
+      note: "Bits and Bobs/Telling the Time.md"
+      heading: "Saying \"to\" the next hour"
+    status: approved
+    generation_version: 1
+    id: bits-telling-time-0003
+    created_at: 2026-07-28
+    content_hash: sha256:2f6dbd92fba78fe4bc7a935c5589443368257ea433a564b011420b7a0eb8920e
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: Ao meio-dia vs à meia-noite — gender of noon/midnight
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why \"at noon\" is \"ao meio-dia\" but \"at midnight\" is \"à
+      meia-noite\"."
+    model_answers:
+      - "meio-dia (noon) is masculine, so it takes the masculine contraction ao
+        (a + o). meia-noite (midnight) is feminine, so it takes the feminine
+        contraction à (a + a). The gender of each word determines which
+        contraction is used."
+    explanation: "Grounded in the note's 'At noon and midnight' section: 'meio-dia
+      is masculine → ao meio-dia. meia-noite is feminine → à meia-noite.'"
+    source:
+      note: "Bits and Bobs/Telling the Time.md"
+      heading: "At noon and midnight"
+    status: approved
+    generation_version: 1
+    id: bits-telling-time-0004
+    created_at: 2026-07-28
+    content_hash: sha256:f4e090002cb6d113175205eb664cf09fd4bd915e5eaa39873be5cea98a8e1511
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: À uma — at one o'clock
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "At one o'clock."
+    accepted_answers:
+      - text: "À uma."
+        accent_sensitive: true
+      - text: "À uma hora."
+        accent_sensitive: true
+    explanation: "à uma is used because uma hora is singular — the a + a contraction
+      gives à, not às."
+    source:
+      note: "Bits and Bobs/Telling the Time.md"
+      heading: "At one o'clock"
+    status: approved
+    generation_version: 1
+    id: bits-telling-time-0005
+    created_at: 2026-07-28
+    content_hash: sha256:eb9d9f7ef5b1ec54729b895230bed555f6a58f488c97c2e42d2d5cb2283e9ba1
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: São duas e dois — hours vs minutes take different genders
+    direction: null
+    difficulty: hard
+    register: neutral
+    prompt: "In \"São duas e dois.\" (It's 2:02), explain why duas and dois are both
+      used even though they refer to the same two-value time."
+    model_answers:
+      - "duas is feminine because it refers to horas (hours, feminine), while
+        dois is masculine because it refers to minutos (minutes, masculine). The
+        same number takes a different gender depending on whether it's counting
+        hours or minutes."
+    explanation: "Grounded in the note's explanation: 'The first duas refers to
+      horas. The second dois refers to minutos.'"
+    source:
+      note: "Bits and Bobs/Telling the Time.md"
+      heading: "One and two are feminine when referring to hours"
+    status: approved
+    generation_version: 1
+    id: bits-telling-time-0006
+    created_at: 2026-07-28
+    content_hash: sha256:c48fabae55607c467f06ea9d47bbb71a9e31bf400f555416365959c23c6f8ae6
+    version: 1
+    updated_at: 2026-07-28

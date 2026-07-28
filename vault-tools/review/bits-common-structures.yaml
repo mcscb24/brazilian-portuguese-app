@@ -1,0 +1,228 @@
+# Review file for questions sourced from "Bits and Bobs/Common Structures.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+
+questions:
+  - type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Acabar de + infinitive — "have just"
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "I have just eaten."
+    accepted_answers:
+      - text: "Acabei de comer."
+        accent_sensitive: true
+    explanation: "acabar (conjugated) + de + infinitive means 'to have just done
+      something' — literally 'to finish doing something'."
+    source:
+      note: "Bits and Bobs/Common Structures.md"
+      heading: "1. Acabar de = \"have just\""
+    status: approved
+    generation_version: 1
+    id: bits-common-structures-0001
+    created_at: 2026-07-28
+    content_hash: sha256:7a72e0abb268f71f9b47afd47b41e6923681d775afe98818cc41d6feea28b154
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Ter que + infinitive — obligation
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "I have to work tomorrow."
+    accepted_answers:
+      - text: "Tenho que trabalhar amanhã."
+        accent_sensitive: true
+    explanation: "ter que + infinitive is the most common way Brazilians express
+      obligation."
+    source:
+      note: "Bits and Bobs/Common Structures.md"
+      heading: "2. Ter que = Have to / Need to"
+    status: approved
+    generation_version: 1
+    id: bits-common-structures-0002
+    created_at: 2026-07-28
+    content_hash: sha256:1689478b031ad5f2dde7bc917373a743dc74903443132ced10f1237ffd21d457
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: Ser vs ficar — permanent trait vs change of state
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the difference between \"Ele é inteligente.\" and \"Ele ficou
+      inteligente.\""
+    model_answers:
+      - "Ser (é) describes a permanent characteristic — he is intelligent, as a
+        lasting trait. Ficar (ficou) describes a change of state — he became
+        intelligent, entering a new condition he wasn't necessarily in before.
+        Ficar captures the idea of entering a state and remaining there, unlike
+        ser's permanence."
+    explanation: "Grounded in the note's Compare section contrasting Ser (permanent
+      characteristic) with Ficar (change of state)."
+    source:
+      note: "Bits and Bobs/Common Structures.md"
+      heading: "3. Ficar + adjective = Become / Get"
+    status: approved
+    generation_version: 1
+    id: bits-common-structures-0003
+    created_at: 2026-07-28
+    content_hash: sha256:bce19fad42aa81a407fbb0c8dc5df7bebcdf5af27b407b512236d75e62bd5743
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: Dar para — possibility, permission, and sufficiency
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the different meanings dar para can have, using \"Não dá para
+      ir hoje.\", \"Dá para usar seu telefone?\", and \"Esse dinheiro dá para
+      comprar um carro?\" as examples."
+    model_answers:
+      - "Dar para is very versatile: 'Não dá para ir hoje' means it's not
+        possible to go today (possibility); 'Dá para usar seu telefone?' means
+        'Can I use your phone?' (asking permission); and 'Esse dinheiro dá para
+        comprar um carro?' asks whether the money is enough to buy a car
+        (sufficiency). The same structure covers possibility, permission, and
+        'is it enough'."
+    explanation: "Grounded in the note's three numbered meanings under Dar para: Is
+      it possible?, Can I?, and Enough."
+    source:
+      note: "Bits and Bobs/Common Structures.md"
+      heading: "4. Dar para = Possible / Enough / Suitable"
+    status: approved
+    generation_version: 1
+    id: bits-common-structures-0004
+    created_at: 2026-07-28
+    content_hash: sha256:1b812454288715beb4881a0d33b8e69224ea46ba9a85219d0798e6b4c3631b64
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Ir + gerund — gradual or ongoing action
+    direction: en_to_pt
+    difficulty: medium
+    register: spoken
+    prompt: "I'm gradually learning."
+    accepted_answers:
+      - text: "Vou aprendendo."
+        accent_sensitive: true
+    explanation: "ir + gerund expresses a gradual or ongoing process, different from
+      English 'going to' — it means 'keep doing something gradually', not a
+      future plan."
+    source:
+      note: "Bits and Bobs/Common Structures.md"
+      heading: "5. Ir + gerund = Going to keep doing / gradually"
+    status: approved
+    generation_version: 1
+    id: bits-common-structures-0005
+    created_at: 2026-07-28
+    content_hash: sha256:14cbea642f8cb2b6364604d67c6302cff02ac67dc4cafc5bbe1b7f3d353433a9
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: Já — already vs right now
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain the two different meanings of já in \"Já comi.\" and \"Já vou.\""
+    model_answers:
+      - "In 'Já comi' (I've already eaten), já marks something already completed
+        — 'already'. In 'Já vou' (I'm coming now), já instead marks immediacy —
+        'now/right away' — a very common way to say you're coming immediately,
+        not that you've already gone."
+    explanation: "Grounded in the note's separate 'Already' and 'Now / immediately'
+      subsections under já."
+    source:
+      note: "Bits and Bobs/Common Structures.md"
+      heading: "6. Já = Already / Now / Soon"
+    status: approved
+    generation_version: 1
+    id: bits-common-structures-0006
+    created_at: 2026-07-28
+    content_hash: sha256:cdaa07c1fc62e4109c529ff45c8f34195f22ff2a148dbed21c4d300e7516257c
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Ainda não — not yet
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "I don't know yet."
+    accepted_answers:
+      - text: "Ainda não sei."
+        accent_sensitive: true
+    explanation: "ainda não is the very common fixed phrase for 'not yet' — from the
+      note's Ainda section."
+    source:
+      note: "Bits and Bobs/Common Structures.md"
+      heading: "7. Ainda = Still / Yet"
+    status: approved
+    generation_version: 1
+    id: bits-common-structures-0007
+    created_at: 2026-07-28
+    content_hash: sha256:9e8e7d44960fde6e43489c5791ed2bd942af2cee60b03db55e0c59c97122c949
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Bits and Bobs
+    subtopic: Só meaning only
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "I only have ten reais."
+    accepted_answers:
+      - text: "Tenho só dez reais."
+        accent_sensitive: true
+    explanation: "só here means 'only' — from the note's Só section."
+    source:
+      note: "Bits and Bobs/Common Structures.md"
+      heading: "8. Só = Only / Just"
+    status: approved
+    generation_version: 1
+    id: bits-common-structures-0008
+    created_at: 2026-07-28
+    content_hash: sha256:ff8da0ed1a947f2dad753f817f06ff00c27c8834a85f4b1703f8a91077891964
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Bits and Bobs
+    subtopic: Né? as a softening tag question
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Explain what né? does in a sentence like \"Está quente hoje, né?\", and
+      where the word comes from."
+    model_answers:
+      - "Né? comes from não é? (isn't it?) and is added to the end of a sentence
+        as a tag question, similar to English 'isn't it?' or 'right?'. In 'Está
+        quente hoje, né?' (It's hot today, isn't it?), it softens the statement
+        and invites agreement, making the conversation feel more natural."
+    explanation: "Grounded in the note's Né? section: 'It comes from não é? ... It
+      makes conversation softer.'"
+    source:
+      note: "Bits and Bobs/Common Structures.md"
+      heading: "11. Né?"
+    status: approved
+    generation_version: 1
+    id: bits-common-structures-0009
+    created_at: 2026-07-28
+    content_hash: sha256:9bbb28aa20f829429a330af9c89480739c13fb8c64f9256d8732f6d912dcf5c5
+    version: 1
+    updated_at: 2026-07-28

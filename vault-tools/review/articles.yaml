@@ -1,0 +1,176 @@
+# Review file for questions sourced from "Grammar/Articles.md".
+#
+# Workflow reminder: see bits-tao-tanto.yaml for the full explanation of
+# status / id / content_hash / version handling. Short version: leave id
+# blank, set status: approved, publish.js does the rest and writes ids back.
+
+questions:
+  - type: en_to_pt
+    topic: Articles
+    subtopic: Indefinite articles — plural (uns/umas)
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "Some books."
+    accepted_answers:
+      - text: "Uns livros."
+        accent_sensitive: true
+    explanation: "Uns is the masculine plural indefinite article, used here for
+      'some books' — from the note's Mini practice."
+    source:
+      note: "Grammar/Articles.md"
+      heading: "12. Mini practice"
+    status: approved
+    generation_version: 1
+    id: articles-0001
+    created_at: 2026-07-28
+    content_hash: sha256:a58dc9782600605e7fcf3f20e488a3963b9f1f2c3ea39f41b638631270b5e719
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: en_to_pt
+    topic: Articles
+    subtopic: Definite articles — plural (as)
+    direction: en_to_pt
+    difficulty: easy
+    register: spoken
+    prompt: "The children."
+    accepted_answers:
+      - text: "As crianças."
+        accent_sensitive: true
+    explanation: "As is the feminine plural definite article — from the note's Mini
+      practice."
+    source:
+      note: "Grammar/Articles.md"
+      heading: "12. Mini practice"
+    status: approved
+    generation_version: 1
+    id: articles-0002
+    created_at: 2026-07-28
+    content_hash: sha256:d1bd1c14699d5a503e7e0883bb3d17dc00b55d898567602a95c0e59e6cd30273
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: fill_blank
+    topic: Articles
+    subtopic: Article + preposition contractions — de + o = do
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Complete with the correct contraction: \"O carro ___ João é novo.\"
+      (João's car is new.)"
+    accepted_answers:
+      - text: "do"
+        accent_sensitive: true
+    explanation: "de + o contracts to do, used to show possession: 'o carro do João'
+      = João's car."
+    source:
+      note: "Grammar/Articles.md"
+      heading: "11. Articles with prepositions"
+    status: approved
+    generation_version: 1
+    id: articles-0003
+    created_at: 2026-07-28
+    content_hash: sha256:116278108e97ac34cc66080af2040f3a449371906c1eac1971bf4e54334b032e
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: fill_blank
+    topic: Articles
+    subtopic: Article + preposition contractions — a + a = à
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Complete with the correct contraction: \"Vou ___ escola.\" (I'm going
+      to school.)"
+    accepted_answers:
+      - text: "à"
+        accent_sensitive: true
+    explanation: "a + a contracts to à before a feminine noun like escola."
+    source:
+      note: "Grammar/Articles.md"
+      heading: "11. Articles with prepositions"
+    status: approved
+    generation_version: 1
+    id: articles-0004
+    created_at: 2026-07-28
+    content_hash: sha256:b8479f301d0df1e210edc1921e07ebb1df1f1493e5e765f69028a0774fe2e099
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: explain_difference
+    topic: Articles
+    subtopic: Professions — article dropped after ser, kept with a description
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Explain why \"Ela é médica.\" has no article, while \"Ela é uma
+      excelente médica.\" does."
+    model_answers:
+      - "After ser, professions normally take no article when simply stating
+        what someone is (Ela é médica = She is a doctor). Once the profession is
+        described with an adjective (uma excelente médica = an excellent
+        doctor), the indefinite article reappears because you're now
+        characterizing her, not just naming her job."
+    explanation: "Grounded in the note's Professions section: 'the article is used
+      because you're describing her as an excellent doctor, not just stating her
+      profession.'"
+    source:
+      note: "Grammar/Articles.md"
+      heading: "7. Professions"
+    status: approved
+    generation_version: 1
+    id: articles-0005
+    created_at: 2026-07-28
+    content_hash: sha256:5b43a7d9773fb41be3a825017932380e8052b9a42769834989283a593a87b801
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: context_choice
+    topic: Articles
+    subtopic: Definite vs indefinite — first mention vs already known
+    direction: null
+    difficulty: medium
+    register: neutral
+    prompt: "Choose the correct article: \"Vi um cachorro. ___ cachorro era
+      grande.\" (I saw a dog. The dog was big.)"
+    accepted_answers:
+      - text: "O"
+        accent_sensitive: true
+    explanation: "The dog is introduced with the indefinite article um (first
+      mention), then referred back to with the definite article O, because now
+      everyone knows which dog is meant."
+    source:
+      note: "Grammar/Articles.md"
+      heading: "4. Definite vs. indefinite"
+    status: approved
+    generation_version: 1
+    id: articles-0006
+    created_at: 2026-07-28
+    content_hash: sha256:91888d325843cf5bc5f556f26d87f74603efccf70486d13d9856551c1dac98a4
+    version: 1
+    updated_at: 2026-07-28
+
+  - type: build_sentence
+    topic: Articles
+    subtopic: Article + preposition contractions — a + o = ao
+    direction: null
+    difficulty: easy
+    register: spoken
+    prompt: "Say \"I'm going to the supermarket\" in Portuguese, using the a + o
+      contraction."
+    accepted_answers:
+      - text: "Vou ao supermercado."
+        accent_sensitive: true
+    explanation: "a + o contracts to ao before a masculine noun like supermercado —
+      from the note's Mini practice."
+    source:
+      note: "Grammar/Articles.md"
+      heading: "12. Mini practice"
+    status: approved
+    generation_version: 1
+    id: articles-0007
+    created_at: 2026-07-28
+    content_hash: sha256:819d256673b63c72be7e70250a7f76427f2aedee0a1712d21ff100226ca53fdd
+    version: 1
+    updated_at: 2026-07-28
