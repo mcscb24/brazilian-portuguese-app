@@ -279,6 +279,7 @@ export function renderPractice(runner: SessionRunner, shell: Shell): HTMLElement
 
     return el('div', {}, [
       el('div', { class: 'session-progress' }, [runner.progressLabel()]),
+      el('p', { class: 'prompt' }, [feedback.question.prompt]),
       el('p', { class: `outcome outcome-${outcome}` }, [outcomeLabel]),
       el('p', {}, [`Your answer: ${feedback.userAnswer}`]),
       el('p', {}, [`Accepted: ${acceptedList}`]),
@@ -369,6 +370,7 @@ export function renderPractice(runner: SessionRunner, shell: Shell): HTMLElement
 
     return el('div', {}, [
       el('div', { class: 'session-progress' }, [runner.progressLabel()]),
+      el('p', { class: 'prompt' }, [question.prompt]),
       el('div', { class: 'reveal-section' }, revealChildren),
       el('h3', {}, ['Rate this question']),
       ratingRow,

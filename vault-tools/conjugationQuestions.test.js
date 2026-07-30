@@ -6,6 +6,7 @@ const os = require('os');
 
 const {
   REQUIRED_TENSES,
+  deriveFamily,
   generateVerbConjugationQuestions,
   generateConjugationPatternQuestions,
 } = require('./conjugationQuestions');
@@ -56,11 +57,13 @@ test('generateVerbConjugationQuestions produces 6 entries per clean verb note', 
   const vaultPath = makeTempVault();
   writeNote(vaultPath, 'Verbs/Single/Falar.md', sixTenseVerbNote('Falar', falarForms()));
   writeNote(vaultPath, 'Verbs/Single/Comer.md', sixTenseVerbNote('Comer', comerForms()));
+  writeNote(vaultPath, 'Verbs/Conjugations.md', conjugationsFixture(true));
 
-  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, [
-    'Verbs/Single/Falar.md',
-    'Verbs/Single/Comer.md',
-  ]);
+  const { entries, errors } = generateVerbConjugationQuestions(
+    vaultPath,
+    ['Verbs/Single/Falar.md', 'Verbs/Single/Comer.md'],
+    'Verbs/Conjugations.md'
+  );
 
   assert.deepEqual(errors, []);
   assert.equal(entries.length, 2 * REQUIRED_TENSES.length);
@@ -69,24 +72,24 @@ test('generateVerbConjugationQuestions produces 6 entries per clean verb note', 
 test('generateVerbConjugationQuestions: exact id, prompt, and model_answers for a known entry', () => {
   const vaultPath = makeTempVault();
   writeNote(vaultPath, 'Verbs/Single/Falar.md', sixTenseVerbNote('Falar', falarForms()));
+  writeNote(vaultPath, 'Verbs/Conjugations.md', conjugationsFixture(true));
 
-  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, ['Verbs/Single/Falar.md']);
+  const { entries, errors } = generateVerbConjugationQuestions(
+    vaultPath,
+    ['Verbs/Single/Falar.md'],
+    'Verbs/Conjugations.md'
+  );
   assert.deepEqual(errors, []);
 
+  // falar is a fully regular -AR verb: every person in the Present matches the mechanically
+  // derived form (stem "fal" + Conjugations.md's -AR endings), so the fallback sentence applies.
   const present = entries.find((e) => e.id === 'falar-present');
   assert.ok(present, 'expected a falar-present entry');
   assert.equal(present.type, 'verb_conjugation');
   assert.equal(present.topic, 'Verbs');
   assert.equal(present.subtopic, 'Falar');
-  assert.equal(present.prompt, 'Conjugate "falar" in the Present (all persons).');
-  assert.deepEqual(present.model_answers, [
-    'eu: falo',
-    'você: fala',
-    'ele / ela: fala',
-    'nós: falamos',
-    'vocês: falam',
-    'eles / elas: falam',
-  ]);
+  assert.equal(present.prompt, 'Conjugate "falar" in the Present (irregular forms only).');
+  assert.deepEqual(present.model_answers, ['All conjugations are regular in this tense.']);
   assert.deepEqual(present.source, { note: 'Verbs/Single/Falar.md', heading: 'Present' });
 });
 
@@ -99,8 +102,13 @@ test('generateVerbConjugationQuestions reports a missing tense section without i
     return `## ${tense}\n\n|Person|Conjugation|\n|---|---|\n|eu|**${f.eu}**|\n|você|**${f.voce}**|\n|ele / ela|**${f.voce}**|\n|nós|**${f.nos}**|\n|vocês|**${f.voces}**|\n|eles / elas|**${f.voces}**|\n`;
   });
   writeNote(vaultPath, 'Verbs/Single/Falar.md', `# Falar\n\n${sections.join('\n---\n\n')}`);
+  writeNote(vaultPath, 'Verbs/Conjugations.md', conjugationsFixture(true));
 
-  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, ['Verbs/Single/Falar.md']);
+  const { entries, errors } = generateVerbConjugationQuestions(
+    vaultPath,
+    ['Verbs/Single/Falar.md'],
+    'Verbs/Conjugations.md'
+  );
 
   assert.equal(entries.length, REQUIRED_TENSES.length - 1);
   assert.equal(errors.length, 1);
@@ -113,22 +121,126 @@ test('generateVerbConjugationQuestions reports a missing tense section without i
 test('generateVerbConjugationQuestions collects errors from multiple files rather than stopping at the first', () => {
   const vaultPath = makeTempVault();
   writeNote(vaultPath, 'Verbs/Single/Falar.md', sixTenseVerbNote('Falar', falarForms()));
+  // "Errar" (to err) ends in -ar, so family derivation succeeds; the errors below come from the
+  // malformed table shape itself (bad row count / missing sections), a separate concern from
+  // family classification.
   writeNote(
     vaultPath,
-    'Verbs/Single/Broken.md',
-    '# Broken\n\n## Present\n\n|Person|Conjugation|\n|---|---|\n|eu|**x**|\n'
+    'Verbs/Single/Errar.md',
+    '# Errar\n\n## Present\n\n|Person|Conjugation|\n|---|---|\n|eu|**x**|\n'
+  );
+  writeNote(vaultPath, 'Verbs/Conjugations.md', conjugationsFixture(true));
+
+  const { entries, errors } = generateVerbConjugationQuestions(
+    vaultPath,
+    ['Verbs/Single/Falar.md', 'Verbs/Single/Errar.md'],
+    'Verbs/Conjugations.md'
   );
 
-  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, [
-    'Verbs/Single/Falar.md',
-    'Verbs/Single/Broken.md',
-  ]);
-
-  // Falar contributes 6 good entries; Broken contributes 0 (bad row count for Present, missing
+  // Falar contributes 6 good entries; Errar contributes 0 (bad row count for Present, missing
   // sections for the other 5) but every problem is reported, not swallowed.
   assert.equal(entries.length, REQUIRED_TENSES.length);
   assert.equal(errors.length, REQUIRED_TENSES.length);
-  assert.ok(errors.every((e) => e.startsWith('Verbs/Single/Broken.md:')));
+  assert.ok(errors.every((e) => e.startsWith('Verbs/Single/Errar.md:')));
+});
+
+test('generateVerbConjugationQuestions reports an unclassifiable verb family rather than guessing', () => {
+  const vaultPath = makeTempVault();
+  writeNote(vaultPath, 'Verbs/Single/Falar.md', sixTenseVerbNote('Falar', falarForms()));
+  // "Xis" doesn't end in -ar/-er/-ir and has no FAMILY_OVERRIDES entry, so it cannot be
+  // classified deterministically - this must fail loudly rather than guess a family.
+  writeNote(vaultPath, 'Verbs/Single/Xis.md', sixTenseVerbNote('Xis', falarForms()));
+  writeNote(vaultPath, 'Verbs/Conjugations.md', conjugationsFixture(true));
+
+  const { entries, errors } = generateVerbConjugationQuestions(
+    vaultPath,
+    ['Verbs/Single/Falar.md', 'Verbs/Single/Xis.md'],
+    'Verbs/Conjugations.md'
+  );
+
+  // Falar is unaffected; Xis contributes zero entries and exactly one error (not six - the
+  // failure is at the family-derivation step, before the per-tense loop runs).
+  assert.equal(entries.length, REQUIRED_TENSES.length);
+  assert.ok(!entries.some((e) => e.subtopic === 'Xis'));
+  const xisErrors = errors.filter((e) => e.startsWith('Verbs/Single/Xis.md:'));
+  assert.equal(xisErrors.length, 1);
+  assert.match(xisErrors[0], /cannot determine verb family/);
+});
+
+test('deriveFamily: explicit pôr override, literal suffix otherwise, null when neither applies', () => {
+  assert.equal(deriveFamily('Pôr'), 'er');
+  assert.equal(deriveFamily('por'), 'er'); // fold-tolerant: works without the accent too
+  assert.equal(deriveFamily('Falar'), 'ar');
+  assert.equal(deriveFamily('Comer'), 'er');
+  assert.equal(deriveFamily('Abrir'), 'ir');
+  assert.equal(deriveFamily('Xis'), null);
+});
+
+// A single synthetic verb ("testar", -AR family) engineered to cover, in one fixture: a tense with
+// exactly one irregular form, a tense with several, a tense where all six are irregular, a tense
+// where all six are regular (the fallback sentence), and an accent-only difference. Every expected
+// value below was hand-derived from conjugationsFixture's -AR endings (stem "test" + ending) before
+// being written, then cross-checked against this test run.
+function testarForms() {
+  return {
+    // 1 irregular: eu only ("tosto" instead of the regular "testo").
+    Present: { eu: 'tosto', voce: 'testa', nos: 'testamos', voces: 'testam' },
+    // several irregular: eu/você/ele/nós irregular, vocês/eles regular.
+    Preterite: { eu: 'testive', voce: 'testeve', nos: 'testivemos', voces: 'testaram' },
+    // all six irregular.
+    Imperfect: { eu: 'tinha', voce: 'tinha', nos: 'tínhamos', voces: 'tinham' },
+    // all six regular -> fallback sentence.
+    'Present Subjunctive': { eu: 'teste', voce: 'teste', nos: 'testemos', voces: 'testem' },
+    // accent-only difference: eu's "testásse" differs from the regular "testasse" only by the accent.
+    'Imperfect Subjunctive': { eu: 'testásse', voce: 'testasse', nos: 'testássemos', voces: 'testassem' },
+    // all six regular (filler tense, not itself a required scenario).
+    'Future Subjunctive': { eu: 'testar', voce: 'testar', nos: 'testarmos', voces: 'testarem' },
+  };
+}
+
+test('generateVerbConjugationQuestions: irregular-only classification across one/several/all/none/accent-only scenarios', () => {
+  const vaultPath = makeTempVault();
+  writeNote(vaultPath, 'Verbs/Single/Testar.md', sixTenseVerbNote('Testar', testarForms()));
+  writeNote(vaultPath, 'Verbs/Conjugations.md', conjugationsFixture(true));
+
+  const { entries, errors } = generateVerbConjugationQuestions(
+    vaultPath,
+    ['Verbs/Single/Testar.md'],
+    'Verbs/Conjugations.md'
+  );
+  assert.deepEqual(errors, []);
+  assert.equal(entries.length, REQUIRED_TENSES.length);
+
+  const byTense = Object.fromEntries(entries.map((e) => [e.source.heading, e]));
+
+  // (a) one irregular form.
+  assert.deepEqual(byTense['Present'].model_answers, ['eu: tosto']);
+
+  // (b) several irregular forms.
+  assert.deepEqual(byTense['Preterite'].model_answers, [
+    'eu: testive',
+    'você: testeve',
+    'ele / ela: testeve',
+    'nós: testivemos',
+  ]);
+
+  // (c) all six irregular.
+  assert.deepEqual(byTense['Imperfect'].model_answers, [
+    'eu: tinha',
+    'você: tinha',
+    'ele / ela: tinha',
+    'nós: tínhamos',
+    'vocês: tinham',
+    'eles / elas: tinham',
+  ]);
+
+  // (d) all six regular -> fallback sentence, prompt still says "irregular forms only".
+  const presentSubj = byTense['Present Subjunctive'];
+  assert.deepEqual(presentSubj.model_answers, ['All conjugations are regular in this tense.']);
+  assert.equal(presentSubj.prompt, 'Conjugate "testar" in the Present Subjunctive (irregular forms only).');
+
+  // (e) accent-only difference: only eu (testásse vs regular testasse) counts as irregular.
+  assert.deepEqual(byTense['Imperfect Subjunctive'].model_answers, ['eu: testásse']);
 });
 
 // ---- generateConjugationPatternQuestions: fixture tests ----
@@ -274,8 +386,8 @@ test('both generators are idempotent: identical inputs produce identical ids acr
   writeNote(vaultPath, 'Verbs/Single/Falar.md', sixTenseVerbNote('Falar', falarForms()));
   writeNote(vaultPath, 'Verbs/Conjugations.md', conjugationsFixture(true));
 
-  const run1 = generateVerbConjugationQuestions(vaultPath, ['Verbs/Single/Falar.md']);
-  const run2 = generateVerbConjugationQuestions(vaultPath, ['Verbs/Single/Falar.md']);
+  const run1 = generateVerbConjugationQuestions(vaultPath, ['Verbs/Single/Falar.md'], 'Verbs/Conjugations.md');
+  const run2 = generateVerbConjugationQuestions(vaultPath, ['Verbs/Single/Falar.md'], 'Verbs/Conjugations.md');
   assert.deepEqual(run1.entries.map((e) => e.id).sort(), run2.entries.map((e) => e.id).sort());
   assert.deepEqual(run1, run2);
 
@@ -305,12 +417,14 @@ function discoverRealVerbNotePaths(vaultPath) {
     .map((name) => `Grammar/Verbs/Single/${name}`);
 }
 
+const CONJUGATIONS_NOTE_PATH = 'Grammar/Verbs/Conjugations.md';
+
 test('real vault: verb_conjugation entry count equals discovered file count x 6, no errors', () => {
   const vaultPath = loadRealVaultPath();
   const verbNotePaths = discoverRealVerbNotePaths(vaultPath);
   assert.ok(verbNotePaths.length > 0, 'expected at least one verb note under Grammar/Verbs/Single');
 
-  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, verbNotePaths);
+  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, verbNotePaths, CONJUGATIONS_NOTE_PATH);
 
   assert.deepEqual(errors, [], `expected no content issues in the real vault:\n${errors.join('\n')}`);
   assert.equal(entries.length, verbNotePaths.length * REQUIRED_TENSES.length);
@@ -321,22 +435,117 @@ test('real vault: verb_conjugation entry count equals discovered file count x 6,
   assert.equal(entries.length, 156);
 });
 
-test('real vault: Estar Present entry matches the source table exactly', () => {
+test('real vault: Estar Present entry lists only the irregular persons (nós "estamos" is regular)', () => {
   const vaultPath = loadRealVaultPath();
   const verbNotePaths = discoverRealVerbNotePaths(vaultPath);
-  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, verbNotePaths);
+  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, verbNotePaths, CONJUGATIONS_NOTE_PATH);
   assert.deepEqual(errors, []);
 
   const estarPresent = entries.find((e) => e.id === 'estar-present');
   assert.ok(estarPresent, 'expected an estar-present entry');
+  // nós "estamos" matches the mechanically-derived regular form ("est" + "-amos") exactly, so it
+  // is omitted; every other person's real form diverges from the regular pattern.
   assert.deepEqual(estarPresent.model_answers, [
     'eu: estou',
     'você: está',
     'ele / ela: está',
-    'nós: estamos',
     'vocês: estão',
     'eles / elas: estão',
   ]);
+});
+
+test('real vault: Estar Imperfect is fully regular -> fallback sentence', () => {
+  const vaultPath = loadRealVaultPath();
+  const verbNotePaths = discoverRealVerbNotePaths(vaultPath);
+  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, verbNotePaths, CONJUGATIONS_NOTE_PATH);
+  assert.deepEqual(errors, []);
+
+  const estarImperfect = entries.find((e) => e.id === 'estar-imperfect');
+  assert.ok(estarImperfect, 'expected an estar-imperfect entry');
+  assert.deepEqual(estarImperfect.model_answers, ['All conjugations are regular in this tense.']);
+});
+
+test('real vault: Ter Present is irregular everywhere except nós, including an accent-only divergence', () => {
+  const vaultPath = loadRealVaultPath();
+  const verbNotePaths = discoverRealVerbNotePaths(vaultPath);
+  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, verbNotePaths, CONJUGATIONS_NOTE_PATH);
+  assert.deepEqual(errors, []);
+
+  const terPresent = entries.find((e) => e.id === 'ter-present');
+  assert.ok(terPresent, 'expected a ter-present entry');
+  // vocês "têm" vs the regular "tem" differs only by the circumflex accent, and is still counted
+  // as irregular under the literal, accent-sensitive comparison rule.
+  assert.deepEqual(terPresent.model_answers, [
+    'eu: tenho',
+    'você: tem',
+    'ele / ela: tem',
+    'vocês: têm',
+    'eles / elas: têm',
+  ]);
+});
+
+test('real vault: Fazer Present mixes irregular (eu, você, ele) and regular (nós, vocês, eles) persons', () => {
+  const vaultPath = loadRealVaultPath();
+  const verbNotePaths = discoverRealVerbNotePaths(vaultPath);
+  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, verbNotePaths, CONJUGATIONS_NOTE_PATH);
+  assert.deepEqual(errors, []);
+
+  const fazerPresent = entries.find((e) => e.id === 'fazer-present');
+  assert.ok(fazerPresent, 'expected a fazer-present entry');
+  assert.deepEqual(fazerPresent.model_answers, ['eu: faço', 'você: faz', 'ele / ela: faz']);
+
+  const fazerImperfect = entries.find((e) => e.id === 'fazer-imperfect');
+  assert.ok(fazerImperfect, 'expected a fazer-imperfect entry');
+  assert.deepEqual(fazerImperfect.model_answers, ['All conjugations are regular in this tense.']);
+});
+
+test('real vault: Pedir, Dormir, and Seguir Present each have exactly one irregular person (eu)', () => {
+  const vaultPath = loadRealVaultPath();
+  const verbNotePaths = discoverRealVerbNotePaths(vaultPath);
+  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, verbNotePaths, CONJUGATIONS_NOTE_PATH);
+  assert.deepEqual(errors, []);
+
+  assert.deepEqual(entries.find((e) => e.id === 'pedir-present').model_answers, ['eu: peço']);
+  assert.deepEqual(entries.find((e) => e.id === 'dormir-present').model_answers, ['eu: durmo']);
+  assert.deepEqual(entries.find((e) => e.id === 'seguir-present').model_answers, ['eu: sigo']);
+});
+
+test('real vault: Pôr uses the explicit -ER family override and is fully irregular in the Present', () => {
+  const vaultPath = loadRealVaultPath();
+  const verbNotePaths = discoverRealVerbNotePaths(vaultPath);
+  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, verbNotePaths, CONJUGATIONS_NOTE_PATH);
+  assert.deepEqual(errors, []);
+
+  // "pôr" doesn't end in -ar/-er/-ir textually; without the FAMILY_OVERRIDES entry this note would
+  // fail family derivation entirely. With the override applied (stem "p" + regular -ER endings),
+  // every person's real form still diverges from the derived regular form.
+  const porPresent = entries.find((e) => e.id === 'por-present');
+  assert.ok(porPresent, 'expected a por-present entry');
+  assert.deepEqual(porPresent.model_answers, [
+    'eu: ponho',
+    'você: põe',
+    'ele / ela: põe',
+    'nós: pomos',
+    'vocês: põem',
+    'eles / elas: põem',
+  ]);
+});
+
+test('real vault: verb_conjugation ids are unaffected by the irregular-only content change', () => {
+  const bundlePath = path.join(__dirname, '..', 'app', 'public', 'content-bundle.json');
+  const bundle = JSON.parse(fs.readFileSync(bundlePath, 'utf8'));
+  const publishedIds = bundle.questions
+    .filter((q) => q.type === 'verb_conjugation')
+    .map((q) => q.id)
+    .sort();
+
+  const vaultPath = loadRealVaultPath();
+  const verbNotePaths = discoverRealVerbNotePaths(vaultPath);
+  const { entries, errors } = generateVerbConjugationQuestions(vaultPath, verbNotePaths, CONJUGATIONS_NOTE_PATH);
+  assert.deepEqual(errors, []);
+
+  const generatedIds = entries.map((e) => e.id).sort();
+  assert.deepEqual(generatedIds, publishedIds);
 });
 
 test('real vault: conjugation_pattern produces 18 entries (6 tenses x 3 families), no errors', () => {
@@ -369,8 +578,8 @@ test('real vault: both generators are idempotent across repeated runs', () => {
   const vaultPath = loadRealVaultPath();
   const verbNotePaths = discoverRealVerbNotePaths(vaultPath);
 
-  const run1 = generateVerbConjugationQuestions(vaultPath, verbNotePaths);
-  const run2 = generateVerbConjugationQuestions(vaultPath, verbNotePaths);
+  const run1 = generateVerbConjugationQuestions(vaultPath, verbNotePaths, CONJUGATIONS_NOTE_PATH);
+  const run2 = generateVerbConjugationQuestions(vaultPath, verbNotePaths, CONJUGATIONS_NOTE_PATH);
   assert.deepEqual(run1, run2);
 
   const pattern1 = generateConjugationPatternQuestions(vaultPath, 'Grammar/Verbs/Conjugations.md');

@@ -498,7 +498,11 @@ function main() {
 
   const { questions: handQuestions, scenarios, questionOrigins: handQuestionOrigins } = publishReviewedContent();
 
-  const { entries: verbEntries, errors: verbErrors } = generateVerbConjugationQuestions(vaultPath, verbNotesEntry.paths);
+  const { entries: verbEntries, errors: verbErrors } = generateVerbConjugationQuestions(
+    vaultPath,
+    verbNotesEntry.paths,
+    CONJUGATIONS_NOTE_PATH
+  );
   const { entries: patternEntries, errors: patternErrors } = generateConjugationPatternQuestions(vaultPath, CONJUGATIONS_NOTE_PATH);
   allErrors.push(...verbErrors, ...patternErrors);
 
