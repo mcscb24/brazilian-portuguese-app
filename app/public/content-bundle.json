@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "bundle_version": "2026-07-30T13:48:40.745Z",
+  "bundle_version": "2026-08-06T21:22:11.095Z",
   "questions": [
     {
       "type": "explain_difference",
@@ -3356,6 +3356,532 @@
       "content_hash": "sha256:1751b3c5ec77108fdd218c56f4b7d791e583a338126aa107223b0dc4fdf97fbe",
       "version": 1,
       "updated_at": "2026-07-24"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Present vs future subjunctive — attitude vs unrealised event",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "Explain the difference between \"Espero que ele venha.\" and \"Se ele vier...\"",
+      "model_answers": [
+        "Espero que ele venha uses the present subjunctive because the speaker is expressing an attitude — hope — toward the event, not stating a fact. Se ele vier... uses the future subjunctive because it frames the coming as a future event that hasn't happened yet, usually as the condition for something else. Both are \"not a fact\", but the present subjunctive is about how the speaker feels, while the future subjunctive is specifically about an event's position in an unrealised future."
+      ],
+      "explanation": "Present subjunctive answers \"how does the speaker feel about this?\"; future subjunctive answers \"has this future event happened yet?\" — two different questions that happen to both avoid the indicative.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "Compare All Three"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0001",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:84496cdcc174e3c53836b9b2513e6121c7ee6d0c73b7c401fc77fcd0d1e24b18",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Future vs imperfect subjunctive — possible vs unreal condition",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "Explain the difference between \"Se eu tiver tempo...\" and \"Se eu tivesse tempo...\"",
+      "model_answers": [
+        "Se eu tiver tempo... uses the future subjunctive: having time is still possible, nobody knows yet whether it will happen. Se eu tivesse tempo... uses the imperfect subjunctive: the speaker is imagining another reality, one where they currently don't have time — it's hypothetical or contrary to fact, not just unresolved."
+      ],
+      "explanation": "tiver (future subjunctive) leaves the outcome open and possible; tivesse (imperfect subjunctive) signals the speaker is imagining a reality that isn't the current one.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "3. Imperfect Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0002",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:727bae5690d3f507532bca176df414330c03c9d7e1a9e752965a8c0624e74787",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Present vs imperfect subjunctive — real wish vs imagined reality",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the difference between \"Espero que ele venha.\" and \"Se ele viesse...\"",
+      "model_answers": [
+        "Espero que ele venha (present subjunctive) expresses a real, current hope about something that may or may not happen — the speaker is expressing their attitude. Se ele viesse... (imperfect subjunctive) imagines a reality that isn't the current one, often implying he isn't coming — it's hypothetical rather than an attitude toward a genuinely open possibility."
+      ],
+      "explanation": "Same verb (vir), three different subjunctives depending on what the speaker is doing: venha expresses attitude, vier flags an unrealised future event, viesse imagines an unreal one.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "Compare All Three"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0003",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:f402e2088d637638776e624269b87ce8d252b85091876cb3c86e1055561ea5e0",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Present subjunctive triggered by emotion, not uncertainty",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Why is the subjunctive used in \"Fico feliz que você esteja aqui.\" even though the listener's presence is obvious and certain?",
+      "model_answers": [
+        "The present subjunctive isn't only about uncertainty — it also covers emotion. Fico feliz que (I'm happy that) introduces the speaker's emotional reaction, and that reaction is what triggers esteja, even though there's no doubt at all that the person is there."
+      ],
+      "explanation": "The note's key insight: the subjunctive here is triggered by the emotion (fico feliz que), not by any uncertainty about whether the person is actually present.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "1. Present Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0004",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:4db8f750beaddd8464c70055fb0e5c915ea8e86d769e5bbce696f6dd7a8227f7",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Future subjunctive after quando — event not yet happened",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Why is the future subjunctive used in \"Quando você chegar, me liga.\"?",
+      "model_answers": [
+        "Quando (when) introduces a future event — the arriving — that hasn't happened yet at the moment of speaking. Because that event is still unrealised and acts as the condition for the second action (calling), chegar takes the future subjunctive rather than the indicative."
+      ],
+      "explanation": "The mental shortcut for this subjunctive is \"has this future event happened yet?\" — no, so it takes the future subjunctive form chegar, not the indicative chega.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "2. Future Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0005",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:d3898dfce0416926a40543610cf609551df6cc266d3bf521131c5d92581e3a63",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Future subjunctive vs past-fact indicative",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Explain the difference between \"Se ele vier...\" and \"Quando ele chegou...\"",
+      "model_answers": [
+        "Se ele vier... uses the future subjunctive because his coming is still just possible — maybe he will, maybe he won't. Quando ele chegou... uses the indicative (chegou) because the arriving already happened — it's simply a fact being reported, not an unrealised future event."
+      ],
+      "explanation": "The two sentences look similarly structured, but one refers to a not-yet-happened event (future subjunctive) and the other reports something that already occurred (indicative past).",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "2. Future Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0006",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:9ba07ae0734c2baf67a2bb7c8ea59de4bb348cf0e9cd435bdd0ed52d1d4dd102",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "explain_difference",
+      "topic": "Verbs",
+      "subtopic": "Two future events — the real trigger for the future subjunctive",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "Explain why \"Vou para o Brasil.\" is indicative but \"Quando eu for para o Brasil, vou visitar minha família.\" is future subjunctive, even though both sentences are about the future.",
+      "model_answers": [
+        "Vou para o Brasil is a single, simple statement about the future — no condition, so it stays indicative. Quando eu for para o Brasil, vou visitar minha família contains two future events: going to Brazil hasn't happened yet, and it sets the timing for the second event (visiting family). Whenever one not-yet-happened event acts as the condition or trigger for another, that first verb takes the future subjunctive (for) — the real test isn't \"is this about the future?\" but \"does this future event trigger another one?\""
+      ],
+      "explanation": "The note's core distinction: plain future statements stay indicative; only a future event that conditions or triggers a second future event takes the future subjunctive.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "Extra Point on Future Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0007",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:0d52d02e3ab3d4a94babcb8956cc665ec301646efc6585776c9322aa2e576c79",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "choose_form",
+      "topic": "Verbs",
+      "subtopic": "Classify the subjunctive — wish/hope trigger",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "neutral",
+      "prompt": "Classify the subjunctive used in \"Espero que ele venha.\" — is it the present, future, or imperfect subjunctive?",
+      "accepted_answers": [
+        {
+          "text": "present",
+          "accent_sensitive": false
+        },
+        {
+          "text": "present subjunctive",
+          "accent_sensitive": false
+        }
+      ],
+      "explanation": "Espero que (I hope that) expresses the speaker's attitude toward the event, which is what the present subjunctive marks.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "Compare All Three"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0008",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:b98e1e175803e1dbd845eba5f42d575d10b2fe0633922641db87e60e890e063d",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "choose_form",
+      "topic": "Verbs",
+      "subtopic": "Classify the subjunctive — unrealised future event",
+      "direction": null,
+      "difficulty": "easy",
+      "register": "neutral",
+      "prompt": "Classify the subjunctive used in \"Se ele vier...\" — is it the present, future, or imperfect subjunctive?",
+      "accepted_answers": [
+        {
+          "text": "future",
+          "accent_sensitive": false
+        },
+        {
+          "text": "future subjunctive",
+          "accent_sensitive": false
+        }
+      ],
+      "explanation": "Se ele vier marks an event — his coming — that hasn't happened yet, which is what the future subjunctive is for.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "Compare All Three"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0009",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:b7d02963a6c73d2c02df80a38905aa34b5e287eea0ae261bce0dddbc8b5a14c8",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "choose_form",
+      "topic": "Verbs",
+      "subtopic": "Classify the subjunctive — imagined reality",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Classify the subjunctive used in \"Se ele viesse...\" — is it the present, future, or imperfect subjunctive?",
+      "accepted_answers": [
+        {
+          "text": "imperfect",
+          "accent_sensitive": false
+        },
+        {
+          "text": "imperfect subjunctive",
+          "accent_sensitive": false
+        }
+      ],
+      "explanation": "Se ele viesse imagines another reality rather than flagging a still-possible future event, which is what the imperfect subjunctive marks.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "Compare All Three"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0010",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:a60483ad32459ab4e1725e5ef3eb6c91af4ac43e37a4ea8becf8ab3d6bc16b81",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "choose_form",
+      "topic": "Verbs",
+      "subtopic": "Classify the subjunctive — importance/recommendation",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Classify the subjunctive used in \"É importante que você estude.\" — is it the present, future, or imperfect subjunctive?",
+      "accepted_answers": [
+        {
+          "text": "present",
+          "accent_sensitive": false
+        },
+        {
+          "text": "present subjunctive",
+          "accent_sensitive": false
+        }
+      ],
+      "explanation": "É importante que expresses the speaker's judgement about how important something is — an attitude, not a fact — which the present subjunctive marks.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "1. Present Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0011",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:751f4139a6eb419746f6b14c71db04d8841ba6c77bc52b4329305e5b2d7767f2",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "choose_form",
+      "topic": "Verbs",
+      "subtopic": "Classify the subjunctive — assim que trigger",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Classify the subjunctive used in \"Assim que terminar...\" — is it the present, future, or imperfect subjunctive?",
+      "accepted_answers": [
+        {
+          "text": "future",
+          "accent_sensitive": false
+        },
+        {
+          "text": "future subjunctive",
+          "accent_sensitive": false
+        }
+      ],
+      "explanation": "Assim que (as soon as) introduces a future event that hasn't happened yet, so terminar takes the future subjunctive.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "2. Future Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0012",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:acc95fa999bce83a6c768a4570ff458c118af3538d9172faf2a614a0175ec2b7",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "choose_form",
+      "topic": "Verbs",
+      "subtopic": "Classify the subjunctive — contrary-to-fact condition",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Classify the subjunctive used in \"Se eu fosse rico...\" — is it the present, future, or imperfect subjunctive?",
+      "accepted_answers": [
+        {
+          "text": "imperfect",
+          "accent_sensitive": false
+        },
+        {
+          "text": "imperfect subjunctive",
+          "accent_sensitive": false
+        }
+      ],
+      "explanation": "Se eu fosse rico imagines a reality contrary to fact (the speaker isn't rich), which the imperfect subjunctive marks.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "3. Imperfect Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0013",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:4925b502833c4dce408ed559094c5ea35d80651a9b83dbac7002f5249c4b0ccb",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Verbs",
+      "subtopic": "Present subjunctive — completing the rule",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete the rule in your own words: \"The present subjunctive is used when...\"",
+      "model_answers": [
+        "The present subjunctive is used when the speaker is expressing their attitude toward something — a wish, hope, emotion, recommendation, sense of importance, doubt or possibility — rather than simply stating it as a fact."
+      ],
+      "explanation": "Matches the note's mental shortcut: \"Am I expressing my attitude toward this event rather than stating it as a fact?\"",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "1. Present Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0014",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:02803b9b2cf291d596c38ff7a476ced94d40c21ec895c84c3ad57e89f72dca4e",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Verbs",
+      "subtopic": "Future subjunctive — completing the rule",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete the rule in your own words: \"The future subjunctive is used when...\"",
+      "model_answers": [
+        "The future subjunctive is used when a sentence refers to a future event that hasn't happened yet, usually introduced by words like se, quando, assim que or depois que — especially when that not-yet-real event sets the condition or timing for another event."
+      ],
+      "explanation": "Matches the note's mental shortcut: \"Has this future event happened yet?\" — if no, future subjunctive.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "2. Future Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0015",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:d7e116e3ffec8b6abfc61a9ef8801f420353f0e734285c01cafbd67bfe1713a6",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Verbs",
+      "subtopic": "Imperfect subjunctive — completing the rule",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "neutral",
+      "prompt": "Complete the rule in your own words: \"The imperfect subjunctive is used when...\"",
+      "model_answers": [
+        "The imperfect subjunctive is used when the speaker is imagining another reality — a hypothetical or imaginary situation that is contrary to, or at least not confirmed as, the current facts, often paired with the conditional (e.g. se eu tivesse tempo, viajaria)."
+      ],
+      "explanation": "Matches the note's mental shortcut: \"Am I imagining another reality?\" — if yes, imperfect subjunctive.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "3. Imperfect Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0016",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:22ed33a55343bcc6bb0e66043b25f72efd7f4d95d6df0b60d8640c936514d2ca",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "open_completion",
+      "topic": "Verbs",
+      "subtopic": "Future subjunctive — one future event triggering another",
+      "direction": null,
+      "difficulty": "hard",
+      "register": "neutral",
+      "prompt": "Complete the reasoning: \"Quando eu for para o Brasil...\" takes the future subjunctive rather than the indicative because ___.",
+      "model_answers": [
+        "...going to Brazil is a future event that hasn't happened yet, and it sets the timing/condition for a second future event (visiting family) — whenever one not-yet-real event triggers another like this, the first verb takes the future subjunctive rather than the indicative."
+      ],
+      "explanation": "The note's \"final trick\": whenever se/quando/assim que/logo que/depois que introduce one future event that sets up another, expect the future subjunctive.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "One final trick"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0017",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:cdfb9a7b052639a0f960fe51cbcf25ee3b55c96edd83e0950dd0dc6e536ec682",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "speak_aloud",
+      "topic": "Verbs",
+      "subtopic": "Speaking practice — expressing a wish (present subjunctive)",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "Say a sentence in Portuguese expressing a wish or hope, using the present subjunctive.",
+      "model_answers": [
+        "Espero que dê certo.",
+        "Quero que você venha.",
+        "Tomara que não chova."
+      ],
+      "explanation": "Any que-clause built on a wish/hope trigger like espero que, quero que or tomara que works — the speaker's attitude is what puts the second verb in the present subjunctive.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "1. Present Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0018",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:c7c1a7e33aa8e4a932969b0a4dd6a244e6beb25b3b08e562972a422ccc031e1c",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "speak_aloud",
+      "topic": "Verbs",
+      "subtopic": "Speaking practice — quando + future subjunctive",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "Say a sentence in Portuguese using \"quando\" that requires the future subjunctive.",
+      "model_answers": [
+        "Quando você chegar, me liga.",
+        "Quando eu for ao Brasil, vou visitar minha família."
+      ],
+      "explanation": "Any quando-clause describing an event that hasn't happened yet works, as long as the quando-verb is in the future subjunctive (chegar, for) rather than the indicative.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "2. Future Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0019",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:54a500a749f003e4fbe522fbcca2edfc88d47e4daefd9eb24c03ee9d2136743a",
+      "version": 1,
+      "updated_at": "2026-08-06"
+    },
+    {
+      "type": "speak_aloud",
+      "topic": "Verbs",
+      "subtopic": "Speaking practice — hypothetical with the imperfect subjunctive",
+      "direction": null,
+      "difficulty": "medium",
+      "register": "spoken",
+      "prompt": "Say a sentence in Portuguese beginning \"Se eu fosse...\", imagining a reality that isn't true.",
+      "model_answers": [
+        "Se eu fosse rico, viajaria o mundo.",
+        "Se eu fosse você, estudaria mais."
+      ],
+      "explanation": "fosse is the imperfect subjunctive of ser; pairing se eu fosse... with a conditional (viajaria, estudaria) is the note's common pattern for imagining an unreal situation.",
+      "source": {
+        "note": "Grammar/Verbs/Subjunctive Map.md",
+        "heading": "3. Imperfect Subjunctive"
+      },
+      "status": "approved",
+      "generation_version": 1,
+      "id": "verbs-subjunctive-map-0020",
+      "created_at": "2026-08-06",
+      "content_hash": "sha256:a97edf4d2efa5c77a8a31319deddc76e64858c6ae5ffaef65aa8c445b0e52527",
+      "version": 1,
+      "updated_at": "2026-08-06"
     },
     {
       "type": "explain_difference",
@@ -9772,6 +10298,50 @@
         "Mini practice"
       ],
       "body_markdown": "# Vir\n\n## Meaning\n\n**vir** = to come\n\n---\n\n# Why learn this?\n\n**Vir** is extremely common in everyday Portuguese and has an important irregular pattern.\n\nIts future and imperfect subjunctive forms are particularly worth learning because they look very different from the infinitive **vir**.\n\n---\n\n# Irregular stem map\n\nPresent\n\n**venho**\n\n↓\n\nPresent Subjunctive\n\n**venha**\n\n---\n\nPreterite\n\n**vim**\n\n↓\n\nFuture Subjunctive\n\n**vier**\n\n↓\n\nImperfect Subjunctive\n\n**viesse**\n\n---\n\n# Conjugations\n\n## Present\n\n|Person|Conjugation|\n|---|---|\n|eu|**venho**|\n|você|**vem**|\n|ele / ela|**vem**|\n|nós|**vimos**|\n|vocês|**vêm**|\n|eles / elas|**vêm**|\n\n---\n\n## Preterite\n\n|Person|Conjugation|\n|---|---|\n|eu|**vim**|\n|você|**veio**|\n|ele / ela|**veio**|\n|nós|**viemos**|\n|vocês|**vieram**|\n|eles / elas|**vieram**|\n\n---\n\n## Imperfect\n\n|Person|Conjugation|\n|---|---|\n|eu|**vinha**|\n|você|**vinha**|\n|ele / ela|**vinha**|\n|nós|**vínhamos**|\n|vocês|**vinham**|\n|eles / elas|**vinham**|\n\n---\n\n## Present Subjunctive\n\n|Person|Conjugation|\n|---|---|\n|eu|**venha**|\n|você|**venha**|\n|ele / ela|**venha**|\n|nós|**venhamos**|\n|vocês|**venham**|\n|eles / elas|**venham**|\n\n---\n\n## Imperfect Subjunctive\n\n|Person|Conjugation|\n|---|---|\n|eu|**viesse**|\n|você|**viesse**|\n|ele / ela|**viesse**|\n|nós|**viéssemos**|\n|vocês|**viessem**|\n|eles / elas|**viessem**|\n\n---\n\n## Future Subjunctive\n\n|Person|Conjugation|\n|---|---|\n|eu|**vier**|\n|você|**vier**|\n|ele / ela|**vier**|\n|nós|**viermos**|\n|vocês|**vierem**|\n|eles / elas|**vierem**|\n\n---\n\n# How the stems are related\n\nTwo useful families:\n\n**Present family**\n\nvenho  \n↓  \nvenha\n\n**Past/subjunctive family**\n\nvim / veio / vieram  \n↓  \nvier  \n↓  \nviesse\n\nThe imperfect uses:\n\n**vinha**\n\n---\n\n# Important: Vir vs Ver\n\nBe careful with:\n\n**vir** = to come  \n**ver** = to see\n\nTheir future subjunctives are:\n\n**vier** = come\n\n**vir** = see\n\nFor example:\n\n**Quando ele vier...**  \nWhen he comes...\n\n**Quando ele vir isso...**  \nWhen he sees this...\n\nThis distinction is very useful to learn early.\n\n---\n\n# Common expressions\n\nVenha aqui.  \nCome here.\n\nEle vem amanhã.  \nHe's coming tomorrow.\n\nVim falar com você.  \nI came to talk to you.\n\nEla vinha todos os dias.  \nShe used to come every day.\n\nEspero que ele venha.  \nI hope he comes.\n\nSe ele viesse...  \nIf he came...\n\nQuando ele vier...  \nWhen he comes...\n\n---\n\n# Mini practice\n\nWithout looking, say every tense aloud.\n\nWhat are the key forms?\n\n**venho**\n\n**vim**\n\n**vinha**\n\n**venha**\n\n**viesse**\n\n**vier**\n\nComplete:\n\nEspero que ele ______ amanhã.\n\nSe ele ______ comigo...\n\nQuando ele ______ aqui..."
+    },
+    {
+      "path": "Grammar/Verbs/Subjunctive Map.md",
+      "title": "Brazilian Portuguese — Understanding the Three Subjunctives",
+      "topic": "Verbs",
+      "headings": [
+        "Brazilian Portuguese — Understanding the Three Subjunctives",
+        "The Big Picture",
+        "Decision Tree",
+        "1. Present Subjunctive",
+        "Core idea",
+        "Examples",
+        "Important insight",
+        "Mental shortcut",
+        "2. Future Subjunctive",
+        "Core idea",
+        "Examples",
+        "Important insight",
+        "Compare",
+        "Mental shortcut",
+        "3. Imperfect Subjunctive",
+        "Core idea",
+        "Examples",
+        "Common pattern",
+        "Compare",
+        "Mental shortcut",
+        "Compare All Three",
+        "Present",
+        "Future",
+        "Imperfect",
+        "The Three Worlds",
+        "Present Subjunctive",
+        "Future Subjunctive",
+        "Imperfect Subjunctive",
+        "Summary Cheat Sheet",
+        "The Three Questions to Remember",
+        "Extra Point on Future Subjunctive",
+        "Here's the rule I use",
+        "Let's compare these directly",
+        "1",
+        "2",
+        "One final trick"
+      ],
+      "body_markdown": "# Brazilian Portuguese — Understanding the Three Subjunctives\n\n> **Goal:** Don't memorise trigger words. Learn to recognise *why* Portuguese chooses each subjunctive.\n\n---\n\n# The Big Picture\n\nPortuguese uses the subjunctive whenever the speaker is **not simply presenting something as a fact**.\n\nThe three subjunctives answer three different questions.\n\n| Subjunctive | Ask yourself...                       | Main idea                                         |\n| ----------- | ------------------------------------- | ------------------------------------------------- |\n| Present     | How does the speaker feel about this? | Wish, emotion, recommendation, doubt, possibility |\n| Future      | Has this future event happened yet?   | Future event not yet realised                     |\n| Imperfect   | Am I imagining another reality?       | Hypothetical / unreal situation                   |\n\n---\n\n# Decision Tree\n\n```\nIs this simply a fact?\n\nYES\n↓\nIndicative\n\nNO\n↓\nWhich type?\n\n• A wish, emotion, recommendation, doubt?\n→ Present Subjunctive\n\n• A future event that hasn't happened yet?\n→ Future Subjunctive\n\n• An imaginary or hypothetical situation?\n→ Imperfect Subjunctive\n```\n\n---\n\n# 1. Present Subjunctive\n\n## Core idea\n\nThe speaker is **not presenting the second clause as a fact.**\n\nInstead they express:\n\n- wish\n- hope\n- emotion\n- recommendation\n- importance\n- doubt\n- possibility\n\n### Examples\n\n**Quero que você venha.**\n\nI want you to come.\n\n---\n\n**Espero que dê certo.**\n\nI hope it works out.\n\n---\n\n**É importante que você estude.**\n\nIt's important that you study.\n\n---\n\n**Duvido que ele saiba.**\n\nI doubt he knows.\n\n---\n\n## Important insight\n\nThe subjunctive is **not always about uncertainty**.\n\nExample:\n\n**Fico feliz que você esteja aqui.**\n\nI'm happy that you're here.\n\nYou're obviously here.\n\nThe subjunctive appears because the sentence expresses an **emotion**, not because your presence is uncertain.\n\n---\n\n## Mental shortcut\n\nAsk:\n\n> **Am I expressing my attitude toward this event rather than stating it as a fact?**\n\nIf yes...\n\n→ Present subjunctive.\n\n---\n\n# 2. Future Subjunctive\n\n## Core idea\n\nThe sentence refers to a **future event that has not happened yet.**\n\nUsually:\n\n> If / when / as soon as X happens...\n\nthen...\n\nY happens.\n\n---\n\n### Examples\n\n**Se eu tiver tempo...**\n\nIf I have time...\n\n---\n\n**Quando você chegar...**\n\nWhen you arrive...\n\n---\n\n**Assim que terminar...**\n\nAs soon as you finish...\n\n---\n\n**Depois que ela voltar...**\n\nAfter she returns...\n\n---\n\n## Important insight\n\nThe future event is **possible**.\n\nNobody knows yet whether it will happen.\n\n---\n\n## Compare\n\nFuture:\n\n**Se ele vier...**\n\nIf he comes...\n\n↓\n\nMaybe he will.\n\n---\n\nPast fact:\n\n**Quando ele chegou...**\n\nWhen he arrived...\n\n↓\n\nIt already happened.\n\n---\n\n## Mental shortcut\n\nAsk:\n\n> **Has this future event happened yet?**\n\nNo?\n\n↓\n\nFuture subjunctive.\n\n---\n\n# 3. Imperfect Subjunctive\n\n## Core idea\n\nThe speaker imagines **another reality.**\n\nThe condition is hypothetical or contrary to fact.\n\n---\n\n### Examples\n\n**Se eu tivesse dinheiro...**\n\nIf I had money...\n\n(But I don't.)\n\n---\n\n**Se eu fosse rico...**\n\nIf I were rich...\n\n(But I'm not.)\n\n---\n\n**Se ela pudesse...**\n\nIf she could...\n\n---\n\n## Common pattern\n\nImperfect subjunctive +\n\nConditional\n\n**Se eu tivesse tempo, viajaria.**\n\nIf I had time, I would travel.\n\n---\n\n## Compare\n\nFuture:\n\n**Se eu tiver tempo...**\n\nMaybe I will.\n\n---\n\nImperfect:\n\n**Se eu tivesse tempo...**\n\nI don't.\n\nLet's imagine I did.\n\n---\n\n## Mental shortcut\n\nAsk:\n\n> **Am I imagining another reality?**\n\nIf yes...\n\n↓\n\nImperfect subjunctive.\n\n---\n\n# Compare All Three\n\n## Present\n\n**Espero que ele venha.**\n\nI hope he comes.\n\nWhy?\n\nHope.\n\n---\n\n## Future\n\n**Se ele vier...**\n\nIf he comes...\n\nWhy?\n\nFuture event.\n\n---\n\n## Imperfect\n\n**Se ele viesse...**\n\nIf he came...\n\nWhy?\n\nImaginary situation.\n\n---\n\n# The Three Worlds\n\n## Present Subjunctive\n\n🟢 Speaker's attitude\n\n\"I hope...\"\n\n\"I want...\"\n\n\"I doubt...\"\n\n---\n\n## Future Subjunctive\n\n🔵 Future not yet realised\n\n\"If...\"\n\n\"When...\"\n\n\"As soon as...\"\n\n---\n\n## Imperfect Subjunctive\n\n🟣 Imaginary world\n\n\"If I were...\"\n\n\"If I had...\"\n\n\"If she could...\"\n\n---\n\n# Summary Cheat Sheet\n\n| Ask yourself | Use |\n|---------------|-----|\n| Is it simply a fact? | Indicative |\n| Am I expressing a wish, emotion, recommendation or doubt? | Present subjunctive |\n| Is this a future event that hasn't happened yet? | Future subjunctive |\n| Am I imagining another reality? | Imperfect subjunctive |\n\n---\n\n# The Three Questions to Remember\n\n1. **How do I feel about it?**\n\n→ Present subjunctive\n\n2. **Has the future event happened yet?**\n\n→ Future subjunctive\n\n3. **Am I imagining another reality?**\n\n→ Imperfect subjunctive\n\n\n# Extra Point on Future Subjunctive\n\n# Here's the rule I use\n\nDon't think:\n\n> \"Is this sentence about the future?\"\n\nThink:\n\n> **\"Does this sentence contain a future event that acts as a condition or trigger for another future event?\"**\n\nIf no:\n\nIndicative.\n\n> Vou ao Brasil.\n\n---\n\nIf yes:\n\nFuture subjunctive.\n\n> Quando eu for ao Brasil...\n\nWhen I go to Brazil...\n\n---\n\n# Let's compare these directly\n\n### 1\n\n> Vou para o Brasil.\n\nI'm going to Brazil.\n\nSimple statement.\n\nIndicative.\n\n---\n\n### 2\n\n> Quando eu for para o Brasil, vou visitar minha família.\n\nWhen I go to Brazil, I'll visit my family.\n\nNow there are two events:\n\n```\nGo to Brazil\n\n↓\n\nVisit family\n```\n\nThe first event hasn't happened yet and determines when the second can happen.\n\n↓\n\nFuture subjunctive (**for**).\n\n---\n\n# One final trick\n\nWhenever you see words like:\n\n- **se** (if)\n- **quando** (when)\n- **assim que** (as soon as)\n- **logo que** (once/as soon as)\n- **depois que** (after)\n\nask yourself:\n\n> **\"Is this introducing another future event?\"**\n\nIf it is, your brain should start expecting the future subjunctive.\n\nSo your two examples are actually describing **different sentence structures**:\n\n- **Eu vou para o Brasil.** → one future event → **indicative**.\n- **Quando eu for para o Brasil...** → one future event that sets the timing for another future event → **future subjunctive**.\n\nThat's the real distinction—not simply \"future\" versus \"not future.\"\n\n"
     },
     {
       "path": "Grammar/Verbs/Subjunctive.md",
